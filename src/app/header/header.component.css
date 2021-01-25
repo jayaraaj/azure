@@ -1,0 +1,14 @@
+.overlay{
+    z-index: 9;
+}
+.progress-bar{ margin-top: 8px; width: 200px; background: #ccc;   display: block; height: 10px;}
+.progress-bar-hover {  background-color: royalblue; display: block; height: 10px;}
+
+.level{
+    width: 100%; 
+    box-shadow: 0 0 5px 0 rgba(0, 0,0,0.7);  
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    transition: .8s all ease;
+}

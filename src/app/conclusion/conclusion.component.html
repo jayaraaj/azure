@@ -1,0 +1,105 @@
+<main class="page-content">
+    <div class="container-fluid "> 
+         <!--from-back-->
+       <a [routerLink]="['/modules', moduleNumber, pageLeft]" *ngIf="showLeftArrow">
+        <div class="navigation-nav nav-left">
+          <i class="fa fa-chevron-left"></i>
+        
+        </div>
+      </a>
+      <a [routerLink]="['/modules', moduleNumber, pageRight]" *ngIf="showRightArrow">
+        <div class="navigation-nav nav-right">
+          <i class="fa fa-chevron-right"></i>
+        </div>
+      </a>
+          <!--from-back-->               
+        <app-header [courseNumber]='10'></app-header>
+        <div class="px-5 py-5">
+             <!--mod-->
+             <div *ngIf="mod">
+                <div class="row">
+                    <div class="col-12 col-md-12 module-block">
+                       <h3 class="text-blue pb-4"><strong>Congrats! </strong></h3>
+                        <p>You have now successfully completed all stages and learnt how to create an E2E pipeline using Azure services. </p>
+                        <p>Now that you have built your own Continuous Testing Pipeline, we encourage you to build on the learnings from this Lab to expand your horizons on Continuous Testing. </p>
+                        
+                        <div class="common-content">
+                            <li>  Integrate your pipeline with Slack channel to trigger and monitor the execution from Slack interface rather than Cloud9 (or) AWS console</li>
+                            <li>	Replace (or) append the tooling stack by creating your own automation test with new tools and frameworks</li>
+                            <li>	Implement Code progression in the pipelines to demonstrate how code base moves form Dev to Production based on the quality gates at every stage</li>
+                            <li>	Execute your mobile testing on AWS Device Farm</li>
+                            <li>	Add additional testing types such as integration testing and UAT before releasing the code to production</li>
+                            <li>	Integrate AI based BOTS for intelligent test execution based on the code committed and possible business impact.</li>
+                            <li>	Re-orchestrate your pipeline by shifting left the non-functional testing i.e. execute the experience assurance at the Pre-Build stage itself</li>
+    
+                            
+                        </div>
+    
+                      
+    
+    
+                   </div>
+                </div>           
+              </div>
+              <!--mod-->
+        
+
+
+        <!--mod1-->
+        <div *ngIf="mod1">
+            <div class="row">
+                <div class="col-12 col-md-12 module-block">
+                   <h3 class="text-blue pb-4"><strong>	Access Cognizant’s premium thought leadership content</strong></h3>
+                   <p>We also recommend you leverage the extensive Thought Leadership content covering whitepapers and blogs written by industry experts and Cognizant automation consultants, shared on the <a href="https://www.cognizant.com/application-modernization" target="_blank" class="a">Cognizant portal</a>.  </p>
+                   <div class="card text-white bg-info mb-3">
+                    <div class="card-header">Info</div>
+                    <div class="card-body">
+                      <p class="card-text">In addition to the Azure Experience Lab, we are pleased to offer you several thought leadership and research-based content on continuous testing from experienced experts at Cognizant. We ask you to kindly register yourself at: <a href="https://www.cognizant.com/application-modernization" class="a" target="_blank">https://www.cognizant.com/application-modernization</a> to be able to access this content. </p>
+                    </div>
+                  </div>
+
+                  <h6>Got any questions?</h6>
+                  <p>Please reach us at <a href="mailto:CloudAssurance@cognizant.com" class="a" target="_blank">CloudAssurance@cognizant.com</a>. </p>
+                  
+                   
+
+
+               </div>
+            </div>
+     </div>
+     <!--mod1-->
+
+     <!--mod2-->
+     <div *ngIf="mod2">
+        <div class="row">
+            <div class="col-12 col-md-12 module-block">
+               <h3 class="text-blue pb-4"><strong>Jargons / CI Glossary</strong></h3>
+            
+
+           </div>
+        </div>
+ </div>
+ <!--mod2-->
+
+
+
+ <!--mod3-->
+ <div *ngIf="mod3">
+    <div class="row">
+        <div class="col-12 col-md-12 module-block">
+           <h3 class="text-blue pb-4"><strong>Clean-up</strong></h3>
+          
+          
+
+
+    </div>
+    </div>
+</div>
+<!--mod3-->
+
+
+
+
+    </div>
+    </div>
+</main>

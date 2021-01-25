@@ -1,0 +1,176 @@
+<main class="page-content">
+    <div class="container-fluid ">   
+
+         <!--from-back-->
+       <!-- <a [routerLink]="['/modules', moduleNumber, pageLeft]" *ngIf="showLeftArrow">
+        <div class="navigation-nav nav-left">
+          <i class="fa fa-chevron-left"></i>
+        
+        </div>
+      </a>
+      <a [routerLink]="['/modules', moduleNumber, pageRight]" *ngIf="showRightArrow">
+        <div class="navigation-nav nav-right">
+          <i class="fa fa-chevron-right"></i>
+        </div>
+      </a> -->
+          <!--from-back-->   
+          
+        <app-header [courseNumber]='4'></app-header>
+        <app-nav [moduleNumber]="4" [pageLeft]="pageLeft" [pageRight]="pageRight"
+        [pageArray]="pageArray" (selectedPage)="clickNextPage($event)"></app-nav>
+        <div class="px-5 py-5">
+            <!--mod-->
+           <div *ngIf="mod">
+            <h3 class="text-blue"><strong>Stage 0 - Landing Zone</strong></h3>            
+            <div class="text-center py-4"><img src="assets/tikk/Quote-2.png"  class="img-fluid"></div>
+          </div>
+          <!--mod-->
+         <!--mod1-->
+        
+        <!--mod1-->
+
+
+        <!--mod2-->
+        <div *ngIf="mod1">
+          
+            <div class="row">
+                <div class="col-12 col-md-12 module-block">
+                   <h3 class="text-blue pb-4"><strong>What is a Landing zone?</strong></h3>
+<p>Landing Zones allow you to standardize cloud environments for DevOps teams. They offer consistency across naming, scaling and access control along with a security baseline those accidental (or) non-compliant or unauthorized configurations. A Landing Zone should constantly evolve with core components of infrastructure and be well planned and maneuvered.
+
+</p>                  
+                   <h4>Consideration for Basic landing zone:</h4>
+                   <div class="text-center py-4"><img src="assets/stage0/1/1.png" class="img-fluid pointer" (click)="openImage('assets/stage0/1/1.png')"></div>
+
+                   <p>A landing zone is the underlying core configuration of any cloud adoption environment. Landing zones provide a pre-configured environment - provisioned through code - to host workloads in private, hybrid (or) public clouds.  A Landing Zone should be constantly evolving with core components of infrastructure and should be well thought out and maneuvered.</p>
+                    
+                 
+
+               </div>
+            </div>
+     </div>
+     <!--mod2-->
+
+     <!--mod3-->
+     <div *ngIf="mod2">
+        <div class="row">
+            <div class="col-12 col-md-12 module-block">
+               <h3 class="text-blue pb-4"><strong>Principles and Guidelines to follow </strong></h3>
+               
+                
+               <p>The Cloud Adoption Framework enterprise-scale landing zone architecture represents the strategic design path and target technical state for an organization's Azure environment. It will continue to evolve alongside the Azure platform and is defined by the various design decisions that your organization must make to map your Azure journey.</p>
+               <p>By using the Cloud Adoption Framework for Azure and building the right comprehensive and holistic adoption strategy around business, people and technology, you can ensure that your organization takes full advantage of Azure to meet your digital transformation goals.</p>
+               
+               <h4 class="pt-4">Landing Zone Architecture for Enterprise Scale</h4>
+               <p>The following is critical to the landing zone architecture design areas, which can help you translate your requirements to Azure constructs and capabilities. </p>
+               <div class="text-center py-4"><img src="assets/stage0/2/1.png" class="img-fluid pointer" (click)="openImage('assets/stage0/2/1.png')"></div>
+
+               <p>Cloud Adoption Framework enterprise-scale landing zone architecture varies between customers based on the customer scenarios. This are core recommendations and expected to be followed with variation based on the scenario & as a result the target architecture will set your organization on a path to sustainable scale.</p>
+               
+               <h4 class="pt-4">Cloud Adoption Framework – Design Principle:</h4>
+               <p>The design principles serve as a compass for subsequent design decisions across critical technical domains. </p>
+               <div class="bg-light p-4 points">
+                   <h6><strong>Subscription democratization</strong></h6>
+                   <p>Subscriptions should be used as a unit of management and should be provided to business units to support the design, development, and testing of new workloads and migration of workloads.</p>
+                   <h6><strong>Policy-driven governance</strong></h6>
+                   <p>Azure Policy ensures continuous compliance and provides application owners with sufficient freedom and a secure unhindered path to the cloud.</p>
+                   <h6><strong>Single control and management plane</strong></h6>
+                   <p>Azure provides a unified and consistent control plane across all Azure resources and provisioning channels subject to role-based access and policy-driven controls. </p>
+                   <h6><strong>Application-centric and archetype-neutral</strong></h6>
+                   <p>Enterprise-scale architecture should focus on application-centric migrations and development rather than pure infrastructure lift-and-shift migrations.</p>
+                   <h6><strong>Align Azure-native design and roadmaps</strong></h6>
+                   <p>The enterprise-scale architecture approach advocates using Azure-native platform services and capabilities whenever possible.</p>
+
+               </div>
+
+           </div>
+        </div>
+ </div>
+ <!--mod3-->
+
+
+
+ <!--mod4-->
+ <div *ngIf="mod3">
+    <div class="row">
+        <div class="col-12 col-md-12 module-block">
+           <h3 class="text-blue pb-4"><strong>Creating your Landing Zone</strong></h3>
+           <p>Go to Portal.Azure.com and click on cloud shell icon.</p>
+           <div class="text-center py-4"><img src="assets/stage0/3/1.jpg" class="img-fluid pointer" (click)="openImage('assets/stage0/3/1.jpg')"></div>
+            
+            <p>If you are creating the storage for the 1st time, then the below screen will appear. To create storage, please click on create storage button.</p>
+            <div class="text-center py-4"><img src="assets/stage0/3/2.jpg" class="img-fluid pointer" (click)="openImage('assets/stage0/3/2.jpg')"></div>
+
+            <p>Please verify Bash Selection and Welcome Message as shown in the screenshot below:</p>
+            <div class="text-center py-4"><img src="assets/stage0/3/3.jpg" class="img-fluid pointer" (click)="openImage('assets/stage0/3/3.jpg')"></div>
+
+
+            <p>Use your copied organization and PAT Token (refer section - How to setup an Environment? For details on organization). </p>
+            <h6 class="pt-4" ><strong> Step 1</strong> </h6>
+
+            <p>Enter the below commands one by one in Cloud Shell</p>
+            <div class="code" (click)="copyText(code1)"><code #code1> 
+                export AZURE_DEVOPS_EXT_PAT=&lt;&lt;PAT Token&gt;&gt;<br>
+                export myorganization= &lt;&lt;organizationb&gt;&gt;<br>
+                az extension add --name azure-devops</code> 
+                <div *ngIf="copied" class="code-copied" >Copied  <i class="fas fa-check text-success"></i></div>
+                <button class="btn btn-lg  code-copy"  *ngIf="!copied">
+                  <i class="fas fa-copy text-light"></i>
+             </button> </div>
+
+           
+
+
+            <div class="text-center py-4"><img src="assets/stage0/3/0.04-Step-1.JPG" class="img-fluid pointer" (click)="openImage('assets/stage0/3/0.04-Step-1.JPG')"></div>
+
+
+            <h6 class="pt-4" ><strong> Step 2</strong> </h6>
+            <p>Enter the below commands to set-up the Azure DevOps environment</p>
+
+
+            <div class="code" (click)="copyText(code2)"><code #code2>  az devops login
+                Token - Right click and paste your  YOUR_PAT_TOKEN 
+                -> you should get below warning &lt;Don’t worry it is just a warning only – you have logged in now&gt;</code> 
+                <div *ngIf="copied" class="code-copied" >Copied  <i class="fas fa-check text-success"></i></div>
+                <button class="btn btn-lg  code-copy"  *ngIf="!copied">
+                  <i class="fas fa-copy text-light"></i>
+             </button> </div>
+
+           
+        <div class="text-center py-4"><img src="assets/stage0/3/0.05-Step2.jpg" class="img-fluid pointer" (click)="openImage('assets/stage0/3/0.05-Step2.jpg')"></div>
+
+
+
+            <h6 class="pt-4" ><strong> Step 3</strong> </h6>
+            <div class="pb-4">Create a Basic Foundation Stack using below command to create a Project, a Repository, import Base Repos, a Resource group, a VM, register ACR, deploy SonarQube and Dashboard. This execution takes around 8 Minutes.
+                
+            </div>
+
+            <div class="code" (click)="copyText(code3)"><code #code3>  az devops login
+                Token - Right click and paste your  YOUR_PAT_TOKEN 
+                -> you should get below warning &lt;Don’t worry it is just a warning only – you have logged in now&gt;</code> 
+                <div *ngIf="copied" class="code-copied" >Copied  <i class="fas fa-check text-success"></i></div>
+                <button class="btn btn-lg  code-copy"  *ngIf="!copied">
+                  <i class="fas fa-copy text-light"></i>
+             </button> </div>
+
+             <div class="pt-4"></div>
+             <div class="code" (click)="copyText(code4)"><code #code4> git clone https://MYAzureWorkshopArtifacts@dev.azure.com/MYAzureWorkshopArtifacts/AZURE_WORKSHOP_PROJECT/_git/azure-cli && cd azure-cli && npm install && npm run initiate_landingzone</code> 
+                <div *ngIf="copied" class="code-copied" >Copied  <i class="fas fa-check text-success"></i></div>
+                <button class="btn btn-lg  code-copy"  *ngIf="!copied">
+                  <i class="fas fa-copy text-light"></i>
+             </button> </div>
+
+          
+            <div class="text-center py-4"><img src="assets/stage0/3/0.06-Step3.jpg" class="img-fluid pointer" (click)="openImage('assets/stage0/3/0.06-Step3.jpg')"></div>
+
+
+
+       </div>
+    </div>
+</div>
+<!--mod4-->
+
+    </div>
+    </div>
+</main>

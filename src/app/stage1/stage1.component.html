@@ -1,0 +1,279 @@
+<main class="page-content">
+    <div class="container-fluid "> 
+         <!--from-back-->
+       <a [routerLink]="['/modules', moduleNumber, pageLeft]" *ngIf="showLeftArrow">
+        <div class="navigation-nav nav-left">
+          <i class="fa fa-chevron-left"></i>
+        
+        </div>
+      </a>
+      <a [routerLink]="['/modules', moduleNumber, pageRight]" *ngIf="showRightArrow">
+        <div class="navigation-nav nav-right">
+          <i class="fa fa-chevron-right"></i>
+        </div>
+      </a>
+          <!--from-back-->         
+        <app-header [courseNumber]='5'></app-header>
+        <div class="px-5 py-5">
+             <!--mod-->
+           <div *ngIf="mod">
+            <h3 class="text-blue"><strong>Stage 1 - Pre Build QA</strong></h3>        
+            <div class="text-center py-4"><img src="assets/tikk/Quote-1.png"  class="img-fluid"></div>    
+          </div>
+          <!--mod-->
+         <!--mod1-->
+         <div *ngIf="mod1">
+             <div class="row">
+                 <div class="col-12 col-md-12 module-block">
+                    <h3 class="text-blue pb-4"><strong>Stage Objectives </strong></h3>
+                    <p>Assure quality of the code committed before the build creation.</p>
+
+                    <p>In software development, build refers to the process of converting files and other assets under developer’s responsibility into a software product in its final (or) consumable form. These activities cover: 
+                        Compile source files -> Package compiled files into compressed formats (like jar, zip) -> Produce installer’s -> Create (or) update Database schema (or) data 
+                        </p>
+                        <p>In DevOps, tests are designed and automated even before the code is written. To deliver quality at speed, developers execute a series of automated test cases prior to committing the code to a repository. This helps to identify any issues (or) vulnerabilities much earlier in the lifecycle, thereby engineering quality into the code as it progresses. </p>
+                        <div class="text-center py-4"><img src="assets/stage1/1/1Module_PreBuildQA.png" (click)="openImage('assets/stage1/1/1.png')" class="img-fluid pointer"></div>
+                      </div>
+             </div>
+        </div>
+        <!--mod1-->
+
+
+        <!--mod2-->
+        <div *ngIf="mod2">
+            <div class="row">
+                <div class="col-12 col-md-12 module-block">
+                   <h3 class="text-blue pb-4"><strong>Pipeline Overview</strong></h3>
+                  <p>The Pre-Build Quality Assurance BuildPipeline consists of the following stages and components: </p>
+                  <div class="text-center py-4"><img src="assets/stage1/2/1.png" (click)="openImage('assets/stage1/2/1.png')" class="img-fluid pointer"></div>
+
+                
+
+                    
+                   <h6 class="pt-4" ><strong>1.	Source Stage (or) Landing Zone</strong>  </h6>
+                   <div>monitors changes to below source code repository for any new commits: </div>
+                   <ul>
+                       <li>FrontEndReactApp – Code for front-end application </li>
+                        <li>BackEndSpringBootApp – Code for back-end micro services.</li> 
+                        
+                   </ul>
+                    <div>Every code Commit will trigger the PreBuild Task </div>
+
+
+                    <h6 class="pt-4" ><strong>2.	Pre-Build Quality Check</strong>  </h6>
+                    <div>uses SonarQube for continuous inspection of code quality and perform automatic reviews with static code analysis to detect bugs, code smells and security vulnerabilities for both front-end and back-end code. Separate CodeBuild task i.e. <strong>ReactAppSonarCheck</strong> and <strong>SpringBootSonarCheck</strong> are created to induce static code quality measures on both the components of application under test. </div>
+               
+                    <h6 class="pt-4" ><strong>3.	Unit Test </strong>  </h6>
+                    <div>is a series of tests configured as CodeBuild actions i.e.  <strong>ReactAppUnitTest</strong> and <strong>SpringBootUnitTest</strong> that validates all parts of the application under test. In case of issues, this phase of the Azure Devops Pipeline process ends with a failure status. If no issues detected, the pipeline proceeds to the build stage. Enzyme and Jest libraries is used for unit testing of the front-end. Similarly, Junit and Mockito is used for the back-end micro services. </div>
+                   <p>This stage is also complimented with code coverage tools such as Jacoco for back-end and Jest for front-end code for actionable guidance and identifying critical slips. You will be able to see the status of these tests on the reporting dashboard and the code coverage on SONARQube dashboard. </p>
+                    <div class="points bg-light p-4">
+                        <h6>A.	Build</h6>
+                        <p>commences with the creation of Docker image for front-end applications. When a new Docker image is successfully built, it is pushed to Azure Container Registry. </p>
+                        
+                        <h6>B.	Deploy to Azure Kubernetes Service </h6>
+                        <p>deploys the image created in the build stage to Kubernetes Pods, which spins up the following two Nodes -. frontendapplication and virtualizedbackend with the latest image. At this stage, front-end application is pointing to a virtualized back-end so that tests can be executed without back-end dependencies - one of the key advantages of virtualization. </p>
+                    </div>
+                        <p>A portion of developers’ UI tests are also executed using playwright and Jest at this stage to ensure the front-end image is properly built and running along with virtualized back-end.  </p>
+
+                            <p>  Azure Application insight will continuously monitor the health of the container and the application and will always make required adjustments to keep optimal healthy container tasks running.  </p>
+                            
+                                <p>   Additionally, Practitioners can access Cognizant Thought Leadership on Containers for DevOps, by referring the comprehensive whitepaper by our technology experts titled - “Using Containers to More Effectively Manage DevOps Continuous Integration”. You will find the link to the whitepaper in the Register with Cognizant page - <a class="a" href="https://www.cognizant.com/application-modernization" target="_blank">https://www.cognizant.com/application-modernization</a>. 
+                            </p>
+                   
+
+                </div>
+            </div>
+     </div>
+     <!--mod2-->
+
+     <!--mod3-->
+     <div *ngIf="mod3">
+        <div class="row">
+            <div class="col-12 col-md-12 module-block">
+               <h3 class="text-blue pb-4"><strong>Pipeline Creation & Execution</strong></h3>
+               
+                <p><strong>1.</strong> deploy the pipeline, run the following commands in Cloud Shell terminal</p>               
+              
+                <div class="code" (click)="copyText(code1)"><code #code1> npm run prebuild</code> 
+                  <div *ngIf="copied" class="code-copied" >Copied  <i class="fas fa-check text-success"></i></div>
+                  <button class="btn btn-lg  code-copy"  *ngIf="!copied">
+                    <i class="fas fa-copy text-light"></i>
+               </button> </div>
+              
+               <p>You will observe a new Pipeline is triggered in the below listed Path:</p>
+               <div class="code" (click)="copyText(code2)"><code #code2> https://dev.azure.com/YOUR_ORGANIZATION/AZURE_WORKSHOP_PROJECT/_build</code> 
+                <div *ngIf="copied" class="code-copied" >Copied  <i class="fas fa-check text-success"></i></div>
+                <button class="btn btn-lg  code-copy"  *ngIf="!copied">
+                  <i class="fas fa-copy text-light"></i>
+             </button> </div>
+
+               <div class="text-center py-4"><img src="assets/stage1/3/2.jpg" (click)="openImage('assets/stage1/3/2.jpg')" class="img-fluid pointer"></div>
+               <p><strong>2.</strong>Under Pipelines -> Recent, you should observe a new row with the pipeline name as “PREBUILD-QA”. Click on the “PREBUILD-QA” and you will notice the pipeline stages as shown in the below screenshot:</p>
+               <div class="text-center py-4"><img src="assets/stage1/3/3.jpg" (click)="openImage('assets/stage1/3/3.jpg')" class="img-fluid pointer"></div>
+               <p>You will notice the Pipeline fail at the DeveloperQualityGate - UnitTest for the Front-end and thus the subsequent steps i.e., Build and Deploy to AKS with Virtualized Services is not executed successfully. Refer the screenshot below for details:</p>
+               <div class="text-center py-4"><img src="assets/stage1/3/4.jpg" (click)="openImage('assets/stage1/3/4.jpg')" class="img-fluid pointer"></div>               
+               <p>Let us now try to debug and fix this issue. Post defect fix, we will re-execute the pipeline and see the impact of the fix on subsequent stages.</p>
+              
+
+           </div>
+        </div>
+ </div>
+ <!--mod3-->
+
+
+
+ <!--mod4-->
+ <div *ngIf="mod4">
+    <div class="row">
+        <div class="col-12 col-md-12 module-block">
+           <h3 class="text-blue pb-4"><strong>Debugging & Re-Excution</strong></h3>
+           <p><strong>1.</strong> To debug the issue, Click on Failed Pipeline. We can see the Failed Stages – BUILD PIPELINE FRONTEND failed in DEVELOPER QUALITY GATES.</p>
+           <div class="text-center py-4"><img src="assets/stage1/4/1.jpg" (click)="openImage('assets/stage1/4/1.jpg')" class="img-fluid pointer"></div>
+
+           <p><strong>2.</strong> Now click on DEVELOPER QUALITY GATES. We can see failure in Unit Test. Error Logs can be observed similar as shown in the below snapshot:</p>
+           <div class="text-center py-4"><img src="assets/stage1/4/2.jpg" (click)="openImage('assets/stage1/4/2.jpg')" class="img-fluid pointer"></div>
+            <p><strong>3.</strong> To understand error better navigate to Test Runs from Test plans (or) alternatively, Navigate to Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT-ExperienceLab_Overview and go to the section UnitTest to view the summary of this stage and click Detailed Report – it will navigate you to test plans.</p>
+            <div class="text-center py-4"><img src="assets/stage1/4/3.jpg" (click)="openImage('assets/stage1/4/3.jpg')" class="img-fluid pointer"></div>
+
+            <p><strong>4.</strong> Select Junit_junit.xml under Test Plans > Runs > Test runs. </p>
+            <p>You should observe similar report as shown in the below snapshot:</p>
+            <div class="text-center py-4"><img src="assets/stage1/4/4.jpg" (click)="openImage('assets/stage1/4/4.jpg')" class="img-fluid pointer"></div>
+
+            <p><strong>5.</strong> Click On - Test results tab, and you should see all the Tests, both passed and failed as in the below snapshot:</p>
+            <div class="text-center py-4"><img src="assets/stage1/4/5.jpg" (click)="openImage('assets/stage1/4/5.jpg')" class="img-fluid pointer"></div>
+
+            <p><strong>6.</strong> On clicking failed tests, you can see the detailed report of the issue because of which the test failed. </p>
+            <div class="text-center py-4"><img src="assets/stage1/4/6.jpg" (click)="openImage('assets/stage1/4/6.jpg')" class="img-fluid pointer"></div>
+
+            <p>Now, let us understand the nature of the failure.</p>
+
+            <h4>Why did we encounter this failure?</h4>
+            <p>One of the unit tests named <strong>‘Register - Last name should be present’</strong> has failed because the developer has given a wrong UI object while the unit test was written.</p>
+            <p>Instead of <strong>‘lastName’</strong>, the developer has updated to <strong>‘lastName1’</strong>.</p>
+
+            <h4>How do we fix the identified bug?</h4>
+            <p>Switch to Reporting Dashboard – <strong>In PREBUILD-QA Section – FRONTEND UNIT TEST – would have failed and will be in RED</strong>. Refer the screenshot below for details:</p>
+            <div class="text-center py-4"><img src="assets/stage1/4/7.jpg" (click)="openImage('assets/stage1/4/7.jpg')" class="img-fluid pointer"></div>
+            
+            <p><strong>7.</strong> Click on PreBuild-QA- Fix link from Failure Fix Widget.  </p>
+
+            <p>In new tab It will navigate directly to path: <strong>Repos -> Files ->Azure_Workshop_Frontend -> test -> application component -> testscripts -> unit_test -> Register.test.js</strong></p>
+            
+            <p><strong>We can find ‘lastName1’</strong> at line# 54 as shown in the below snapshot:</p>
+            <div class="text-center py-4"><img src="assets/stage1/4/8.jpg" (click)="openImage('assets/stage1/4/8.jpg')" class="img-fluid pointer"></div>
+
+            <p><strong>8.</strong> To fix this issue, Click <strong>Edit Button</strong> (on the top right) and go to line number 54 and change <strong>‘lastName1’</strong> to <strong>‘lastName’</strong>. Refer the screenshot as shown below and Click on <strong>Commit</strong>.</p>
+            <div class="text-center py-4"><img src="assets/stage1/4/9.jpg" (click)="openImage('assets/stage1/4/9.jpg')" class="img-fluid"></div>
+
+            <p><strong>9.</strong> Provide all required details such as <strong>Comment</strong> (with meaningful information about this commit) and click on <strong>‘Commit’</strong>.</p>
+            <div class="text-center py-4"><img src="assets/stage1/4/9.jpg" (click)="openImage('assets/stage1/4/9.jpg')" class="img-fluid"></div>
+
+            <p><strong>10.</strong> The Commit Change to the <strong>Register.test.js</strong> file will trigger the pipeline automatically.</p>
+            <div class="text-center py-4"><img src="assets/stage1/4/10.jpg" (click)="openImage('assets/stage1/4/10.jpg')" class="img-fluid"></div>
+
+            <p>This time, it should execute without errors. Refer the screenshot as shown below for ‘succeeded’ status updated against each stage.</p>
+            <div class="text-center py-4"><img src="assets/stage1/4/11.jpg" (click)="openImage('assets/stage1/4/11.jpg')" class="img-fluid"></div>
+
+            <p>Excellent! You have now debugged and fixed the issue.</p>
+            <p>With the successful execution of the pipeline, you should have a working instance of your application under test, deployed in Azure AKS along with Virtualized Services.</p>
+            <p><strong>11.</strong> To View the Application navigate to Overview -> Dashboard -> <strong>AZURE_WORKSHOP_PROJECT-ExperienceLab_Overview</strong> and go to the Deployment in Prebuild Widget, click on Digitalshopify link.  </p>
+            <div class="text-center py-4"><img src="assets/stage1/4/12.jpg" (click)="openImage('assets/stage1/4/12.jpg')" class="img-fluid"></div>
+
+            <p>It will open the application in new tab – which looks like the Exhibit below:</p>
+            <div class="text-center py-4"><img src="assets/stage1/4/13.jpg" (click)="openImage('assets/stage1/4/13.jpg')" class="img-fluid"></div>
+           
+
+          
+
+
+       </div>
+    </div>
+</div>
+<!--mod4-->
+
+
+<!--mod4-->
+<div *ngIf="mod5">
+    <div class="row">
+        <div class="col-12 col-md-12 module-block">
+           <h3 class="text-blue pb-4"><strong>Test Report Analysis</strong></h3>
+           <p>To view the CodeQuality and test coverage reports, use SonarQube dashboard for code quality metrics.</p>
+           <p>To access SonarQube navigate to Overview -> Dashboard -> <strong>AZURE_WORKSHOP_PROJECT-ExperienceLab_Overview </strong> and go to the Deployment in Landing Zone Widget, click on SonarQube Link </p>
+           <div class="text-center py-4"><img src="https://via.placeholder.com/600x200" class="img-fluid"></div>
+
+
+            
+            <p>It will navigate to SonarQube server, Please refer the Exhibit below: </p>
+            <div class="text-center py-4"><img src="https://via.placeholder.com/600x200" class="img-fluid"></div>
+
+            <h4>Reference Links</h4>
+            <p>To be updated </p>
+
+            <h4>Tool Alternate options</h4>
+
+            <div class="table-responsive">
+                <table class="table table-borderless table-light">
+                    <thead>
+                      <tr class="bg-blue1">
+                        <th  class="text-left bg-blue2 text-center" scope="col">Stages </th>
+                        <th colspan="6" class="text-center" scope="col">Pre-Build QA </th>                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr >
+                        <th scope="row" class="bg-blue1 text-center">Category</th>
+                        <td>Frontend </td>
+                        <td>Backend </td>
+                        <td>Frontend Unit Test </td>
+                        <td>Backend Unit Test </td>
+                        <td>Static Code Analysis </td>
+                        <td>Code Coverage Backend </td>
+                      </tr>
+                      <tr >
+                        <th scope="row" class="bg-blue3 text-center">Current Tooling </th>
+                        <td class="bg-ash">REACT  </td>
+                        <td class="bg-ash">SPRING BOOT  </td>
+                        <td class="bg-ash">Jest </td>
+                        <td class="bg-ash">Junit </td>
+                        <td class="bg-ash">Sonarqube </td>
+                        <td class="bg-ash">Jaccoco & JEST </td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="bg-blue1 text-center">Alternate Tooling </th>
+                        <td>Angular, Vue   </td>
+                        <td>ExpressJS</td>
+                        <td>Enzyme  </td>
+                        <td>NUnit 
+                            JMockit 
+                            Emma 
+                            HtmlUnit 
+                            Microsoft unit testing Framework 
+                             </td>
+                        <td>ESLint (Javascript) 
+                            Raxis 
+                            RIPS Technologies 
+                            PVS-Studio 
+                            Kiuwan 
+                             </td>
+                        <td>Coco 
+                            Cobertura 
+                            Coverage.py 
+                            OpenClover 
+                            </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+            </div>
+
+            <!--tool-->
+
+         
+       </div>
+    </div>
+</div>
+<!--mod4-->
+
+    </div>
+    </div>
+</main>

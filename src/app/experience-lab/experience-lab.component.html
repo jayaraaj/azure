@@ -1,0 +1,231 @@
+<main class="page-content">
+    <div class="container-fluid ">
+          <!--from-back-->
+      <a [routerLink]="['/modules', moduleNumber, pageLeft]" *ngIf="showLeftArrow">
+        <div class="navigation-nav nav-left">
+          <i class="fa fa-chevron-left"></i>
+        
+        </div>
+      </a>
+      <a [routerLink]="['/modules', moduleNumber, pageRight]" *ngIf="showRightArrow">
+        <div class="navigation-nav nav-right">
+          <i class="fa fa-chevron-right"></i>
+        </div>
+      </a>
+          <!--from-back-->
+          <app-header [courseNumber]='2'></app-header>
+           <div class="px-5 py-5">
+             <!--mod-->
+             <div *ngIf="mod">
+              <h3 class="text-blue"><strong>Experience Lab Objectives & Premise</strong></h3>            
+              <div class="text-center py-4"><img src="assets/tikk/Quote-2.png"  class="img-fluid"></div>
+            </div>
+            <!--mod-->
+            <!--mod1-->
+            <div *ngIf="mod1">
+            
+            <div class="row" >
+                <div class="col-12 col-md-12 common-content">
+                    <h3 class="text-blue"><strong>Objectives</strong></h3>
+
+                    <div class="card text-white bg-info mb-3">
+                        <div class="card-header">Note</div>
+                        <div class="card-body">
+                          <p class="card-text">The lab focuses on only the execution stage of the testing lifecycle and not in its entirety.
+                        </p>
+                        </div>
+                      </div>
+
+                  
+                    <div class="bg-light py-4">
+                        <ul class="">
+                            <li>Demonstrate a successful continuous testing implementation with Azure native services integrating with open source testing tools</li>
+                            <li>	Identify types and stages of testing are essential for end-to-end quality assurance</li>
+                                <li>	Choose various tooling alternatives, enablers and best practices in testing for DevOps</li>
+                                    <li>	Build and execute the continuous testing pipeline covering infra and pipeline as a code</li>
+                                        <li>	Leverage the computing power of containers for seamless scalability in automation</li>
+                                            <li>	Debug typical issues and fix your continuous testing pipeline</li>
+
+                        </ul>
+                    </div>
+                   
+
+               
+
+
+
+                </div>
+                <!-- <div class="col-12 col-md-5">
+                    <img src="assets/images/tiki.png" class="img-fluid" alt="">
+                </div> -->
+                
+                
+            </div>
+        
+<!--              
+            <div class="pt-5">
+                <div class="row">
+                  <div class="col-6"> <small>Next <i class="fa fa-chevron-right"></i> &nbsp;&nbsp; <a>Module 2: Application under Test</a>
+                  </small></div>
+                  <div class="col-6 text-right">
+                    <a [routerLink]="['/modules/2/application-under-test']" class="btn btn-success">Next <i class="fa fa-chevron-right"></i></a>
+                  </div>
+                </div>
+               </div> -->
+      </div>
+<!--mod1-->
+
+
+
+ <!--mod2-->
+ <div *ngIf="mod2" class="common-content">
+            
+  <div class="row" >
+      <div class="col-12 col-md-12">
+          <h3 class="text-blue"><strong>Application under Test</strong></h3>
+  
+<p>For this lab, we have considered an application prototype – <strong>Digital Shopify</strong>.  It has a responsive web UI used for online shopping (Refer the Exhibit below). The current application is compatible with both desktop and mobile platforms and covers basic shopping workflows, providing feature such as: </p>
+<ul>
+    <li>Registration </li>  
+        <li>Login</li> 
+        <li>Product Search</li>
+        <li> Add to Cart</li>
+        <li>Enter Delivery Details</li>
+        <li>Checkout </li>
+        <li>Payment </li>
+        
+</ul>
+
+<div class="text-center py-4"><img src="assets/mod1/1mod_01.jpg" (click)="openImage('assets/mod1/1mod_01.jpg')" class="img-fluid pointer"></div>
+
+<h4>Application Tech-stack </h4>
+<div class="text-center py-4"><img src="assets/mod1/1mod_02.jpg" (click)="openImage('assets/mod1/1mod_02.jpg')" class="img-fluid"></div>
+      </div>
+      <!-- <div class="col-12 col-md-5">
+          <img src="assets/images/tiki.png" class="img-fluid" alt="">
+      </div> -->
+      
+      
+  </div>
+
+   
+ 
+</div>
+<!--mod2-->
+
+
+
+ <!--mod3-->
+ <div *ngIf="mod3" class="common-content">
+            
+  <div class="row" >
+      <div class="col-12 col-md-12">
+          <h3 class="text-blue"><strong>Solution Architecture </strong></h3>
+
+          <p>This experience lab aims at helping you to create an end-to-end (E2E) automated deployment ready pipeline using Azure services and open source automation tools as shown in the Exhibit below: </p>
+          
+          <h6 class="py-3 text-center">Continuous Testing Reference Architecture</h6>
+
+          <div class="text-center py-4"><img src="assets/mod1/1mod_03.png" (click)="openImage('assets/mod1/1mod_03.png')" class="img-fluid"></div>
+          
+          <p>The lab will orient you to the world of Continuous Testing and provide you with a step-by-step guide to build, execute, debug and fix real time failures induced in the pipeline. </p>
+  
+
+      </div>
+      <!-- <div class="col-12 col-md-5">
+          <img src="assets/images/tiki.png" class="img-fluid" alt="">
+      </div> -->
+      
+      
+  </div>
+
+   
+ 
+</div>
+<!--mod3-->
+
+
+
+<!--mod4-->
+<div *ngIf="mod4" class="common-content">
+            
+    <div class="row" >
+        <div class="col-12 col-md-12">
+            <h3 class="text-blue"><strong>Lab Structure</strong></h3>
+
+            <div class="bg-light p-4 points">
+                <h6><strong>Scope</strong></h6>
+                <p>This lab constitutes five stages namely, <strong>Pre-Build QA, Post-Build QA, Functional Assurance, Experience Assurance, End-to-End Execution </strong> that explain a continuous testing pipeline in a chronological sequence. </p>
+
+                <h6><strong>Modular Structure</strong></h6>
+                <p>Each stage provides an overview introducing concepts and benefits, followed by steps to replicate, before getting into the pipeline execution.</p>
+
+                <h6><strong>Solve & Learn</strong></h6>
+                <p>In each stage, we have also induced few defects in the application code and test assets, so that you can debug and fix them to gain a more practical insight into this workshop.</p>
+
+                <h6><strong>Thought Leadership</strong></h6>
+                <p>Additionally, we have provided relevant thought leadership content for reference with best practices and tooling alternatives to consider in each pipeline stage.</p>
+            
+            </div>
+  
+            <p>In order to get the best out this workshop, we recommend you follow the sequence and build your pipeline in progression.</p>
+  
+        </div>
+        <!-- <div class="col-12 col-md-5">
+            <img src="assets/images/tiki.png" class="img-fluid" alt="">
+        </div> -->
+        
+        
+    </div>
+  
+     
+   
+
+  </div>
+  <!--mod4-->
+
+
+  <!--mod5-->
+<div *ngIf="mod5" class="common-content">
+            
+    <div class="row" >
+        <div class="col-12 col-md-12">
+            <h3 class="text-blue"><strong>Learnings</strong></h3>
+
+            <p>On completion of all lab stages, you will be able to - </p>
+            
+            <ul>
+                <li>Differentiate continuous testing from traditional testing</li>
+                <li>Propose key testing types for ensuring end-to-end quality assurance</li>
+                <li>Build and execute the continuous testing pipeline</li>
+                <li>Integrate open source automation tools in the pipeline</li>
+                <li>Help debug typical issues and fix the continuous testing pipeline</li>
+                <li>Leverage tooling alternatives, enablers and best practices in continuous testing</li>
+
+            </ul>
+
+            <p>In order to get the best out this workshop, we recommend you follow the sequence and build your pipeline in progression.</p>
+  
+        </div>
+        <!-- <div class="col-12 col-md-5">
+            <img src="assets/images/tiki.png" class="img-fluid" alt="">
+        </div> -->
+        
+        
+    </div>
+  
+     
+ 
+    
+
+  </div>
+  <!--mod5-->
+
+
+        </div>
+        
+        
+        
+
+    </div>
+  </main>

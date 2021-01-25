@@ -1,0 +1,224 @@
+<main class="page-content">
+    <div class="container-fluid "> 
+         <!--from-back-->
+       <a [routerLink]="['/modules', moduleNumber, pageLeft]" *ngIf="showLeftArrow">
+        <div class="navigation-nav nav-left">
+          <i class="fa fa-chevron-left"></i>
+        
+        </div>
+      </a>
+      <a [routerLink]="['/modules', moduleNumber, pageRight]" *ngIf="showRightArrow">
+        <div class="navigation-nav nav-right">
+          <i class="fa fa-chevron-right"></i>
+        </div>
+      </a>
+          <!--from-back-->        
+        <app-header [courseNumber]='9'></app-header>
+        <div class="px-5 py-5 m-h-100">
+            <!--mod-->
+            <div *ngIf="mod">
+                <h3 class="text-blue"><strong>Stage 5 - End to End QA</strong></h3>          
+                <div class="text-center py-4"><img src="assets/tikk/Quote-2.png"  class="img-fluid"></div>       
+              </div>
+              <!--mod-->
+         <!--mod1-->
+         <div *ngIf="mod1">
+            <div class="row">
+                <div class="col-12 col-md-12 module-block">
+                   <h3 class="text-blue pb-4"><strong>Stage Objectives </strong></h3>
+                    <p>Execute the continuous testing pipeline with all the pre-defined quality gates.</p>
+                    <p>In prior stages, you have seen how tests are required to verify all facets of the application viz. – functional, performance, security, accessibility etc. You have also seen the need for quality assurance for not just the UI level, but also at a component level viz. – code, build, deployment, data & interfacing services. </p>
+                    <p>In this stage, we focus on all these facets of the application and cover reporting and dashboard at an end-to-end level. </p>
+                    <div class="text-center py-4"><img src="assets/stage5/1/5End-to-EndTesting.png" (click)="openImage('assets/stage3/1/3Functional-Assurance.png')" class="img-fluid pointer"></div>
+
+
+               </div>
+            </div>
+        </div>
+        <!--mod1-->
+
+
+        <!--mod2-->
+        <div *ngIf="mod2">
+            <div class="row">
+                <div class="col-12 col-md-12 module-block">
+                   <h3 class="text-blue pb-4"><strong>Pipeline Overview</strong></h3>
+                  <p>In this fifth and final stage, you will execute all the same tests executed as the part of previous stages, but in a continuous testing pipeline from Azure Repos to final reports. Additionally, in this stage you will also read about new-age QA practices like AI driven QA that are increasingly becoming critical for modern-day testing in DevOps.</p>
+                   <h4>End-to-End Quality Assurance flow:</h4>
+                  
+                   <div class="text-center py-4"><img src="https://via.placeholder.com/600x200" class="img-fluid"></div>
+
+                    <h4>End-to-End Quality Assurance Pipeline consists of:</h4>
+                    <div class="common-content">
+                        <ul>
+                            <li>Build Pipeline </li>
+                            <li>Release Pipeline </li>
+                        </ul>
+                    </div>
+
+
+    <p>The <strong>End-to-End-QA Build pipeline</strong> consist of 3 stages:</p>                    
+                 <div class="points p-4 bg-light">
+                     <h6>Build Pipeline Front End </h6>
+                    <p>This stage is responsible for deployment of front-end and consists of developing quality gate for unit test and code coverage, then building and pushing the image to Azure Container Registry (ACR), followed by deployment with virtual service to AKS and then BVT-UI Test (Build Verification Testing).</p>                    
+                    <h6>Build Pipeline Backend  </h6>
+                    <p>This stage is responsible for deployment of back-end and consists of developing quality gate for unit test and code coverage then building and pushing MySQL image to ACR.</p>
+                    <h6>Functional Test Build and Push Image  </h6>
+                    <p>Contains source code for all the subsequent Functional Test stages i.e. Smoke, API, UI and RWD testing types and the code for experience assurance testing types, namely – performance, security and accessibility and includes building and pushing image to ACR and publishing the artifacts to the release pipeline.</p>
+                </div>
+                <p>The <strong>Deployment Functional Experience Release Pipeline</strong> consist of following stages:</p>
+
+<div class="points p-4 bg-light">
+
+<h6>Deployment  </h6>
+<p>On successful build, AWS Systems Manager is leveraged to deploy back-end and front-end components of the application to Azure instance.</p>
+<h6>Smoke Test  </h6>
+<p>Runs smoke test to qualify the build for further stages of testing.</p>
+<h6>Functional Assurance</h6>
+<p>Evaluates functional behaviors i.e. “what” the system should do (or) if the application / system functions perform as expected, by executing a comprehensive set of APIs, UI and RWD tests as parallel Code Build jobs.</p>
+<h6>Experience Assurance </h6>
+<p>Evaluates non-functional behaviors i.e. “How” the system should perform its functions by executing security and accessibility tests followed by performance as sequential Code Build jobs.</p>
+
+
+</div>
+
+
+               </div>
+            </div>
+     </div>
+     <!--mod2-->
+
+     <!--mod3-->
+     <!-- <div *ngIf="mod3">
+        <div class="row">
+            <div class="col-12 col-md-12 module-block">
+               <h3 class="text-blue pb-4"><strong>Test Plan Integration</strong></h3>
+               <p>In the Landing Zone phase, Test Plans => Test Suites => Test cases are created. These test cases correspond to the Automated Smoke, UI, API and RWD tests.</p>
+               
+               <h4>Test Plan</h4>
+               <div class="text-center py-4"><img src="https://via.placeholder.com/600x200" class="img-fluid"></div>
+
+               <p>As part of this Integration, we will shortly see how the automation framework updates the test case statuses in Test Plan and logs a defect if a test case fails.</p>
+               
+
+
+
+           </div>
+        </div>
+ </div> -->
+ <!--mod3-->
+
+
+
+ <!--mod4-->
+ <div *ngIf="mod3">
+    <div class="row">
+        <div class="col-12 col-md-12 module-block">
+           <h3 class="text-blue pb-4"><strong>Pipeline Creation & Execution</strong></h3>
+          
+           <div class="card text-white bg-info mb-3">
+            <div class="card-header">Note</div>
+            <div class="card-body">
+              <p class="card-text">: It is important that the landing zone is already created, before you start the following steps.</p>
+            </div>
+          </div>
+
+
+          <p><strong>1. </strong> To deploy the pipeline, execute the below npm command from Azure CLI to automatically create the Build pipeline and subsequently the Release pipeline.</p>
+
+          <div class="code" (click)="copyText(code1)"><code #code1>   npm run endtoend</code> 
+            <div *ngIf="copied" class="code-copied" >Copied  <i class="fas fa-check text-success"></i></div>
+            <button class="btn btn-lg  code-copy"  *ngIf="!copied">
+              <i class="fas fa-copy text-light"></i>
+         </button> </div>
+
+        
+
+          <p><strong>2.</strong> Go to the Azure Pipeline View and check the status of your pipeline named ‘END-TO-END-QA ’, it should state <strong>in progress</strong>.</p>
+
+          <p>This step takes approximately 1 minute and if successful, you can see the status of STACK - ‘E2EAssurance’ as “CREATE_COMPLETE” as shown in the Exhibit below:</p>
+
+        <div class="text-center py-4"><img src="assets/stage5/5.01-Pipeline.JPG" (click)="openImage('assets/stage5/5.01-Pipeline.JPG')" class="img-fluid"></div>
+
+        <div class="text-center py-4"><img src="assets/stage5/5.02-Stage-Overview.JPG" (click)="openImage('assets/stage5/5.02-Stage-Overview.JPG')" class="img-fluid"></div>
+
+        <div class="text-center py-4"><img src="assets/stage5/5.03-Task.JPG" class="img-fluid"></div>
+
+          <p><strong>3.</strong> On successful creation of the Build Pipeline, the Release Pipeline will be auto triggered which will start the Test execution. You can now view the execution progress by navigating to Pipelines >> Releases >> DEPLOYMENT-FUNCTIONAL-EXPERIENCE, refer Exhibit below for details:</p>
+          <div class="text-center py-4"><img src="assets/stage5/5.04 releases.JPG" class="img-fluid"></div>
+
+          <p><strong>4.</strong> If you click on Release -1, you should see the 3 stages namely UI, API and RWD running in parallel.</p>
+          <div class="text-center py-4"><img src="assets/stage5/5.05-Release-stages.JPG" class="img-fluid"></div>
+
+
+        <p>At this point, you should have automatically triggered a fully functioning End-to-End-QA CodePipeline.</p>
+        <p>As a result, of the complete pipeline being executed successfully, you should have the working instance of you Application under Test deployed in Azure instance.</p>
+        
+<p><strong>5. </strong>	Go to Overview  Dashboards  EXPERIENCE_LAB_OVERVIEW, and click on “Digital Shopify” button at the header of Deployment in PostBuild, refer the Exhibit as shown below: </p>        
+     
+        
+<div class="text-center py-4"><img src="assets/stage5/5.06-ap.JPG" class="img-fluid"></div>
+
+        <p>Refer the Exhibit below for the application under test.</p>
+        <div class="text-center py-4"><img src="assets/stage5/5.07-Dashborad.JPG" class="img-fluid"></div>
+        
+
+
+
+    </div>
+    </div>
+</div>
+<!--mod4-->
+
+
+<!--mod5-->
+<div *ngIf="mod5">
+    <div class="row">
+        <div class="col-12 col-md-12 module-block">
+           <h3 class="text-blue pb-4"><strong>Debugging & Re-Excution</strong></h3>
+           <p>To understand in detail why the failure happened, please check the error message by going to “Tests” tab of the UI Tests. Refer screenshot below for details:</p>
+           <div class="text-center py-4"><img src="https://via.placeholder.com/600x200" class="img-fluid"></div>
+            <p>You will be able to see the report with the error:</p>
+
+            <p>Click on the failed Test Case to read the error message from the Debug tab.</p>
+            <p> org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: <span class="brackets">"method":"xpath","selector":"//span[contains(text(),’Incorrect Password’)]"</span> </p>
+                <p>Such errors indicate that the automation script is unable to locate the object on the screen as properties of that UI object have changed since the last build. This is a very common error and calls for script maintenance</p>
+                    <p>To fix this issue, navigate to the Azure Repositories of your project, find the repository “azure_workshop_functional_assurance” and edit the file ShopLoginPage.java azure_workshop_functional_assurance/src/test/java/pages/ShopLoginPage.java
+                        <p>Refer the screenshot as shown below for details:</p>
+                        <div class="text-center py-4"><img src="https://via.placeholder.com/600x200" class="img-fluid"></div>
+
+                        <p>You will notice at line# 61 as: @FindBy(xpath = “//span[contains(text(),’Incorrect Password’)]”). </p>
+
+                        <p>Change the ’Incorrect Password’ to ‘Customer not found with email’, provide the required details like comment and click ‘Commit’. Refer screenshot below for more details:
+                            
+                            </p>
+                            <div class="text-center py-4"><img src="https://via.placeholder.com/600x200" class="img-fluid"></div>
+                            
+                            <p>The Commit will automatically trigger the pipeline and this time it will be executed successfully. Refer the screenshot as shown below for ‘succeeded’ status updated against each stage.</p>
+
+                            <div class="text-center py-4"><img src="https://via.placeholder.com/600x200" class="img-fluid"></div>
+
+       </div>
+    </div>
+</div>
+<!--mod5-->
+
+
+<!--mod6-->
+<div *ngIf="mod4">
+    <div class="row">
+        <div class="col-12 col-md-12 module-block">
+         
+            <div class="text-center py-4"><img src="https://via.placeholder.com/600x200" class="img-fluid"></div>
+
+                     
+       </div>
+    </div>
+     <h4 class="pt-4">Reference Links</h4>
+     <p>Practitioners can access Cognizant Thought Leadership on Customer Experience, by referring the detailed whitepaper by our Technology Experts titled - <strong>“From Continuous to Autonomous Testing with AI”</strong>. You will find the link to the whitepaper in the confirmation mailer from Cognizant QE&A, upon successful registration at Cognizant portal.</p>
+</div>
+<!--mod6-->
+
+    </div>
+    </div>
+</main>

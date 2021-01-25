@@ -1,0 +1,20 @@
+<a [routerLink]="['/modules', moduleNumber, pageLeft]" *ngIf="showLeftArrow">
+    <div class="navigation-nav nav-left">
+      <i class="fa fa-chevron-left"></i>
+    
+    </div>
+  </a>
+  <!-- <a [routerLink]="['/modules', moduleNumber, pageRight]" *ngIf="showRightArrow">
+    <div class="navigation-nav nav-right">
+      <i class="fa fa-chevron-right"></i>
+    </div>
+  </a> -->
+
+
+    <div class="navigation-nav nav-right" (click)="clickNextPage()">
+      <i class="fa fa-chevron-right"></i>
+    </div>
+  
+
+
+

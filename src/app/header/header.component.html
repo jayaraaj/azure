@@ -1,0 +1,46 @@
+<!--top-->
+<div class="bg-white ">
+<div class=" w-100 bg-white pt-3 " >
+<div class="row justify-content-between px-5 py-1">
+    <div class="col-6 col-md-2">
+        <img src="assets/images/logo.png" class="img-fluid w-75" alt="">
+    </div>
+    <div class="col-6 col-md-2 text-right">
+        <img src="assets/images/azure.png" class="img-fluid w-75" alt="">
+    </div>
+</div>
+<!--top-->
+<div class=" w-100 " [ngClass]="{'level': scroll}">
+<!--blueStrip-->
+<div class="blue-strip px-5 py-3 text-white">
+    <h5>Cognizant Eperience Lab</h5>
+    <h2>Continuous Testing with Microsoft Azure</h2>
+</div>
+<!--blueStrip-->
+<!-- menu strip-->
+<div class="bg-light">
+    <ul class="nav nav-tabs">
+      <li class="nav-item" (click)="onClickPanel()">
+        <a class="nav-link active" id="main-menu" ><i class="fa fa-bars"></i> &nbsp;&nbsp;Menu</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" >Course Module: {{courseNumber}}/10</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link">Course Hours: 02 Hr 30m</a>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link disabled" >Course Progress: </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" >
+          <div class="progress-bar">
+              <div class="progress-bar-hover" [ngStyle]="{'width': getWidth() }"></div>
+            </div>
+        </a>
+      </li>
+    </ul>
+</div>
+<!-- menu strip-->
+</div>
+</div>

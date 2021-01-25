@@ -1,0 +1,187 @@
+<main class="page-content">
+    <div class="container-fluid ">    
+         <!--from-back-->
+         <a [routerLink]="['/modules', moduleNumber, pageLeft]" *ngIf="showLeftArrow">
+          <div class="navigation-nav nav-left">
+            <i class="fa fa-chevron-left"></i>
+          
+          </div>
+        </a>
+        <a [routerLink]="['/modules', moduleNumber, pageRight]" *ngIf="showRightArrow">
+          <div class="navigation-nav nav-right">
+            <i class="fa fa-chevron-right"></i>
+          </div>
+        </a>
+            <!--from-back-->     
+        <app-header [courseNumber]='6'></app-header>
+        <div class="px-5 py-5">
+           <!--mod-->
+           <div *ngIf="mod">
+            <h3 class="text-blue"><strong>Stage 2 - Post Build QA</strong></h3>   
+            <div class="text-center py-4"><img src="assets/tikk/Quote-2.png"  class="img-fluid"></div>         
+          </div>
+          <!--mod-->
+         <!--mod1-->
+         <div *ngIf="mod1">
+            <div class="row">
+                <div class="col-12 col-md-12 module-block">
+                   <h3 class="text-blue pb-4"><strong>Stage Objectives </strong></h3>
+                   <p> Check build readiness for testing and prepare the environment for subsequent test executions. </p>
+
+                   <p>Commonly known as build smoke / sanity testing, verification testing, confidence testing (or) build acceptance testing, it has Developers and Testers focus on a set of tests adequate to ensure critical functionalities work as required in the build, confirming its stability and assurance to authorize if the QA team can proceed with further testing.   
+
+                       <p>In this stage, you will explore the Post Build Quality Assurance stage of the overall testing pipeline for DevOps.</p>
+
+                       <div class="text-center py-4"><img src="assets/stage2/1/2Module_Build&DeployAssurance.png" (click)="openImage('assets/stage2/1/2Module_Build&DeployAssurance.png')" class="img-fluid pointer"></div>
+
+
+               </div>
+            </div>
+       </div>
+        <!--mod1-->
+
+
+        <!--mod2-->
+        <div *ngIf="mod2">
+            <div class="row">
+                <div class="col-12 col-md-12 module-block">
+                   <h3 class="text-blue pb-4"><strong>Pipeline Overview</strong></h3>
+                  
+                   <h4>Post-Build Quality Assurance flow:</h4>
+                   <div class="text-center py-4"><img src="assets/stage2/2.02-Pipeline-Runs.jpg" (click)="openImage('assets/stage2/2.02-Pipeline-Runs.jpg')" class="img-fluid pointer"></div>
+
+    <p>This stage consists of two stages viz. <strong>Code Deployment and Smoke / Sanity Testing</strong>.</p>                    
+                 <div class="points px-5 py-4 bg-light">
+                     <h6>Deployment of Application</h6>
+                     <p>Leverage Azure Kubernetes Service (AKS) for deploying back-end and front-end container components of the application under test. This is achieved by pulling the Build Images from Azure Container Registry (ACR) and deploying it in AKS.</p>
+                    <h6>Smoke Testing</h6>
+                    <p>Balanced mix with minimal sub-set, but major features of API and UI based test automation in the form of Smoke / Build Verification Test is implemented using open source tools like Selenium and RestAssured with BDD Cucumber Framework. The automated test scripts is executed using Azure Pipeline and Reports published in Blob Storage.</p>
+                    </div>
+
+               </div>
+            </div>
+     </div>
+     <!--mod2-->
+
+     <!--mod3-->
+     <div *ngIf="mod3">
+        <div class="row">
+            <div class="col-12 col-md-12 module-block">
+               <h3 class="text-blue pb-4"><strong>Pipeline Creation & Execution</strong></h3>
+               <p><strong>1.</strong> To deploy the post-build pipeline, run the following commands in Cloud9’s terminal:
+                <strong>npm run postbuild</strong>
+                </p>
+                <p>The above command will take approximately 1 to 2 minutes to complete.</p>
+                <p>At this point, you will observe an automatically triggered and fully functioning Post-Build QA Pipeline, similar to one as shown in the below Exhibit:</p>
+                <div class="text-center py-4"><img src="assets/stage2/2.03-Stages.jpg" (click)="openImage('assets/stage2/2.03-Stages.jpg')" class="img-fluid pointer"></div>
+               
+                <p><strong>2.</strong> Click on the pipeline that begins with the name POSTBUILD-QA, you should see the screen as shown in the below Exhibit:</p>
+                <div class="text-center py-4"><img src="assets/stage2/2.04-Dashboard.jpg" (click)="openImage('assets/stage2/2.04-Dashboard.jpg')" class="img-fluid pointer"></div>
+                
+                <p>On clicking the first row of the pipeline, you should see similar Exhibit as below with Stages and Jobs, and it should reflect GREEN in all the Stages, if everything went well. </p>
+                <div class="text-center py-4"><img src="assets/stage2/2.05-Launch-App.JPG" (click)="openImage('assets/stage2/2.05-Launch-App.JPG')" class="img-fluid pointer"></div>
+                
+                <p>On successful execution of the pipeline, you should have a working instance of your Application in the test environment. To access the application, navigate to Overview -> Dashboard -> <strong>AZURE_WORKSHOP_PROJECT-ExperienceLab_Overview</strong> you can see a section with the name Deployment in Post Build displayed, similar to the one in the below Exhibit: </p>
+                <div class="text-center py-4"><img src="assets/stage2/2.06-Smoke-test-Report.JPG" (click)="openImage('assets/stage2/2.06-Smoke-test-Report.JPG')" class="img-fluid pointer"></div>
+                  <p><strong>3. </strong> Click on DIGITAL SHOPIFY link.</p>
+                
+                <p>You will now can see the application deployed as shown in the Exhibit:</p>
+                <div class="text-center py-4"><img src="https://via.placeholder.com/600x200" class="img-fluid"></div>
+
+
+
+
+           </div>
+        </div>
+ </div>
+ <!--mod3-->
+
+
+
+ <!--mod4-->
+ <!-- <div *ngIf="mod4">
+    <div class="row">
+        <div class="col-12 col-md-12 module-block">
+           <h3 class="text-blue pb-4"><strong>Debugging & Re-Excution</strong></h3>
+          
+
+       </div>
+    </div>
+</div> -->
+<!--mod4-->
+
+
+<!--mod5-->
+<div *ngIf="mod4">
+    <div class="row">
+        <div class="col-12 col-md-12 module-block">
+           <h3 class="text-blue pb-4"><strong>Test Report Analysis</strong></h3>
+           <p>You will also be able to see the test summary of the recently executed Pipeline Stage for Smoke Testing. </p>
+
+           <p>To access the Smoke Test Report, navigate to Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT- ExperienceLab_Overview you can see a widgets with Reports, click on the link Smoke Test available in PostBuild section similar to Exhibit:</p>
+           <div class="text-center py-4"><img src="https://via.placeholder.com/600x200" class="img-fluid"></div>
+
+       </div>
+    </div>
+
+    <h4>Reference Links</h4>
+            <p>To be updated </p>
+
+            <h4>Tool Alternate options</h4>
+
+            <div class="table-responsive">
+                <table class="table table-borderless table-light">
+                    <thead>
+                      <tr class="bg-blue1">
+                        <th  class="text-left bg-blue2 text-center" scope="col">Stages </th>
+                        <th colspan="5" class="text-center" scope="col">PRE-BUILD QA </th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" class="bg-blue1 text-center">Category</th>
+                        <td>UI AUTOMATION TOOL  </td>
+                        <td>API AUTOMATION TOOL  </td>
+                        <td>Automation framework </td>
+                        <td>Reporting  </td>
+                        <td>BUILD TOOL </td>
+                        
+                      </tr>
+                      <tr>
+                        <th scope="row" class="bg-blue3 text-center">Current Tooling </th>
+                        <td class="bg-ash">Selenium   </td>
+                        <td class="bg-ash">Rest Assured </td>
+                        <td class="bg-ash">Cucumber  </td>
+                        <td class="bg-ash">Extent Reports  </td>
+                        <td class="bg-ash">Maven  </td>
+                        
+                      </tr>
+                      <tr>
+                        <th scope="row" class="bg-blue1 text-center">Alternate Tooling </th>
+                        <td>Playwright,  
+                            Puppeteer,  
+                            Testcafe,  
+                            Cypress,  
+                            UFT,  
+                            Protractor 
+                               </td>
+                        <td>Super Agent (Javascript),Axios (Javascript), Rest Sharp(c#), Java Apache HTTP Client libraries </td>
+                        <td>Specflow(c#),  
+                            Cucumber-JS 
+                        
+                        <td>Allure                             
+                             </td>
+                        <td> Gradle 
+                            </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+            </div>
+</div>
+<!--mod5-->
+
+    </div>
+    </div>
+</main>

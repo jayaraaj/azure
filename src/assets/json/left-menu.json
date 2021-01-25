@@ -1,0 +1,304 @@
+{
+    "menu": [
+        {
+            "id": 1,
+            "module": "Module 1",
+            "title" : "Explore Continuous Testing with Azure",
+            "link" : "explore-Continuous-testing-with-azure",
+            "subMenu": [
+                {
+                    "title": "What is Continuous Testing?",
+                    "link": "what-is-continuous-testing",
+                    "checked": false
+                },
+                {
+                    "title": "Why Azure for Continuous Testing?",
+                    "link": "why-azure-for-continuous-testing",
+                    "checked": false
+                },
+                {
+                    "title": "How it benefits?",
+                    "link": "how-it-benefits",
+                    "checked": false
+                }
+            ],
+            "toggle": false
+        },
+        {
+            "id": 2,
+            "module": "Module 2",
+            "title" : "Experience Lab Objectives & Premise",
+            "link" : "experience-lab-objectives-and-premise",
+            "subMenu": [
+                {
+                    "title": "Objectives",
+                    "link": "objectives",
+                    "checked": false
+                    
+                },
+                {
+                    "title": "Application under Test",
+                    "link": "application-under-test",
+                    "checked": false
+                },
+                {
+                    "title": "Solution Architecture",
+                    "link": "solution-architecture",
+                    "checked": false
+                },
+                {
+                    "title": "Lab Structure",
+                    "link": "lab-structure",
+                    "checked": false
+                },{
+                    "title": "Learnings",
+                    "link": "learnings",
+                    "checked": false
+                }
+            ],
+            "toggle": false
+        },
+        {
+            "id": 3,
+            "module": "Module 3",
+            "title" : "Pre-Conditions",
+            "link" : "pre-conditions",
+            "subMenu": [
+                {
+                    "title": "How to create an Azure Account?",
+                    "link": "how-to-create-an-azure-account",
+                    "checked": false
+                },
+                {
+                    "title": "How to setup an Environment?",
+                    "link": "how-to-setup-an-Environment",
+                    "checked": false
+                }
+                
+            ],
+            "toggle": false
+        },
+        {
+            "id": 4,
+            "module": "Module 4",
+            "title" : "Stage 0 - Landing Zone",
+            "link" : "stage-0",
+            "subMenu": [
+             
+                {
+                    "title": "What is a Landing zone?",
+                    "link": "what-is-a-landing-zone",
+                    "checked": false
+                },
+                {
+                    "title": "Principles and Guidelines to follow",
+                    "link": "principles-and-guidelines-to-follow",
+                    "checked": false
+                },
+                {
+                    "title": "Creating your Landing Zone",
+                    "link": "creating-your-landing-zone",
+                    "checked": false
+                }
+            ],
+            "toggle": false
+        },
+        {
+            "id": 5,
+            "module": "Module 5",
+            "title" : "Stage 1 - Pre Build QA",
+            "link" : "stage-1",
+            "subMenu": [
+                {
+                    "title": "Stage Objectives",
+                    "link": "stage-objectives",
+                    "checked": false
+                },
+                {
+                    "title": "Pipeline Overview",
+                    "link": "pipeline-overview",
+                    "checked": false
+                },
+                {
+                    "title": "Pipeline Creation & Execution",
+                    "link": "pipeline-Creation-and-Execution",
+                    "checked": false
+                },
+                {
+                    "title": "Debugging & Re-Excution",
+                    "link": "debugging-and-Re-Excution",
+                    "checked": false
+                },
+                {
+                    "title": "Test Report Analysis",
+                    "link": "test-report-analysis",
+                    "checked": false
+                }
+            ],
+            "toggle": false
+        },
+        {
+            "id": 6,
+            "module": "Module 5",
+            "title" : "Stage 2 - Post Build QA",
+            "link" : "stage-2",
+            "subMenu": [
+                {
+                    "title": "Stage Objectives",
+                    "link": "stage-objectives",
+                    "checked": false
+                },
+                {
+                    "title": "Pipeline Overview",
+                    "link": "pipeline-overview",
+                    "checked": false
+                },
+                {
+                    "title": "Pipeline Creation & Execution",
+                    "link": "pipeline-Creation-and-Execution",
+                    "checked": false
+                },
+               
+                {
+                    "title": "Test Report Analysis",
+                    "link": "test-report-analysis",
+                    "checked": false
+                }
+            ],
+            "toggle": false
+        },
+        {
+            "id": 7,
+            "module": "Module 5",
+            "title" : "Stage 3 - Functional Assurance",
+            "link" : "stage-3",
+            "subMenu": [
+                {
+                    "title": "Stage Objectives",
+                    "link": "stage-objectives",
+                    "checked": false
+                },
+                {
+                    "title": "Pipeline Overview",
+                    "link": "pipeline-overview",
+                    "checked": false
+                },
+                {
+                    "title": "Test Plan Integration",
+                    "link": "test-plan-integration",
+                    "checked": false
+                },
+                {
+                    "title": "Pipeline Creation & Execution",
+                    "link": "pipeline-Creation-and-Execution",
+                    "checked": false
+                },
+                {
+                    "title": "Debugging & Re-Excution",
+                    "link": "debugging-and-Re-Excution",
+                    "checked": false
+                },
+                {
+                    "title": "Test Report Analysis",
+                    "link": "test-report-analysis",
+                    "checked": false
+                }
+            ],
+            "toggle": false
+        },
+        {
+            "id": 8,
+            "module": "Module 5",
+            "title" : "Stage 4 - Experience QA",
+            "link" : "stage-4",
+            "subMenu": [
+                {
+                    "title": "Stage Objectives",
+                    "link": "stage-objectives",
+                    "checked": false
+                },
+                {
+                    "title": "Pipeline Overview",
+                    "link": "pipeline-overview",
+                    "checked": false
+                },
+                {
+                    "title": "Build & Execute",
+                    "link": "build-and-execute",
+                    "checked": false
+                },
+                {
+                    "title": "Pipeline Creation & Execution",
+                    "link": "pipeline-Creation-and-Execution",
+                    "checked": false
+                },
+                {
+                    "title": "Debugging & Re-Excution",
+                    "link": "debugging-and-Re-Excution",
+                    "checked": false
+                },
+                {
+                    "title": "Test Report Analysis",
+                    "link": "test-report-analysis",
+                    "checked": false
+                }
+            ],
+            "toggle": false
+        },
+        {
+            "id": 9,
+            "module": "Module 5",
+            "title" : "Stage 5 - End to End QA",
+            "link" : "stage-5",
+            "subMenu": [
+                {
+                    "title": "Stage Objectives",
+                    "link": "stage-objectives",
+                    "checked": false
+                },
+                {
+                    "title": "Pipeline Overview",
+                    "link": "pipeline-overview",
+                    "checked": false
+                },
+                {
+                    "title": "Pipeline Creation & Execution",
+                    "link": "pipeline-Creation-and-Execution",
+                    "checked": false
+                },
+                {
+                    "title": "Test Report Analysis",
+                    "link": "test-report-analysis",
+                    "checked": false
+                }
+            ],
+            "toggle": false
+        },
+        {
+            "id": 10,
+            "module": "Module 5",
+            "title" : "Conclusion",
+            "link" : "conclusion",
+            "subMenu": [
+              
+                {
+                    "title": "Access Cognizant’s premium thought leadership content",
+                    "link": "access-cognizants-premium-thought-leadership-content",
+                    "checked": false
+                },
+                {
+                    "title": "Jargons / CI Glossary",
+                    "link": "jargons-ci-glossary",
+                    "checked": false
+                },
+                {
+                    "title": "Clean-up",
+                    "link": "clean-up",
+                    "checked": false
+                }
+                
+            ],
+            "toggle": false
+        }
+    ]
+}

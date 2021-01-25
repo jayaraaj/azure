@@ -1,0 +1,218 @@
+<main class="page-content">
+    <div class="container-fluid ">
+      <!--from-back-->
+      <a [routerLink]="['/modules', moduleNumber, pageLeft]" *ngIf="showLeftArrow">
+      <div class="navigation-nav nav-left">
+        <i class="fa fa-chevron-left"></i>
+      
+      </div>
+    </a>
+    <a [routerLink]="['/modules', moduleNumber, pageRight]" *ngIf="showRightArrow">
+      <div class="navigation-nav nav-right">
+        <i class="fa fa-chevron-right"></i>
+      </div>
+    </a>
+        <!--from-back-->
+        <app-header [courseNumber]='1'></app-header>
+           <div class="px-5 py-5 m-h-100">
+            
+
+
+            <!--mod-->
+            <div *ngIf="mod">
+              <h3 class="text-blue"><strong>Explore Continuous Testing with Azure</strong></h3>      
+              
+              <div class="text-center py-4"><img src="assets/tikk/Quote-1.png"  class="img-fluid"></div>
+
+
+            </div>
+            <!--mod-->
+            <!--mod1-->
+            <div *ngIf="mod1">
+            
+            <div class="row" >
+                <div class="col-12 col-md-12">
+                    <h3 class="text-blue"><strong>What is Continuous Testing?</strong></h3>
+
+                    
+            <p class="py-3">The software development cycle today has shrunk from years to a few weeks and even days. Business priorities, customer expectations, and the technology stack keep changing rapidly; hence assuring the best product requires introducing quality gateways at every stage of the SDLC, aligning with the speed of delivery into production. The traditional testing practices are not equipped to deliver this quality with speed. Hence, the advent of Continuous Testing (CT). 
+              <br> <br>Continuous testing is a DevOps-aligned practice that enables testing early and often testing with higher automation levels. The main aspects of CT are: </p>              
+<div class="bg-light p-4 points">
+  <h6 class=""><strong>Test Early </strong></h6>
+  <p>Finding issues early in the SDLC with walkthroughs and analysis in the requirement or Design Phase</p>
+
+  <h6 class=""><strong>Test Faster</strong></h6>
+  <p>Discovering grey areas with tools like TestNG, JUnit, Maven, Gradle, etc.</p>
+
+  <h6 class=""><strong>Test Often </strong></h6>
+  <p>Introducing CI/CD tools like Azure DevOps, JENKINS to get a daily build and track problems regularly</p>
+
+  <h6 class=""><strong>Test Automation </strong></h6>
+  <p>Using tools like Selenium, Appium to automate test cases and provide faster results</p>
+
+</div>
+
+            
+            <p class="py-3">Continuous Testing, a DevOps-aligned practice, enables testing early, faster and often, with increased levels of automation as part of the CI/CD pipeline to shorten feedback loops on software changes. Following foundational elements aide in setting up a Continuous Testing pipeline for the Enterprise:</p>
+
+
+
+<div class="text-center pb-4"><img src="assets/mod1/1/Azure-Diagram-Table-1-2-11.jpg" class="img-fluid pointer" (click)="openImage('assets/mod1/1/Azure-Diagram-Table-1-2-11.jpg')"></div>
+
+
+
+
+<p >Depending on additional capabilities and overall maturity of the software engineering processes, few variable elements can further strengthen the Continuous Testing pipeline for the Enterprise:</p>
+<div class="text-center pb-4"><img src="assets/mod1/1/Azure-Diagram-Table-1-2-12.jpg" class="img-fluid pointer" (click)="openImage('assets/mod1/1/Azure-Diagram-Table-1-2-12.jpg')"></div>
+
+
+<!-- 
+<h3 class="py-4 text-blue">Cloud-based Continuous Testing</h3>
+<p>On-premise Continuous Testing proves to be inefficacious as test teams spend more time on tools and infrastructure set-up and maintenance overheads, than assuring business objectives and minimizing risks with limited scope for scalability. </p>
+<p>The advantages of moving to Cloud for Continuous Testing are:</p>
+
+
+<div class="bg-light p-4 points">
+  <h6><strong>Collaboration</strong></h6>
+  <p>Cloud offers easy access and participation across teams, which means Dev can introduce changes, QA can test specific use stories/cases, and Ops can deploy and manage the multiple environments. </p>
+
+  <h6><strong>Collaboration</strong></h6>
+  <p>Compared to on premise, deployment on Cloud is significantly faster and error-free, saving critical time and resources.</p>
+
+  <h6><strong>Accessibility</strong></h6>
+  <p>Cloud allows you to access the environment from anywhere anytime, thus enabling testing on the go!</p>
+
+  <h6><strong>Agility</strong></h6>
+  <p> Upgradation to the latest OS (or) the latest Java version, tweaking a setting, and running the additional testing is a matter of few clicks resulting in the ability to rapidly develop, test and launch applications to drive business growth. </p>
+
+  <h6><strong>Scalability</strong></h6>
+  <p>Tester can increase or decrease performance, resources and functionalities in line with user's needs to evaluate project performance, gauge product development and verify testing results allowing you to stay on track and improve productivity.</p>
+</div>
+
+
+
+  <p class="pt-4">
+    Hence, enterprises worldwide (especially during situations like pandemics) are realizing the tremendous benefits and success from continuous testing, as they can do business with secure and scalable cloud-enabled enterprise applications.
+  </p> -->
+
+                </div>
+                <!-- <div class="col-12 col-md-5">
+                    <img src="assets/images/tiki.png" class="img-fluid" alt="">
+                </div> -->
+                
+                
+            </div>
+        
+             
+   
+
+        <!-- <div class="pt-5">
+         <div class="row">
+           <div class="col-6"> <small>Next <i class="fa fa-chevron-right"></i> &nbsp;&nbsp; <a>Module 1: Why Azure for Continuous Testing?</a>
+           </small></div>
+           <div class="col-6 text-right">
+             <a  [routerLink]="['/modules/1/why-azure-for-continuous-testing']" class="btn btn-success">Next <i class="fa fa-chevron-right"></i></a>
+           </div>
+         </div>
+        </div> -->
+
+
+      </div>
+<!--mod1-->
+
+
+
+ <!--mod2-->
+ <div *ngIf="mod2" class="m-h-100">
+            
+  <div class="row" >
+      <div class="col-12 col-md-12">
+          <h3 class="text-blue"><strong>Why Azure for Continuous Testing?</strong></h3>
+  
+        <p class="py-3">
+          Azure has a complete set of integrated cloud offerings, from infrastructure as a service (IaaS), to Platform as a Service (PaaS) and all its Software as a Service (SaaS) offerings. As an example, a PaaS development can easily integrate with a VM on Azure IaaS as well as with app services like SharePoint and CRM Online.
+<br><br>
+Azure Cloud also has a growing collection of integrated cloud services —covering analytics, computing, database, mobile, networking, storage, and web — for moving faster, achieving more, and saving money." Since its inception, Azure has grown rapidly and globally, with more than 95% of Fortune 500 companies using Microsoft Azure to drive their end-to-end business needs in 61 Azure regions on 6 continents.
+
+        </p>
+
+      </div>
+      <!-- <div class="col-12 col-md-5">
+          <img src="assets/images/tiki.png" class="img-fluid" alt="">
+      </div> -->
+      
+      
+  </div>
+
+   
+  <!-- <div class="pt-5">
+    <div class="row">
+      <div class="col-6"> <small>Next <i class="fa fa-chevron-right"></i> &nbsp;&nbsp; <a>Module 1: How it benefits?</a>
+      </small></div>
+      <div class="col-6 text-right">
+        <a  [routerLink]="['/modules/1/how-it-benefits']" class="btn btn-success">Next <i class="fa fa-chevron-right"></i></a>
+      </div>
+    </div>
+   </div> -->
+</div>
+<!--mod2-->
+
+
+
+ <!--mod3-->
+ <div *ngIf="mod3" >
+            
+  <div class="row" >
+      <div class="col-12 col-md-12">
+          <h3 class="text-blue"><strong>How it benefits? </strong></h3>
+          <p>Some of the reasons to choose Azure for your enterprise include:</p>
+          <div class="common-content">
+          <ul>
+            <li><strong>Works with popular tools and frameworks</strong> – It supports open-source technologies, allowing one to choose from a wide gamut of applications, databases, middleware, management, infrastructure, App frameworks to run virtually any application using any data source, with any operating system, on any device.</li>
+              <li><strong>Pan Industry presence</strong> with over >95% of companies, of all company sizes and industries– from retail to automotive to airlines – all doing some really meaningful things by inventing with Azure. </li>
+            <li><strong>Reliable infrastructure for innovation with -</strong>
+              <ul class="bg-light py-4">
+                <li><strong>Purpose-built infrastructures</strong> customized to your need and based on your specific workload for on-prem, hybrid, or cloud-only infrastructures.</li>
+                <li><strong>On-demand global scale</strong>  with support for 60+ Azure regions and 150 VM size options  <strong>and global network</strong> with more than 160 edge sites and 20,000 peering connections</li>
+                <li><strong>Best suited for Microsoft workloads</strong> with best hybrid cloud experience for Windows Server and running SQL in Azure VMs cost-effectively with comprehensive protection for hybrid environments</li>
+                  <li><strong>Recognized partnerships</strong> and certifications with SAP, Red Hat, VMware and Oracle</li>
+                    <li><strong>~50% of Azure VMs run on Linux</strong> resulting in 1.4X growth of Linux and development of an integrated co-located support model with Red Hat at Redmond.</li>
+
+              </ul>
+            </li>
+
+            <li><strong>Heavily entrenched in security</strong> at Microsoft Cyber Defense Operations Center with $1 Billion annual investment for cybersecurity and >3.5K fulltime security professionals, handling 6.5 trillion global signals daily.
+              <li><strong>Strong compliance culture</strong> with adherence to 93 compliance offerings such as globally for ISO 27018-2014, regional regulations such as GDPR and across Industry like Banking and Healthcare and US Govt. norms like Department of Defense (DOD) Security Requirements Guidelines (SRG).</li>
+              <li><strong>Easy learning curve:</strong>  Dedicated resources available for self-learning on Azure. The documentation of each Azure service is detailed, and has examples to make each module easy to comprehend. For more details refer <a href="https://docs.microsoft.com/en-us/learn/azure/" target="_blanl" class="a">https://docs.microsoft.com/en-us/learn/azure/</a> </li>
+            </ul>
+            </div>
+
+      </div>
+      <!-- <div class="col-12 col-md-5">
+          <img src="assets/images/tiki.png" class="img-fluid" alt="">
+      </div> -->
+      
+      
+  </div>
+
+  <!-- <div class="pt-5">
+    <div class="row">
+      <div class="col-6"> <small>Next <i class="fa fa-chevron-right"></i> &nbsp;&nbsp; <a>Module 2: Experience Lab Objectives & Premise</a>
+      </small></div>
+      <div class="col-6 text-right">
+        <a [routerLink]="['/modules/2/objectives']" class="btn btn-success">Next <i class="fa fa-chevron-right"></i></a>
+      </div>
+    </div>
+   </div> -->
+   
+
+</div>
+<!--mod3-->
+
+        </div>
+        
+        
+        
+
+    </div>
+  </main>
