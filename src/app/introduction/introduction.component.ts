@@ -19,13 +19,27 @@ export class IntroductionComponent implements OnInit {
   mod1 = false;
   mod2 = false;
   mod3=false;
+
+  pageMod = [
+    {mod : false},
+    {mod : false},
+    {mod : false}
+  ];
+
   pageLeft: string;
   pageRight: string;
-  pageArray = ['explore-Continuous-testing-with-azure', 'what-is-continuous-testing', 'why-azure-for-continuous-testing','how-it-benefits'];
-  moduleNumber: number;
+  pageArray = [
+  'explore-Continuous-testing-with-azure', 
+  'what-is-continuous-testing', 
+  'why-azure-for-continuous-testing',
+  'how-it-benefits',
+  'experience-lab-objectives-and-premise'
+];
+  moduleNumber: number = 1;
   lastPageIndex;
   showLeftArrow: boolean = true;
   showRightArrow : boolean = true;
+  pageName;
   private _album: Array<any> = [];
 
   constructor(
@@ -38,26 +52,35 @@ export class IntroductionComponent implements OnInit {
   ngOnInit(): void {
 
     this.route.params.subscribe((params: Params) => {
-      // console.log(params.name);
+     
+      this.pageName = params.name;
+       //sessionStorage.setItem(this.pageName, String(this.moduleNumber));
+      // if (this.pageArray.indexOf(params.name) == 0) {
+      //  this.showLeftArrow = false;
+      // }else{
+      //   this.showLeftArrow = true;
+      // }
 
-      if (this.pageArray.indexOf(params.name) == 0) {
-       this.showLeftArrow = false;
-      }else{
-        this.showLeftArrow = true;
-      }
-
-      this.lastPageIndex = this.pageArray.indexOf(params.name)+1;
+      // this.lastPageIndex = this.pageArray.indexOf(params.name)+1;
     
 
-      if (this.pageArray.length == this.lastPageIndex) {
-        this.showRightArrow = false;
-       }else{
-         this.showRightArrow = true;
-       }
+      // if (this.pageArray.length == this.lastPageIndex) {
+      //   this.showRightArrow = false;
+      //  }else{
+      //    this.showRightArrow = true;
+      //  }
 
 
+      // this.pageArray.forEach((ele, i)=> {
+      //   console.log('page array', i);
+      //   if(this.pageArray[i] == params.name) {
+      //     console.log(this.pageMod[i].mod = true);
+      //   }
+        
+      // });
 
-      this.moduleNumber = 1;
+
+     
      
       if (params.name == this.pageArray[0]){
         this.mod = true;
@@ -66,6 +89,7 @@ export class IntroductionComponent implements OnInit {
         this.mod3=false;
         this.pageLeft = this.pageArray[0];
         this.pageRight = this.pageArray[1];
+      
 
       }
       else if(params.name ==this.pageArray[1]) {
@@ -92,6 +116,7 @@ export class IntroductionComponent implements OnInit {
         this.pageLeft = this.pageArray[2];
         this.pageRight = this.pageArray[4];
         
+        
       }
     });
 
@@ -101,7 +126,6 @@ export class IntroductionComponent implements OnInit {
   }
 
   onClickPanel() {
-    console.log(this.openPanel);
     this.openPanel = !this.openPanel;
     this._leftPanelSer.togglePanel(this.openPanel);
     
@@ -115,6 +139,31 @@ export class IntroductionComponent implements OnInit {
    };
    this._album.push(album);
    this._lightbox.open(this._album);
+  }
+
+
+  moveLeft(){
+    if(this.pageLeft == this.pageArray[0]){
+      this.moduleNumber = 1; 
+     
+    }else{
+      this.moduleNumber = 1;  
+    }
+
+
+    this._leftPanelSer.clickedCourseLink(this.pageLeft, this.moduleNumber);
+    this.router.navigate(['/modules', this.moduleNumber, this.pageLeft]);
+    
+  }
+
+  moveRight() {
+    if(this.pageRight == this.pageArray[4]){
+      this.moduleNumber = 2;
+    }else {
+      this.moduleNumber = 1;
+    }
+    this._leftPanelSer.clickedCourseLink(this.pageRight, this.moduleNumber);
+    this.router.navigate(['/modules', this.moduleNumber, this.pageRight]);
   }
 
 }

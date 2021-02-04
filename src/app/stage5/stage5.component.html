@@ -1,24 +1,25 @@
 <main class="page-content">
     <div class="container-fluid "> 
-         <!--from-back-->
-       <a [routerLink]="['/modules', moduleNumber, pageLeft]" *ngIf="showLeftArrow">
-        <div class="navigation-nav nav-left">
-          <i class="fa fa-chevron-left"></i>
-        
-        </div>
-      </a>
-      <a [routerLink]="['/modules', moduleNumber, pageRight]" *ngIf="showRightArrow">
-        <div class="navigation-nav nav-right">
-          <i class="fa fa-chevron-right"></i>
-        </div>
-      </a>
-          <!--from-back-->        
+          <!--from-back-->
+     <a (click)="moveLeft()" >
+      <div class="navigation-nav nav-left">
+        <i class="fa fa-chevron-left"></i>
+      
+      </div>
+    </a>
+    <a (click)="moveRight()" >
+      <div class="navigation-nav nav-right">
+        <i class="fa fa-chevron-right"></i>
+      </div>
+    </a>
+        <!--from-back-->        
         <app-header [courseNumber]='9'></app-header>
-        <div class="px-5 py-5 m-h-100">
+        <div class="px-5 pt-5 m-h-100">
             <!--mod-->
             <div *ngIf="mod">
                 <h3 class="text-blue"><strong>Stage 5 - End to End QA</strong></h3>          
-                <div class="text-center py-4"><img src="assets/tikk/Quote-2.png"  class="img-fluid"></div>       
+                <div class="text-center "><img src="assets/tikk/Tik_ModuleIntro-09.jpg"  class="img-fluid w-75"></div>
+      
               </div>
               <!--mod-->
          <!--mod1-->
@@ -46,8 +47,9 @@
                   <p>In this fifth and final stage, you will execute all the same tests executed as the part of previous stages, but in a continuous testing pipeline from Azure Repos to final reports. Additionally, in this stage you will also read about new-age QA practices like AI driven QA that are increasingly becoming critical for modern-day testing in DevOps.</p>
                    <h4>End-to-End Quality Assurance flow:</h4>
                   
-                   <div class="text-center py-4"><img src="https://via.placeholder.com/600x200" class="img-fluid"></div>
-
+<!--karthik start-->
+<div class="text-center py-4"><img src="assets/stage5/2/Azure-Diagram_Exp-Lab-05.jpg" (click)="openImage('assets/stage5/2/Azure-Diagram_Exp-Lab-05.jpg')" class="img-fluid pointer"></div>
+<!--karthik end-->
                     <h4>End-to-End Quality Assurance Pipeline consists of:</h4>
                     <div class="common-content">
                         <ul>
@@ -126,41 +128,35 @@
 
           <p><strong>1. </strong> To deploy the pipeline, execute the below npm command from Azure CLI to automatically create the Build pipeline and subsequently the Release pipeline.</p>
 
-          <div class="code" (click)="copyText(code1)"><code #code1>   npm run endtoend</code> 
+          <div class="code" (click)="copyText(code1)"><code #code1>cd && cd azure-cli && npm run endtoend</code> 
             <div *ngIf="copied" class="code-copied" >Copied  <i class="fas fa-check text-success"></i></div>
             <button class="btn btn-lg  code-copy"  *ngIf="!copied">
               <i class="fas fa-copy text-light"></i>
          </button> </div>
 
-        
+         <p>This step takes approximately 2 minutes and if successful, you can see the status of STACK - ‘E2EAssurance’ as “CREATE_COMPLETE” as shown in the Exhibit below:</p>
+         <div class="text-center py-4"><img src="assets/stage5/3/commandline.jpg" (click)="openImage('assets/stage5/3/commandline.jpg')" class="img-fluid"></div>
+          <p><strong>2.</strong> Go to the Pipelines View and check the status of your pipeline named ‘END-TO-END-QA ’, it should state <strong>in progress</strong>.</p>
 
-          <p><strong>2.</strong> Go to the Azure Pipeline View and check the status of your pipeline named ‘END-TO-END-QA ’, it should state <strong>in progress</strong>.</p>
+        <div class="text-center py-4"><img src="assets/stage5/3/buildpipelineInprogress.jpg" (click)="openImage('assets/stage5/3/buildpipelineInprogress.jpg')" class="img-fluid"></div>
+        <p>Now click on <strong>END-TO-END-QA</strong> and in next Page <strong>Click Fist Row.</strong> We can see stage wise flow - It takes around 12 Minutes to be completed. We can see build pipeline completed and passed. Refer below Exhibit:</p>
+        <div class="text-center py-4"><img src="assets/stage5/3/e2e_build_complete.jpg" (click)="openImage('assets/stage5/3/e2e_build_complete.jpg')" class="img-fluid"></div>
 
-          <p>This step takes approximately 1 minute and if successful, you can see the status of STACK - ‘E2EAssurance’ as “CREATE_COMPLETE” as shown in the Exhibit below:</p>
+          <p><strong>3.</strong> On successful creation of the Build Pipeline, the Release Pipeline will be auto triggered which will start the Deployment and Test execution. You can now view the execution progress by navigating to Pipelines >> Releases >> DEPLOYMENT-FUNCTIONAL-EXPERIENCE, refer Exhibit below for details:</p>
+          <div class="text-center py-4"><img src="assets/stage5/3/e2e_release_ip.jpg" (click)="openImage('assets/stage5/3/e2e_release_ip.jpg')" class="img-fluid"></div>
 
-        <div class="text-center py-4"><img src="assets/stage5/5.01-Pipeline.JPG" (click)="openImage('assets/stage5/5.01-Pipeline.JPG')" class="img-fluid"></div>
-
-        <div class="text-center py-4"><img src="assets/stage5/5.02-Stage-Overview.JPG" (click)="openImage('assets/stage5/5.02-Stage-Overview.JPG')" class="img-fluid"></div>
-
-        <div class="text-center py-4"><img src="assets/stage5/5.03-Task.JPG" class="img-fluid"></div>
-
-          <p><strong>3.</strong> On successful creation of the Build Pipeline, the Release Pipeline will be auto triggered which will start the Test execution. You can now view the execution progress by navigating to Pipelines >> Releases >> DEPLOYMENT-FUNCTIONAL-EXPERIENCE, refer Exhibit below for details:</p>
-          <div class="text-center py-4"><img src="assets/stage5/5.04 releases.JPG" class="img-fluid"></div>
-
-          <p><strong>4.</strong> If you click on Release -1, you should see the 3 stages namely UI, API and RWD running in parallel.</p>
-          <div class="text-center py-4"><img src="assets/stage5/5.05-Release-stages.JPG" class="img-fluid"></div>
-
-
-        <p>At this point, you should have automatically triggered a fully functioning End-to-End-QA CodePipeline.</p>
+          <p><strong>4.</strong> If you click on Release -1, you should see the stages as shown in below Exhibit.</p>
+          <div class="text-center py-4"><img src="assets/stage5/3/e2e_release_stages.jpg" (click)="openImage('assets/stage5/3/e2e_release_stages.jpg')" class="img-fluid"></div>
+        <p>It will take around 10 Minutes for this release pipeline to be completed as depicted in above Exhibit.</p>
         <p>As a result, of the complete pipeline being executed successfully, you should have the working instance of you Application under Test deployed in Azure instance.</p>
         
-<p><strong>5. </strong>	Go to Overview  Dashboards  EXPERIENCE_LAB_OVERVIEW, and click on “Digital Shopify” button at the header of Deployment in PostBuild, refer the Exhibit as shown below: </p>        
-     
-        
-<div class="text-center py-4"><img src="assets/stage5/5.06-ap.JPG" class="img-fluid"></div>
+      <p><strong>5. </strong>	Go to <strong>Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT Team - EXPERIENCE_LAB_OVERVIEW</strong>, and To view Application Deployed in Pre-Build and Post-Build- <strong> click </strong> on “Digital Shopify” button at the header of <strong>Deployment in PreBuild and Deployment in PostBuild</strong> respectively, refer the Exhibit as shown below: </p>        
+      <div class="text-center py-4"><img src="assets/stage5/3/dashboard.jpg" (click)="openImage('assets/stage5/3/dashboard.jpg')" class="img-fluid"></div>
+      <p>Refer the Exhibit below for the application under test.</p>
+<div class="text-center py-4"><img src="assets/stage5/3/deployedapp.jpeg" (click)="openImage('assets/stage5/3/deployedapp.jpeg')" class="img-fluid"></div>
 
-        <p>Refer the Exhibit below for the application under test.</p>
-        <div class="text-center py-4"><img src="assets/stage5/5.07-Dashborad.JPG" class="img-fluid"></div>
+<p>To view E2E Dashboard - Go to <strong>Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT Team - E2E-Test-Overview</strong> Refer the Exhibit below for the e2e dashboard.</p>
+<div class="text-center py-4"><img src="assets/stage5/3/e2e_dashboard.jpg" (click)="openImage('assets/stage5/3/e2e_dashboard.jpg')" class="img-fluid"></div>
         
 
 
@@ -208,8 +204,12 @@
 <div *ngIf="mod4">
     <div class="row">
         <div class="col-12 col-md-12 module-block">
-         
-            <div class="text-center py-4"><img src="https://via.placeholder.com/600x200" class="img-fluid"></div>
+          <h3 class="text-blue pb-4"><strong>Test Report Analysis</strong></h3>
+          <p>To view the reports navigate to <strong>Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT Team - EXPERIENCE_LAB_OVERVIEW.</strong> 
+         <p>This dashboard showcases a consolidated view for all the types of deployments and tests performed as the part of E2E Assurance.</p>
+         <div class="text-center py-4"><img src="assets/stage5/4/dashboard.jpg" (click)="openImage('assets/stage5/4/dashboard.jpg')" class="img-fluid"></div>
+         <p>Click on the relevant links from <strong>Reports</strong> section to view the corresponding reports.</p> 
+         <div class="text-center py-4"><img src="assets/stage5/4/reports.jpg" (click)="openImage('assets/stage5/4/reports.jpg')" class="img-fluid"></div>
 
                      
        </div>

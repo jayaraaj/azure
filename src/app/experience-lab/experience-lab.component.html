@@ -1,24 +1,24 @@
 <main class="page-content">
     <div class="container-fluid ">
-          <!--from-back-->
-      <a [routerLink]="['/modules', moduleNumber, pageLeft]" *ngIf="showLeftArrow">
+         <!--from-back-->
+      <a (click)="moveLeft()" *ngIf="showLeftArrow">
         <div class="navigation-nav nav-left">
           <i class="fa fa-chevron-left"></i>
         
         </div>
       </a>
-      <a [routerLink]="['/modules', moduleNumber, pageRight]" *ngIf="showRightArrow">
+      <a (click)="moveRight()" *ngIf="showRightArrow">
         <div class="navigation-nav nav-right">
           <i class="fa fa-chevron-right"></i>
         </div>
       </a>
-          <!--from-back-->
+          <!--from-back-->   
           <app-header [courseNumber]='2'></app-header>
-           <div class="px-5 py-5">
+           <div class="px-5 pt-3">
              <!--mod-->
              <div *ngIf="mod">
               <h3 class="text-blue"><strong>Experience Lab Objectives & Premise</strong></h3>            
-              <div class="text-center py-4"><img src="assets/tikk/Quote-2.png"  class="img-fluid"></div>
+              <div class="text-center "><img src="assets/tikk/Tik_ModuleIntro-02.jpg"  class="img-fluid w-75"></div>
             </div>
             <!--mod-->
             <!--mod1-->
@@ -26,12 +26,12 @@
             
             <div class="row" >
                 <div class="col-12 col-md-12 common-content">
-                    <h3 class="text-blue"><strong>Objectives</strong></h3>
+                    <h3 class="text-blue pb-3"><strong>Objectives</strong></h3>
 
                     <div class="card text-white bg-info mb-3">
-                        <div class="card-header">Note</div>
+                  
                         <div class="card-body">
-                          <p class="card-text">The lab focuses on only the execution stage of the testing lifecycle and not in its entirety.
+                          <p class="card-text"><strong>Note: </strong> The lab focuses on only the execution stage of the testing lifecycle and not in its entirety.
                         </p>
                         </div>
                       </div>
@@ -82,7 +82,7 @@
             
   <div class="row" >
       <div class="col-12 col-md-12">
-          <h3 class="text-blue"><strong>Application under Test</strong></h3>
+          <h3 class="text-blue pb-3"><strong>Application under Test</strong></h3>
   
 <p>For this lab, we have considered an application prototype – <strong>Digital Shopify</strong>.  It has a responsive web UI used for online shopping (Refer the Exhibit below). The current application is compatible with both desktop and mobile platforms and covers basic shopping workflows, providing feature such as: </p>
 <ul>
@@ -120,13 +120,13 @@
             
   <div class="row" >
       <div class="col-12 col-md-12">
-          <h3 class="text-blue"><strong>Solution Architecture </strong></h3>
+          <h3 class="text-blue pb-3"><strong>Solution Architecture </strong></h3>
 
           <p>This experience lab aims at helping you to create an end-to-end (E2E) automated deployment ready pipeline using Azure services and open source automation tools as shown in the Exhibit below: </p>
           
           <h6 class="py-3 text-center">Continuous Testing Reference Architecture</h6>
 
-          <div class="text-center py-4"><img src="assets/mod1/1mod_03.png" (click)="openImage('assets/mod1/1mod_03.png')" class="img-fluid"></div>
+          <div class="text-center py-4"><img src="assets/mod2/3/AzureDiagram_ExpLab-07.jpg" (click)="openImage('assets/mod2/3/AzureDiagram_ExpLab-07.jpg')" class="img-fluid pointer"></div>
           
           <p>The lab will orient you to the world of Continuous Testing and provide you with a step-by-step guide to build, execute, debug and fix real time failures induced in the pipeline. </p>
   
@@ -151,9 +151,9 @@
             
     <div class="row" >
         <div class="col-12 col-md-12">
-            <h3 class="text-blue"><strong>Lab Structure</strong></h3>
+            <h3 class="text-blue "><strong>Lab Structure</strong></h3>
 
-            <div class="bg-light p-4 points">
+            <!-- <div class="bg-light p-4 points">
                 <h6><strong>Scope</strong></h6>
                 <p>This lab constitutes five stages namely, <strong>Pre-Build QA, Post-Build QA, Functional Assurance, Experience Assurance, End-to-End Execution </strong> that explain a continuous testing pipeline in a chronological sequence. </p>
 
@@ -166,7 +166,10 @@
                 <h6><strong>Thought Leadership</strong></h6>
                 <p>Additionally, we have provided relevant thought leadership content for reference with best practices and tooling alternatives to consider in each pipeline stage.</p>
             
-            </div>
+            </div> -->
+
+            <div class="text-center pb-4"><img src="assets/mod2/4/Azure-Diagram_Structure-of-the-Experience-Lab​.jpg" (click)="openImage('assets/mod2/4/Azure-Diagram_Structure-of-the-Experience-Lab​.jpg')" class="img-fluid pointer"></div>
+
   
             <p>In order to get the best out this workshop, we recommend you follow the sequence and build your pipeline in progression.</p>
   
@@ -190,7 +193,7 @@
             
     <div class="row" >
         <div class="col-12 col-md-12">
-            <h3 class="text-blue"><strong>Learnings</strong></h3>
+            <h3 class="text-blue pb-3"><strong>Learnings</strong></h3>
 
             <p>On completion of all lab stages, you will be able to - </p>
             

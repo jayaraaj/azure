@@ -27,6 +27,7 @@ export class HeaderComponent implements OnInit {
   $number: Subscription;
   courseNum;
   scroll:boolean=false;
+
   constructor(
     private _leftPanelSer: LeftPanelService,
   ) { }
@@ -37,23 +38,26 @@ export class HeaderComponent implements OnInit {
 
  
       this.$number = this._leftPanelSer.coursePercentage.subscribe(val => {
-        console.log(val);
+        console.log(val, 'per');
         this.courseNum = val;
       });
-      console.log('module', this.courseNumber);
+     // console.log('module', this.courseNumber);
   }
 
  
 
   onClickPanel() {
-    console.log(this.openPanel);
+    //console.log(this.openPanel);
     this.openPanel = !this.openPanel;
     this._leftPanelSer.togglePanel(this.openPanel);
+    console.log(this.openPanel)
     
   }
 
   getWidth() {
-    return (+this.courseNum)+'%';
+    //console.log(+this.courseNum * 2);
+    //return (+this.courseNum)+'%';
+    return (+this.courseNum * 2)+'px';
   }
 
 

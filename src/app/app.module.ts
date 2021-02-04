@@ -24,6 +24,8 @@ import { ConclusionComponent } from './conclusion/conclusion.component';
 import { LightboxModule } from 'ngx-lightbox';
 import { NavComponent } from './shared/nav.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { NgbModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,11 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    LightboxModule 
+    LightboxModule,
+    NgbModule,
+    NgbAlertModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy}

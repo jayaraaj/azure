@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import * as $ from 'jquery' 
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
@@ -27,18 +26,28 @@ export class ModulesComponent implements OnInit, OnDestroy {
   pageRecived: string;
   pageD: any;
   men: any = {id: 4, pageName: "what-is-a-landing-zone"};
-
+  $clikedCourse:Subscription;
+  href: string;
   constructor(
     private _leftPanelSer: LeftPanelService,
     private _router: Router,
-    private _commonService: CommonService
+    private _commonService: CommonService,
+    private route: ActivatedRoute
   ) { }
 
   
 
   ngOnInit(): void {
 
+   this.href = this._router.url;
+   var pathname = this.href.split("/", 3); 
+
+    const currentPageModule = pathname.slice(-1)[0];
+    let convertToNumber = parseInt(currentPageModule);
+    convertToNumber --;
+   // console.log();
   
+    //this.menus[0].toggle = true;
 
     this.$panelMode =  this._leftPanelSer.panelMode;
 
@@ -46,34 +55,62 @@ export class ModulesComponent implements OnInit, OnDestroy {
 
     this._leftPanelSer.getMenuList().subscribe((data: any)=> {
       this.menus = data.menu;
+      
+      this.menus[convertToNumber].toggle = true;
+
+      this.menus.forEach((element, i) => {
+        element.subMenu.forEach((ele, index) => {
+          let modifiedLink = ele.link+i; 
+          if(sessionStorage.getItem(modifiedLink)) {
+            //console.log(modifiedLink);            
+            this.menus[i].subMenu[index].checked = true;
+            this._leftPanelSer.increaseCourse(sessionStorage.length);
+          }
+          
+          
+        });
+      });
+
     });
 
-    // this.$pageSUb =  this._commonService.$pageName.subscribe( page => {
-    //   this.pageRecived = page;
+
+    this.$clikedCourse = this._leftPanelSer.courseLink.subscribe((data:any) => {
+ 
      
-    //   this.menus.filter(m => m.subMenu.every(s => {
+      if(data != null){
+        const tt = data[0];
+        // console.log('clicked course', tt.modNo);
+        let con = tt.modNo-1;
+        this.menus.forEach((ele, i)=> {
+          this.menus[i].toggle = false;
+        });
+        this.menus[con].toggle = true;
         
-    //     if(s.link == this.pageRecived) {
-    //       s.checked = true;
-    //       console.log("page", this.menus)
-    //     }
-    //   }));
-    //  });
+        let indexd = this.menus[con].subMenu.findIndex(x => x.link === tt.link);
+        if(indexd == -1) {
+          
+        }else{
+          this.menus[con].subMenu[indexd].checked = true;
+          this._leftPanelSer.increaseCourse(sessionStorage.length);
+        }   
 
-    this.$pageSUb =  this._commonService.$pageName.pipe(map((value)=>{
-      console.log(value);
-      const id = value;
-     
-      console.log(id);
-    })).subscribe( page => {
-     
-    //  this.pageD = page;
+      
 
-    //   console.log(this.menus[0].link)
-     
-     });
+      }
+      
+
+   });
+
+    
 
 
+  }
+
+  checkClick(event, detail, subMenuI, i) {
+    this.menus[i].subMenu[subMenuI].checked = true;
+    this._leftPanelSer.increaseCourse(sessionStorage.length);
+    sessionStorage.setItem(detail.link+i, i);
+   
   }
 
   onClickMenuTitle(item: number) { 
@@ -93,28 +130,7 @@ export class ModulesComponent implements OnInit, OnDestroy {
     
   }
 
-  checkClick(event, detail, subMenuI, i) {
-   // console.log(detail.checked);
-    // this.menus.map((menu) => { 
-    //   menu.checked = true;
-    //   console.log(menu.checked)
-    // });
 
-    if(this.menus[i].subMenu[subMenuI].checked == false) {
-
-      this.addNumber+1;
-    this._leftPanelSer.increaseCourse(this.addNumber++);  
-    this.$number = this._leftPanelSer.coursePercentage.subscribe(val => {
-      //console.log(val)
-    });
-
-    }
-  
-
-    this.menus[i].subMenu[subMenuI].checked = true;
-    console.log(this.menus[i].subMenu[subMenuI]); 
-   // this.selectedIndex = index;
-  }
 
   private _increaseCourse() {
     
@@ -124,6 +140,7 @@ export class ModulesComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     //this.$number.unsubscribe();
     //this.$pageSUb.unsubscribe();
+    this.$clikedCourse.unsubscribe();
   }
 
 

@@ -1,31 +1,31 @@
 <main class="page-content">
     <div class="container-fluid ">
        <!--from-back-->
-       <a [routerLink]="['/modules', moduleNumber, pageLeft]" *ngIf="showLeftArrow">
+       <a (click)="moveLeft()" *ngIf="showLeftArrow">
         <div class="navigation-nav nav-left">
           <i class="fa fa-chevron-left"></i>
         
         </div>
       </a>
-      <a [routerLink]="['/modules', moduleNumber, pageRight]" *ngIf="showRightArrow">
+      <a (click)="moveRight()" *ngIf="showRightArrow">
         <div class="navigation-nav nav-right">
           <i class="fa fa-chevron-right"></i>
         </div>
       </a>
           <!--from-back-->        
         <app-header [courseNumber]='3'></app-header>
-        <div class="px-5 py-5">
+        <div class="px-5 pt-5">
            <!--mod-->
            <div *ngIf="mod">
             <h3 class="text-blue"><strong>Pre-Conditions</strong></h3>            
-            <div class="text-center py-4"><img src="assets/tikk/Quote-1.png"  class="img-fluid"></div>
+            <div class="text-center "><img src="assets/tikk/Tik_ModuleIntro-03.jpg"  class="img-fluid w-75"></div>
           </div>
           <!--mod-->
          <!--mod1-->
          <div *ngIf="mod1">
              <div class="row">
                  <div class="col-12 col-md-12 module-block">
-                    <h3 class="text-blue pb-4"><strong>How to create an Azure Account?</strong></h3>
+                    <h3 class="text-blue pb-3"><strong>How to create an Azure Account?</strong></h3>
                    
 
 
@@ -34,13 +34,13 @@
                         <div class="card-body">
                           <ul>
                             <li>To create account on Azure Portal, you need to have a phone number, a Credit / Debit card, and a GitHub account (or) a Microsoft account.</li>
-                            <li>If you already have an Azure account - Free (or) Pay as you go Subscription and have Administrator access, you can skip this page. Also please go through the Azure Free Account FAQ section for more information on your account, refer <a href="https://azure.microsoft.com/en-us/free/free-account-faq/" class="a">https://azure.microsoft.com/en-us/free/free-account-faq/</a> </li>
+                            <li>If you already have an Azure account - Free (or) Pay as you go Subscription and have Administrator access, you can skip this page. Also please go through the Azure Free Account FAQ section for more information on your account, refer <a href="https://azure.microsoft.com/en-us/free/free-account-faq/" target="_blank" class="a">https://azure.microsoft.com/en-us/free/free-account-faq/</a> </li>
                           </ul>
                         
                         </div>
                       </div>
 
-                      <p class="pt-3"><strong>1.</strong>	Access <a href="https://azure.microsoft.com/en-us/" class="a">https://azure.microsoft.com/en-us/</a> and click on Try Azure for Free Button, refer the Exhibit below for details:</p>
+                      <p class="pt-3"><strong>1.</strong>	Access <a href="https://azure.microsoft.com/en-us/" target="_blank" class="a">https://azure.microsoft.com/en-us/</a> and click on Try Azure for Free Button, refer the Exhibit below for details:</p>
 
                       <div class="text-center py-4"><img src="assets/mod3/3mod_01.jpg" (click)="openImage('assets/mod3/3mod_01.jpg')" class="img-fluid pointer"></div>
 
@@ -68,7 +68,7 @@
                       <p><strong>8.</strong>	This completes the sign-up process, and you will navigate to the Azure Page as reflected in the Exhibit below. Click on Build in the portal button to get started with Azure Cloud as shown in the Exhibit.  </p>
                       <div class="text-center py-4"><img src="assets/mod3/3mod_8.png" (click)="openImage('assets/mod3/3mod_8.png')" class="img-fluid pointer"></div>
 
-                      <p><strong>9.</strong>	Landing Page for Azure Cloud for reference <a href="https://portal.azure.com/#home:" class="a">https://portal.azure.com/#home:</a></p>
+                      <p><strong>9.</strong>	Landing Page for Azure Cloud for reference <a href="https://portal.azure.com/#home:" class="a" target="_blank">https://portal.azure.com/#home:</a></p>
                       <div class="text-center py-4"><img src="assets/mod3/3mod_10.jpg" (click)="openImage('assets/mod3/3mod_10.jpg')" class="img-fluid pointer"></div>
                  </div>
              </div>
@@ -80,9 +80,9 @@
         <div *ngIf="mod2">
           <div class="row">
               <div class="col-12 col-md-12 module-block">
-                 <h3 class="text-blue pb-4"><strong>How to setup an Environment?</strong></h3>
+                 <h3 class="text-blue pb-3"><strong>How to setup an Environment?</strong></h3>
                  <h4>Creating an organization: </h4>
-                 <p><strong>1.</strong>	If you have already created organization on <a href="Https://dev.azure.com" class="a" target="_blank">Https://dev.azure.com</a>, Sign into your organization (https://dev.azure.com/yourorganization). Update your organization name in highlighted section without brackets & follow section Create PAT Token. </p>
+                 <p><strong>1.</strong>	If you have already created organization on <a href="Https://dev.azure.com" class="a" target="_blank">https://dev.azure.com</a>, Sign into your organization (https://dev.azure.com/yourorganization). Update your organization name in highlighted section without brackets & follow section Create PAT Token. </p>
                  <p>If you do not have organization created, follow below steps to create organization.</p>
                  
 
@@ -111,12 +111,13 @@
                       <div class="text-center py-4"><img src="assets/mod3/2/6-2.jpg" (click)="openImage('assets/mod3/2/6-2.jpg')" class="img-fluid"></div>
                     </div>
 
-                   <p><strong>2.</strong>	Give Name, select Full Access and click on Create.</p>
+                   <p><strong>2.</strong>	Give Name, select Full Access and click on Create.<br>Now Copy your Organization Name and Save it in Safe Place –  as shown in the Exhibit below, it is DigitalShopify20
+         </p>
                    <div class="">
          <div class="text-center py-4"><img src="assets/mod3/2/7.png" (click)="openImage('assets/mod3/2/7.png')" class="img-fluid"></div>
-         <div class="text-center py-4"><img src="assets/mod3/2/7-2.png" (click)="openImage('assets/mod3/2/7-2.png')" class="img-fluid"></div>
+         <!-- <div class="text-center py-4"><img src="assets/mod3/2/7-2.png" (click)="openImage('assets/mod3/2/7-2.png')" class="img-fluid"></div> -->
                    
-                    <p><strong>3</strong>	Now Copy your PAT Token and Save it in Notepad. </p>
+                    <p><strong>3</strong>	Now Copy your PAT Token and Save it in Safe Place from below Exhibit </p>
          
 
 
@@ -132,7 +133,7 @@
                 
                  <p><strong>3.</strong>	Select <strong>Start free trial</strong> on the pop-up</p>
                  <div class="text-center py-4"><img src="assets/mod3/2/Start-free-trial-step3.JPG" (click)="openImage('assets/mod3/2/Start-free-trial-step3.JPG')" class="img-fluid pointer"></div>
-                 <div class="text-center pb-4"><img src="assets/mod3/2/2-3-1.png" (click)="openImage('assets/mod3/2/2-3-1.png')" class="img-fluid pointer"></div>
+                 <!-- <div class="text-center pb-4"><img src="assets/mod3/2/2-3-1.png" (click)="openImage('assets/mod3/2/2-3-1.png')" class="img-fluid pointer"></div> -->
 
                  <p><strong>4.</strong>	Go to Users section and change access level to Basic + Test Plan</p>
                  <div class="text-center py-4"><img src="assets/mod3/2/CreateTestPlan4.JPG" (click)="openImage('assets/mod3/2/CreateTestPlan4.JPG')" class="img-fluid pointer"></div>
@@ -141,7 +142,7 @@
                  <div class="text-center py-4"><img src="assets/mod3/2/step5.JPG" (click)="openImage('assets/mod3/2/step5.JPG')" class="img-fluid pointer"></div>
 
                  <p><strong>6.</strong>	Validate the change is applied:</p>
-                 <div class="text-center py-4"><img src="assets/mod3/2/Step6.JPG" (click)="openImage('assets/mod3/2/Step6.JPG')" class="img-fluid pointer"></div>
+                 <div class="text-center py-4"><img src="assets/mod3/2/step6.JPG" (click)="openImage('assets/mod3/2/Step6.JPG')" class="img-fluid pointer"></div>
 
 
               </div>

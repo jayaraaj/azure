@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
+import { CommonService } from '../service/common.service';
 import { LeftPanelService } from '../service/left-panel.service';
 
 @Component({
@@ -26,11 +27,13 @@ export class ConclusionComponent implements OnInit {
   pageLeft: string;
   pageRight: string;
   pageArray = [
+  'test-report-analysis',
   'conclusion', 
-  'access-cognizants-premium-thought-leadership-content',
+  'we-have-accomplished',
   'jargons-ci-glossary', 
   'clean-up', 
 ];
+copied = false;
 
 lastPageIndex;
 showLeftArrow: boolean = true;
@@ -39,49 +42,43 @@ showRightArrow : boolean = true;
   constructor(
     private _leftPanelSer: LeftPanelService,
     public router: Router,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    private _commonService: CommonService,
   ) { }
 
   ngOnInit(): void {
 
     this.route.params.subscribe((params: Params) => {
-      if (this.pageArray.indexOf(params.name) == 0) {
-        this.showLeftArrow = false;
-       }else{
-         this.showLeftArrow = true;
-       }
+
+     // sessionStorage.setItem(params.name, String(this.moduleNumber));
+      // if (this.pageArray.indexOf(params.name) == 0) {
+      //   this.showLeftArrow = false;
+      //  }else{
+      //    this.showLeftArrow = true;
+      //  }
   
-       this.lastPageIndex = this.pageArray.indexOf(params.name)+1;
+      //  this.lastPageIndex = this.pageArray.indexOf(params.name)+1;
      
   
-       if (this.pageArray.length == this.lastPageIndex) {
-         this.showRightArrow = false;
-        }else{
-          this.showRightArrow = true;
-        }
+      //  if (this.pageArray.length == this.lastPageIndex) {
+      //    this.showRightArrow = false;
+      //   }else{
+      //     this.showRightArrow = true;
+      //   }
 
-      if(params.name == this.pageArray[0]) {
+      if(params.name == this.pageArray[1]) {
         this.mod = true;
         this.mod1 = false;
         this.mod2=false;
         this.mod3=false;
         this.pageLeft = this.pageArray[0];
-        this.pageRight = this.pageArray[1];
-      
-      }
-      else if(params.name == this.pageArray[1]) {
-        this.mod = false;
-        this.mod1 = true;
-        this.mod2=false;
-        this.mod3=false;
-        this.pageLeft = this.pageArray[0];
         this.pageRight = this.pageArray[2];
-       
+      
       }
       else if(params.name == this.pageArray[2]) {
         this.mod = false;
-        this.mod1 = false;
-        this.mod2=true;
+        this.mod1 = true;
+        this.mod2=false;
         this.mod3=false;
         this.pageLeft = this.pageArray[1];
         this.pageRight = this.pageArray[3];
@@ -90,10 +87,22 @@ showRightArrow : boolean = true;
       else if(params.name == this.pageArray[3]) {
         this.mod = false;
         this.mod1 = false;
-        this.mod2=false;
-        this.mod3 = true;
+        this.mod2=true;
+        this.mod3=false;
         this.pageLeft = this.pageArray[2];
         this.pageRight = this.pageArray[4];
+        this.showRightArrow = true;
+       
+      }
+      else if(params.name == this.pageArray[4]) {
+        
+        this.showRightArrow = false;
+        this.mod = false;
+        this.mod1 = false;
+        this.mod2=false;
+        this.mod3 = true;
+        this.pageLeft = this.pageArray[3];
+        this.pageRight = this.pageArray[5];
       
       }
     
@@ -107,6 +116,39 @@ showRightArrow : boolean = true;
     this.openPanel = !this.openPanel;
     this._leftPanelSer.togglePanel(this.openPanel);
     
+  }
+
+  copyText(text) {
+    console.log('tad')
+    this._commonService.copied(text);
+    // this._commonService.$copied.subscribe( result => {
+    //   this.copied = result;
+    // });
+  }
+
+  moveLeft(){
+   
+    //console.log(this.moduleNumber, 'module');
+    if(this.pageLeft == this.pageArray[0]){
+      this.moduleNumber = 9;
+    }else {
+      this.moduleNumber = 10;
+    }
+    this._leftPanelSer.clickedCourseLink(this.pageLeft, this.moduleNumber);
+    this.router.navigate(['/modules', this.moduleNumber, this.pageLeft]);
+    
+  }
+
+  moveRight() {
+      
+    if(this.pageRight == this.pageArray[5]){
+      this.moduleNumber = 10;
+    }else {
+      this.moduleNumber = 10;
+    }
+    //console.log(this.moduleNumber, 'module for right');
+    this._leftPanelSer.clickedCourseLink(this.pageRight, this.moduleNumber);
+    this.router.navigate(['/modules', this.moduleNumber, this.pageRight]);
   }
 
 }

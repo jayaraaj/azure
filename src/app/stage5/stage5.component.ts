@@ -28,11 +28,13 @@ export class Stage5Component implements OnInit {
   pageLeft: string;
   pageRight: string;
   pageArray = [
+    'test-report-analysis',
   'stage-5', 
   'stage-objectives',
   'pipeline-overview', 
   'pipeline-Creation-and-Execution', 
-  'test-report-analysis' 
+  'test-report-analysis',
+  'conclusion'
 ];
 
 lastPageIndex;
@@ -45,7 +47,7 @@ private _album: Array<any> = [];
     private _leftPanelSer: LeftPanelService,
     public router: Router,
     public route: ActivatedRoute,
-    private _commonService: CommonService,
+    private _commonService: CommonService,    
     private _lightbox: Lightbox,
   ) { }
 
@@ -53,22 +55,9 @@ private _album: Array<any> = [];
 
     this.route.params.subscribe((params: Params) => {
 
-      if (this.pageArray.indexOf(params.name) == 0) {
-        this.showLeftArrow = false;
-       }else{
-         this.showLeftArrow = true;
-       }
-  
-       this.lastPageIndex = this.pageArray.indexOf(params.name)+1;
-     
-  
-       if (this.pageArray.length == this.lastPageIndex) {
-         this.showRightArrow = false;
-        }else{
-          this.showRightArrow = true;
-        }
+      //sessionStorage.setItem(params.name, String(this.moduleNumber));
 
-      if(params.name ==this.pageArray[0]) {
+      if(params.name ==this.pageArray[1]) {
         this.mod = true;
         this.mod1 = false;
         this.mod2=false;
@@ -77,9 +66,9 @@ private _album: Array<any> = [];
         this.mod5 = false;
         this.mod6 = false;
         this.pageLeft = this.pageArray[0];
-        this.pageRight = this.pageArray[1];
+        this.pageRight = this.pageArray[2];
       }
-      else if(params.name ==this.pageArray[1]) {
+      else if(params.name ==this.pageArray[2]) {
         this.mod = false;
         this.mod1 = true;
         this.mod2=false;
@@ -87,24 +76,13 @@ private _album: Array<any> = [];
         this.mod4 = false;
         this.mod5 = false;
         this.mod6 = false;
-        this.pageLeft = this.pageArray[0];
-        this.pageRight = this.pageArray[2];
-      }else if(params.name ==this.pageArray[2]) {
+        this.pageLeft = this.pageArray[1];
+        this.pageRight = this.pageArray[3];
+      }else if(params.name ==this.pageArray[3]) {
         this.mod = false;
         this.mod1 = false;
         this.mod2=true;
         this.mod3=false;
-        this.mod4 = false;
-        this.mod5 = false;
-        this.mod6 = false;
-        this.pageLeft = this.pageArray[1];
-        this.pageRight = this.pageArray[3];
-      }
-      else if(params.name ==this.pageArray[3]) {
-        this.mod = false;
-        this.mod1 = false;
-        this.mod2=false;
-        this.mod3=true;
         this.mod4 = false;
         this.mod5 = false;
         this.mod6 = false;
@@ -115,12 +93,23 @@ private _album: Array<any> = [];
         this.mod = false;
         this.mod1 = false;
         this.mod2=false;
-        this.mod3 = false;
-        this.mod4 = true;
+        this.mod3=true;
+        this.mod4 = false;
         this.mod5 = false;
         this.mod6 = false;
         this.pageLeft = this.pageArray[3];
         this.pageRight = this.pageArray[5];
+      }
+      else if(params.name ==this.pageArray[5]) {
+        this.mod = false;
+        this.mod1 = false;
+        this.mod2=false;
+        this.mod3 = false;
+        this.mod4 = true;
+        this.mod5 = false;
+        this.mod6 = false;
+        this.pageLeft = this.pageArray[4];
+        this.pageRight = this.pageArray[6];
       }
       
     });
@@ -151,6 +140,31 @@ private _album: Array<any> = [];
    this._album.push(album);
    this._lightbox.open(this._album);
     console.log(album);
+  }
+
+  moveLeft(){
+   
+    //console.log(this.moduleNumber, 'module');
+    if(this.pageLeft == this.pageArray[0]){
+      this.moduleNumber = 8;
+    }else {
+      this.moduleNumber = 9;
+    }
+    this._leftPanelSer.clickedCourseLink(this.pageLeft, this.moduleNumber);
+    this.router.navigate(['/modules', this.moduleNumber, this.pageLeft]);
+    
+  }
+
+  moveRight() {
+      
+    if(this.pageRight == this.pageArray[6]){
+      this.moduleNumber = 10;
+    }else {
+      this.moduleNumber = 9;
+    }
+    //console.log(this.moduleNumber, 'module for right');
+    this._leftPanelSer.clickedCourseLink(this.pageRight, this.moduleNumber);
+    this.router.navigate(['/modules', this.moduleNumber, this.pageRight]);
   }
 
 }

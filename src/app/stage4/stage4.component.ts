@@ -31,13 +31,15 @@ export class Stage4Component implements OnInit {
   pageLeft: string;
   pageRight: string;
   pageArray = [
+    'test-report-analysis',
   'stage-4', 
   'stage-objectives',
   'pipeline-overview',
   'build-and-execute',
   'pipeline-Creation-and-Execution',
   'debugging-and-Re-Excution',
-  'test-report-analysis' 
+  'test-report-analysis',
+  'stage-5'
 ];
 
 lastPageIndex;
@@ -58,21 +60,9 @@ copied = false;
   ngOnInit(): void {
 
     this.route.params.subscribe((params: Params) => {
-      if (this.pageArray.indexOf(params.name) == 0) {
-        this.showLeftArrow = false;
-       }else{
-         this.showLeftArrow = true;
-       }
-  
-       this.lastPageIndex = this.pageArray.indexOf(params.name)+1;
-     
-  
-       if (this.pageArray.length == this.lastPageIndex) {
-         this.showRightArrow = false;
-        }else{
-          this.showRightArrow = true;
-        }
-        if(params.name == this.pageArray[0]) {
+      // sessionStorage.setItem(params.name, String(this.moduleNumber));
+
+        if(params.name == this.pageArray[1]) {
           this.mod = true;
           this.mod1 = false;
           this.mod2=false;
@@ -81,9 +71,9 @@ copied = false;
           this.mod5 = false;
           this.mod6 = false;
           this.pageLeft = this.pageArray[0];
-          this.pageRight = this.pageArray[1];
+          this.pageRight = this.pageArray[2];
         }
-        else if(params.name ==this.pageArray[1]) {
+        else if(params.name ==this.pageArray[2]) {
           this.mod = false;
           this.mod1 = true;
           this.mod2=false;
@@ -91,24 +81,13 @@ copied = false;
           this.mod4 = false;
           this.mod5 = false;
           this.mod6 = false;
-          this.pageLeft = this.pageArray[0];
-          this.pageRight = this.pageArray[2];
-        }else if(params.name ==this.pageArray[2]) {
+          this.pageLeft = this.pageArray[1];
+          this.pageRight = this.pageArray[3];
+        }else if(params.name ==this.pageArray[3]) {
           this.mod = false;
           this.mod1 = false;
           this.mod2=true;
           this.mod3=false;
-          this.mod4 = false;
-          this.mod5 = false;
-          this.mod6 = false;
-          this.pageLeft = this.pageArray[1];
-          this.pageRight = this.pageArray[3];
-        }
-        else if(params.name ==this.pageArray[3]) {
-          this.mod = false;
-          this.mod1 = false;
-          this.mod2=false;
-          this.mod3=true;
           this.mod4 = false;
           this.mod5 = false;
           this.mod6 = false;
@@ -119,8 +98,8 @@ copied = false;
           this.mod = false;
           this.mod1 = false;
           this.mod2=false;
-          this.mod3 = false;
-          this.mod4 = true;
+          this.mod3=true;
+          this.mod4 = false;
           this.mod5 = false;
           this.mod6 = false;
           this.pageLeft = this.pageArray[3];
@@ -131,8 +110,8 @@ copied = false;
           this.mod1 = false;
           this.mod2=false;
           this.mod3 = false;
-          this.mod4 = false;
-          this.mod5 = true;
+          this.mod4 = true;
+          this.mod5 = false;
           this.mod6 = false;
           this.pageLeft = this.pageArray[4];
           this.pageRight = this.pageArray[6];
@@ -143,10 +122,21 @@ copied = false;
           this.mod2=false;
           this.mod3 = false;
           this.mod4 = false;
-          this.mod5 = false;
-          this.mod6 = true;
+          this.mod5 = true;
+          this.mod6 = false;
           this.pageLeft = this.pageArray[5];
           this.pageRight = this.pageArray[7];
+        }
+        else if(params.name ==this.pageArray[7]) {
+          this.mod = false;
+          this.mod1 = false;
+          this.mod2=false;
+          this.mod3 = false;
+          this.mod4 = false;
+          this.mod5 = false;
+          this.mod6 = true;
+          this.pageLeft = this.pageArray[6];
+          this.pageRight = this.pageArray[8];
         }
       });
     this.$panelMode =  this._leftPanelSer.panelMode;
@@ -176,6 +166,31 @@ copied = false;
     // this._commonService.$copied.subscribe( result => {
     //   this.copied = result;
     // });
+  }
+
+  moveLeft(){
+   
+    //console.log(this.moduleNumber, 'module');
+    if(this.pageLeft == this.pageArray[0]){
+      this.moduleNumber = 7;
+    }else {
+      this.moduleNumber = 8;
+    }
+    this._leftPanelSer.clickedCourseLink(this.pageLeft, this.moduleNumber);
+    this.router.navigate(['/modules', this.moduleNumber, this.pageLeft]);
+    
+  }
+
+  moveRight() {
+      
+    if(this.pageRight == this.pageArray[8]){
+      this.moduleNumber = 9;
+    }else {
+      this.moduleNumber = 8;
+    }
+    //console.log(this.moduleNumber, 'module for right');
+    this._leftPanelSer.clickedCourseLink(this.pageRight, this.moduleNumber);
+    this.router.navigate(['/modules', this.moduleNumber, this.pageRight]);
   }
 
 

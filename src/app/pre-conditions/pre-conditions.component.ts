@@ -21,11 +21,14 @@ export class PreConditionsComponent implements OnInit {
   pageLeft: string;
   pageRight: string;
   pageArray = [
+  'learnings',
   'pre-conditions', 
   'how-to-create-an-azure-account',
   'how-to-setup-an-Environment',
+  'stage-0'
   
 ];
+pageName;
 lastPageIndex;
 showLeftArrow: boolean = true;
 showRightArrow : boolean = true;
@@ -41,43 +44,49 @@ showRightArrow : boolean = true;
    
 
     this.route.params.subscribe((params: Params) => {
-      if (this.pageArray.indexOf(params.name) == 0) {
-        this.showLeftArrow = false;
-       }else{
-         this.showLeftArrow = true;
-       }
+
+     this.pageName = params.name;
+      //sessionStorage.setItem(this.pageName, String(this.moduleNumber));
+
+
+      // if (this.pageArray.indexOf(params.name) == 0) {
+      //   this.showLeftArrow = false;
+      //  }else{
+      //    this.showLeftArrow = true;
+      //  }
   
-       this.lastPageIndex = this.pageArray.indexOf(params.name)+1;
+      //  this.lastPageIndex = this.pageArray.indexOf(params.name)+1;
      
   
-       if (this.pageArray.length == this.lastPageIndex) {
-         this.showRightArrow = false;
-        }else{
-          this.showRightArrow = true;
-        }
+      //  if (this.pageArray.length == this.lastPageIndex) {
+      //    this.showRightArrow = false;
+      //   }else{
+      //     this.showRightArrow = true;
+      //   }
 
 
-      if (params.name == this.pageArray[0]){
+      if (params.name == this.pageArray[1]){
         this.mod=true;
         this.mod1=false;
         this.mod2=false;
         this.pageLeft = this.pageArray[0];
-        this.pageRight = this.pageArray[1];
+        this.pageRight = this.pageArray[2];
+      
        
       }
-      else if(params.name ==this.pageArray[1]) {
+      else if(params.name ==this.pageArray[2]) {
         this.mod=false;
         this.mod1 = true;
         this.mod2=false;
-        this.pageLeft = this.pageArray[0];
-          this.pageRight = this.pageArray[2];
+        this.pageLeft = this.pageArray[1];
+          this.pageRight = this.pageArray[3];
        
-      }else if(params.name ==this.pageArray[2]) {
+      }else if(params.name ==this.pageArray[3]) {
         this.mod=false;
         this.mod1 = false;
         this.mod2=true;
-        this.pageLeft = this.pageArray[1];
-        this.pageRight = this.pageArray[3];
+        this.pageLeft = this.pageArray[2];
+        this.pageRight = this.pageArray[4];
       }
     });
 
@@ -87,10 +96,8 @@ showRightArrow : boolean = true;
   }
 
   onClickPanel() {
-    console.log(this.openPanel);
     this.openPanel = !this.openPanel;
-    this._leftPanelSer.togglePanel(this.openPanel);
-    
+    this._leftPanelSer.togglePanel(this.openPanel);    
   }
 
   openImage(imageSrc) {
@@ -101,7 +108,28 @@ showRightArrow : boolean = true;
    };
    this._album.push(album);
    this._lightbox.open(this._album);
-    console.log(album);
+  }
+
+  moveLeft(){
+    if(this.pageLeft == this.pageArray[0]){
+      this.moduleNumber = 2;
+    }else {
+      this.moduleNumber = 3;
+    }
+    this._leftPanelSer.clickedCourseLink(this.pageLeft, this.moduleNumber);
+    this.router.navigate(['/modules', this.moduleNumber, this.pageLeft]);
+    
+  }
+
+  moveRight() {
+    if(this.pageRight == this.pageArray[4]){
+      this.moduleNumber = 4;
+    } 
+    else {
+      this.moduleNumber = 3;
+    }   
+    this._leftPanelSer.clickedCourseLink(this.pageRight, this.moduleNumber);
+    this.router.navigate(['/modules', this.moduleNumber, this.pageRight]);
   }
 
 }

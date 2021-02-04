@@ -12,6 +12,8 @@ export class LeftPanelService {
 
     private _coursePercentage = new BehaviorSubject<any>(null);
 
+    courseLink = new BehaviorSubject<any>(null);
+
     
 
     constructor(
@@ -36,11 +38,27 @@ export class LeftPanelService {
         return this._coursePercentage.asObservable();
     }
 
-    increaseCourse(value) {
-        
+    increaseCourse(value) {        
 
         this._coursePercentage.next(value);
     }
+
+    clickedCourseLink(link, moduleNumber) {
+
+   
+        let data = [{
+            link: link,
+            modNo: moduleNumber
+        }];
+        let reducedModNo = moduleNumber - 1;
+        let changedModNo = String(reducedModNo);
+
+        sessionStorage.setItem(link+changedModNo, changedModNo);
+        
+        this.courseLink.next(data);
+    }
+
+    
 
 
     

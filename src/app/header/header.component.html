@@ -1,6 +1,7 @@
 <!--top-->
 <div class="bg-white ">
-<div class=" w-100 bg-white pt-3 " >
+  <div style="height: 200px;">
+<div class="bg-white pt-3 header" [ngClass]="{'tog-header' : !this.openPanel}"   >
 <div class="row justify-content-between px-5 py-1">
     <div class="col-6 col-md-2">
         <img src="assets/images/logo.png" class="img-fluid w-75" alt="">
@@ -10,10 +11,10 @@
     </div>
 </div>
 <!--top-->
-<div class=" w-100 " [ngClass]="{'level': scroll}">
+<div class=" w-100 " >
 <!--blueStrip-->
 <div class="blue-strip px-5 py-3 text-white">
-    <h5>Cognizant Eperience Lab</h5>
+    <h5>Cognizant Experience Lab</h5>
     <h2>Continuous Testing with Microsoft Azure</h2>
 </div>
 <!--blueStrip-->
@@ -42,5 +43,6 @@
     </ul>
 </div>
 <!-- menu strip-->
+</div>
 </div>
 </div>

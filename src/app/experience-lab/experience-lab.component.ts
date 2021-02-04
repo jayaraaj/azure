@@ -22,18 +22,20 @@ export class ExperienceLabComponent implements OnInit {
   pageLeft: string;
   pageRight: string;
   pageArray = [
+  'how-it-benefits',
   'experience-lab-objectives-and-premise', 
   'objectives',
   'application-under-test',
   'solution-architecture',
   'lab-structure',
-  'learnings'
+  'learnings',
+  'pre-conditions'
 ];
 moduleNumber: number = 2;
 lastPageIndex;
 showLeftArrow: boolean = true;
 showRightArrow : boolean = true;
-
+pageName;
 
 
   constructor(private _leftPanelSer: LeftPanelService,
@@ -42,26 +44,28 @@ showRightArrow : boolean = true;
     private _lightbox: Lightbox) { }
 
     ngOnInit(): void {
+    
       this.route.params.subscribe((params: Params) => {
-       
+        this.pageName = params.name;
+        //sessionStorage.setItem(this.pageName, String(this.moduleNumber));
 
-        if (this.pageArray.indexOf(params.name) == 0) {
-          this.showLeftArrow = false;
-         }else{
-           this.showLeftArrow = true;
-         }
+        // if (this.pageArray.indexOf(params.name) == 0) {
+        //   this.showLeftArrow = false;
+        //  }else{
+        //    this.showLeftArrow = true;
+        //  }
    
-         this.lastPageIndex = this.pageArray.indexOf(params.name)+1;
+        //  this.lastPageIndex = this.pageArray.indexOf(params.name)+1;
        
    
-         if (this.pageArray.length == this.lastPageIndex) {
-           this.showRightArrow = false;
-          }else{
-            this.showRightArrow = true;
-          }
+        //  if (this.pageArray.length == this.lastPageIndex) {
+        //    this.showRightArrow = false;
+        //   }else{
+        //     this.showRightArrow = true;
+        //   }
 
           
-        if (params.name ==this.pageArray[0]){
+        if (params.name ==this.pageArray[1]){
         
           this.mod=true;
           this.mod1=false;
@@ -70,23 +74,22 @@ showRightArrow : boolean = true;
           this.mod4=false;
           this.mod5=false;
           this.pageLeft = this.pageArray[0];
-          this.pageRight = this.pageArray[1];
+          this.pageRight = this.pageArray[2];
 
 
         }
-        else if(params.name ==this.pageArray[1]) {
-          console.log(this.moduleNumber);
+        else if(params.name ==this.pageArray[2]) {
           this.mod=false;
           this.mod1 = true;
           this.mod2=false;
           this.mod3=false;
           this.mod4=false;
           this.mod5=false;
-          this.pageLeft = this.pageArray[0];
-          this.pageRight = this.pageArray[2];
+          this.pageLeft = this.pageArray[1];
+          this.pageRight = this.pageArray[3];
          
 
-        }else if(params.name ==this.pageArray[2]) {
+        }else if(params.name ==this.pageArray[3]) {
           this.mod=false;
           this.mod1 = false;
           this.mod2=true;
@@ -94,25 +97,15 @@ showRightArrow : boolean = true;
           this.mod4=false;
           this.mod5=false;
           
-          this.pageLeft = this.pageArray[1];
-          this.pageRight = this.pageArray[3];
+          this.pageLeft = this.pageArray[2];
+          this.pageRight = this.pageArray[4];
 
-        }else if(params.name ==this.pageArray[3]) {
+        }else if(params.name ==this.pageArray[4]) {
           this.mod=false;
           this.mod1 = false;
           this.mod2=false;
           this.mod3 = true;
           this.mod4=false;
-          this.mod5=false;
-          this.pageLeft = this.pageArray[2];
-          this.pageRight = this.pageArray[4];
-        }
-        else if(params.name ==this.pageArray[4]) {
-          this.mod=false;
-          this.mod1 = false;
-          this.mod2=false;
-          this.mod3 = false;
-          this.mod4=true;
           this.mod5=false;
           this.pageLeft = this.pageArray[3];
           this.pageRight = this.pageArray[5];
@@ -122,10 +115,20 @@ showRightArrow : boolean = true;
           this.mod1 = false;
           this.mod2=false;
           this.mod3 = false;
-          this.mod4=false;
-          this.mod5=true;
+          this.mod4=true;
+          this.mod5=false;
           this.pageLeft = this.pageArray[4];
           this.pageRight = this.pageArray[6];
+        }
+        else if(params.name ==this.pageArray[6]) {
+          this.mod=false;
+          this.mod1 = false;
+          this.mod2=false;
+          this.mod3 = false;
+          this.mod4=false;
+          this.mod5=true;
+          this.pageLeft = this.pageArray[5];
+          this.pageRight = this.pageArray[7];
         }
       });
   
@@ -151,5 +154,29 @@ showRightArrow : boolean = true;
      this._lightbox.open(this._album);
       console.log(album);
     }
+
+    moveLeft(){
+      if(this.pageLeft == this.pageArray[0]){
+        this.moduleNumber = 1;
+        
+      }else {
+        this.moduleNumber = 2;
+      }
+      this._leftPanelSer.clickedCourseLink(this.pageLeft, this.moduleNumber);
+      this.router.navigate(['/modules', this.moduleNumber, this.pageLeft]);
+      
+    }
+  
+    moveRight() {
+      if(this.pageRight == this.pageArray[7]){
+        this.moduleNumber = 3;
+      }
+      else {
+        this.moduleNumber = 2;
+      }
+      this._leftPanelSer.clickedCourseLink(this.pageRight, this.moduleNumber);
+      this.router.navigate(['/modules', this.moduleNumber, this.pageRight]);
+    }
+  
 
 }

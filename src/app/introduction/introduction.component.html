@@ -1,20 +1,20 @@
 <main class="page-content">
     <div class="container-fluid ">
       <!--from-back-->
-      <a [routerLink]="['/modules', moduleNumber, pageLeft]" *ngIf="showLeftArrow">
-      <div class="navigation-nav nav-left">
-        <i class="fa fa-chevron-left"></i>
-      
-      </div>
-    </a>
-    <a [routerLink]="['/modules', moduleNumber, pageRight]" *ngIf="showRightArrow">
-      <div class="navigation-nav nav-right">
-        <i class="fa fa-chevron-right"></i>
-      </div>
-    </a>
-        <!--from-back-->
+      <a (click)="moveLeft()" *ngIf="showLeftArrow">
+        <div class="navigation-nav nav-left">
+          <i class="fa fa-chevron-left"></i>
+        
+        </div>
+      </a>
+      <a (click)="moveRight()" *ngIf="showRightArrow">
+        <div class="navigation-nav nav-right">
+          <i class="fa fa-chevron-right"></i>
+        </div>
+      </a>
+          <!--from-back-->   
         <app-header [courseNumber]='1'></app-header>
-           <div class="px-5 py-5 m-h-100">
+           <div class="px-5 pt-3 m-h-100">
             
 
 
@@ -22,7 +22,7 @@
             <div *ngIf="mod">
               <h3 class="text-blue"><strong>Explore Continuous Testing with Azure</strong></h3>      
               
-              <div class="text-center py-4"><img src="assets/tikk/Quote-1.png"  class="img-fluid"></div>
+              <div class="text-center "><img src="assets/tikk/Tik_ModuleIntro-01.jpg"  class="img-fluid w-75"></div>
 
 
             </div>
@@ -37,20 +37,8 @@
                     
             <p class="py-3">The software development cycle today has shrunk from years to a few weeks and even days. Business priorities, customer expectations, and the technology stack keep changing rapidly; hence assuring the best product requires introducing quality gateways at every stage of the SDLC, aligning with the speed of delivery into production. The traditional testing practices are not equipped to deliver this quality with speed. Hence, the advent of Continuous Testing (CT). 
               <br> <br>Continuous testing is a DevOps-aligned practice that enables testing early and often testing with higher automation levels. The main aspects of CT are: </p>              
-<div class="bg-light p-4 points">
-  <h6 class=""><strong>Test Early </strong></h6>
-  <p>Finding issues early in the SDLC with walkthroughs and analysis in the requirement or Design Phase</p>
+              <div class="text-center pb-4"><img src="assets/mod1/1/Azure-Diagram-Table-1-2-12.jpg" class="img-fluid pointer" (click)="openImage('assets/mod1/1/Azure-Diagram-Table-1-2-12.jpg')"></div>
 
-  <h6 class=""><strong>Test Faster</strong></h6>
-  <p>Discovering grey areas with tools like TestNG, JUnit, Maven, Gradle, etc.</p>
-
-  <h6 class=""><strong>Test Often </strong></h6>
-  <p>Introducing CI/CD tools like Azure DevOps, JENKINS to get a daily build and track problems regularly</p>
-
-  <h6 class=""><strong>Test Automation </strong></h6>
-  <p>Using tools like Selenium, Appium to automate test cases and provide faster results</p>
-
-</div>
 
             
             <p class="py-3">Continuous Testing, a DevOps-aligned practice, enables testing early, faster and often, with increased levels of automation as part of the CI/CD pipeline to shorten feedback loops on software changes. Following foundational elements aide in setting up a Continuous Testing pipeline for the Enterprise:</p>
@@ -63,7 +51,7 @@
 
 
 <p >Depending on additional capabilities and overall maturity of the software engineering processes, few variable elements can further strengthen the Continuous Testing pipeline for the Enterprise:</p>
-<div class="text-center pb-4"><img src="assets/mod1/1/Azure-Diagram-Table-1-2-12.jpg" class="img-fluid pointer" (click)="openImage('assets/mod1/1/Azure-Diagram-Table-1-2-12.jpg')"></div>
+<div class="text-center pb-4"><img src="assets/mod1/1/Azure-Diagram-Table-1-2-10.jpg" class="img-fluid pointer" (click)="openImage('assets/mod1/1/Azure-Diagram-Table-1-2-12.jpg')"></div>
 
 
 <!-- 
@@ -136,6 +124,25 @@ Azure Cloud also has a growing collection of integrated cloud services —coveri
 
         </p>
 
+        <p><strong>1.</strong> Azure DevOps provides services for Teams to share code, track work, and ship software using modern Azure DevOps services to complement existing workflows. These include </p>
+        <div class="points bg-light py-4 common-content">
+          <ul>
+            <li>Azure Boards for agile planning  </li>
+              <li>Azure pipelines for CI/CD of any platform to build, test and deploy in any language, to cloud (or) on-premises  </li>
+                <li>Azure Repos with unlimited cloud-hosted private Git, hosted with effective code reviews and unlimited free repositories  </li>
+                  <li>Azure Test Plans with manual and exploratory testing toolkits and   </li>
+             <li>Azure Artifacts a universal package repository to create, host, and share packages in the CI/CD pipeline. <br>For more details,  refer <a href="https://azure.microsoft.com/en-in/services/devops/" target="_blank" class="a">https://azure.microsoft.com/en-in/services/devops/. </a></li>
+          </ul>
+
+        </div>
+
+        <p><strong>2.</strong>	GitHub is the largest developer community and platform in the world with over 50 million users. As home to more than 100 million code repositories and 1,000+ of the world's most influential open-source projects, GitHub powers thousands of the world’s most innovative software-driven companies and brings a set of unique capabilities that complement Azure DevOps<br><br>
+          <strong>3.</strong>	Azure DevTest Labs a key differentiator with free self-service "Sandbox environments" for developers and tester to help quickly create development and test environments built on Windows and Linux while minimizing waste by automatically shutting down starting VM's on schedule and controlling costs by allowing to set policies on your lab. For more details, refer <a href="https://azure.microsoft.com/en-us/services/devtest-lab/" class="a" target="_blank">https://azure.microsoft.com/en-us/services/devtest-lab/</a>  <br><br>
+          <strong>4.</strong>	Azure Monitor maximizes applications and services' availability and performance by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps understand how applications are performing and proactively identify issues affecting them and their resources. It can be used for monitoring IaaS, PaaS, Applications, Containers, and SAP (preview). For more details, refer <a href="https://azure.microsoft.com/en-in/services/monitor/#features" class="a" target="_blank">https://azure.microsoft.com/en-in/services/monitor/#features</a> <br><br> 
+          <strong>5.</strong>	Azure Security Center is a unified infrastructure security management system that strengthens the security posture of data centers. It provides advanced threat protection across hybrid workloads in the cloud - whether in Azure (or) on-premises and can monitor dev/test environments for vulnerabilities. For more details, refer <a href="https://azure.microsoft.com/en-in/services/security-center/" class="a" target="_blank">https://azure.microsoft.com/en-in/services/security-center/</a>  <br><br>
+          <strong>6.</strong>	Azure Kubernetes Service (AKS) helps deploy and manage containerized applications easily with a fully-managed Kubernetes service. It offers serverless Kubernetes, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance. For more details, refer <a href="https://azure.microsoft.com/en-in/services/kubernetes-service/ " class="a" target="_blank">https://azure.microsoft.com/en-in/services/kubernetes-service/ </a> <br><br>
+          <strong>7.</strong>	Azure ecosystems cover both devices and clouds, including non-Microsoft operating systems and tools to simplify IT infra management, encryption options to ensure security on the cloud, and, last but not least, seamlessly integrates with the Microsoft tech-stack.   
+          </p>
       </div>
       <!-- <div class="col-12 col-md-5">
           <img src="assets/images/tiki.png" class="img-fluid" alt="">
@@ -165,7 +172,7 @@ Azure Cloud also has a growing collection of integrated cloud services —coveri
   <div class="row" >
       <div class="col-12 col-md-12">
           <h3 class="text-blue"><strong>How it benefits? </strong></h3>
-          <p>Some of the reasons to choose Azure for your enterprise include:</p>
+          <p  class="py-3">Some of the reasons to choose Azure for your enterprise include:</p>
           <div class="common-content">
           <ul>
             <li><strong>Works with popular tools and frameworks</strong> – It supports open-source technologies, allowing one to choose from a wide gamut of applications, databases, middleware, management, infrastructure, App frameworks to run virtually any application using any data source, with any operating system, on any device.</li>

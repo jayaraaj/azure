@@ -24,15 +24,12 @@ constructor() {
 
 ngOnInit() {
     // console.log("page array", this.pageArray);
-     console.log("pageleft", this.pageLeft);
+     
     // console.log("pageright", this.pageRight);
 
-    console.log('firat', this.pageArray[0]);
+   
 
-    if(this.pageArray[0] == this.pageLeft) {
-        console.log("matching");
-    }
-
+    
     // if (this.pageArray.indexOf(params.name) == 0) {
     //     this.showLeftArrow = false;
     //    }else{
@@ -42,8 +39,13 @@ ngOnInit() {
 }
 
 clickNextPage() {
-    console.log("test");
-    this.selectedPage.emit('test');
+    // console.log("pageleft", this.pageLeft);
+    // console.log('firat', this.pageArray);
+    this.selectedPage.emit(this.pageLeft);
+    // if(this.pageArray[0] == this.pageLeft) {
+    //     console.log("matching");
+    // }
+
 }
 
 }

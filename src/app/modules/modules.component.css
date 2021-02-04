@@ -2,6 +2,7 @@
     content: '\2713';
    font-size: 16px;
 }
+.is-active{ background-color: #0e38a3; border-radius: 10px 0px 0px 10px;}
 
 .left-menu::after{ 
     font-size: 16px;

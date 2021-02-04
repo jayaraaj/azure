@@ -1,24 +1,25 @@
 <main class="page-content">
     <div class="container-fluid ">  
-       <!--from-back-->
-       <a [routerLink]="['/modules', moduleNumber, pageLeft]" *ngIf="showLeftArrow">
-        <div class="navigation-nav nav-left">
-          <i class="fa fa-chevron-left"></i>
-        
-        </div>
-      </a>
-      <a [routerLink]="['/modules', moduleNumber, pageRight]" *ngIf="showRightArrow">
-        <div class="navigation-nav nav-right">
-          <i class="fa fa-chevron-right"></i>
-        </div>
-      </a>
-          <!--from-back-->         
+        <!--from-back-->
+     <a (click)="moveLeft()" *ngIf="showLeftArrow">
+      <div class="navigation-nav nav-left">
+        <i class="fa fa-chevron-left"></i>
+      
+      </div>
+    </a>
+    <a (click)="moveRight()" *ngIf="showRightArrow">
+      <div class="navigation-nav nav-right">
+        <i class="fa fa-chevron-right"></i>
+      </div>
+    </a>
+        <!--from-back-->           
         <app-header [courseNumber]='8'></app-header>
-        <div class="px-5 py-5 m-h-100">
+        <div class="px-5 pt-5 m-h-100">
             <!--mod-->
             <div *ngIf="mod">
               <h3 class="text-blue"><strong>Stage 4 - Experience QA</strong></h3>  
-              <div class="text-center py-4"><img src="assets/tikk/Quote-1.png"  class="img-fluid"></div>               
+              <div class="text-center "><img src="assets/tikk/Tik_ModuleIntro-08.jpg"  class="img-fluid w-75"></div>
+             
             </div>
             <!--mod-->
          <!--mod1-->
@@ -38,7 +39,7 @@
         
 </ul>
 </div>
-<div class="text-center py-4"><img src="assets/stage4/1/4Experience-Assurance.png" (click)="openImage('assets/stage3/1/3Functional-Assurance.png')" class="img-fluid pointer"></div>
+<div class="text-center py-4"><img src="assets/stage4/1/4Experience-Assurance.png" (click)="openImage('assets/stage4/1/4Experience-Assurance.png')" class="img-fluid pointer"></div>
 
 
                </div>
@@ -55,7 +56,7 @@
                   
                    <p>In this stage, you will explore how experience is assured with non-functional testing. In today’s digital world, customer experience is critical for success and non-functional aspects play a significant role in an application’s functionality. You will see how an application’s performance, security and accessibility are validated in continuous pipeline with an open source tool stack and the test results updated in Azure Test Plan.</p>
                   <h4>Experience Assurance flow:</h4>
-                   <div class="text-center py-4"><img src="https://via.placeholder.com/600x200" class="img-fluid"></div>
+                   <div class="text-center py-4"><img src="assets/stage4/2/Azure-Diagram_Exp-Lab-04.jpg" (click)="openImage('assets/stage4/2/Azure-Diagram_Exp-Lab-04.jpg')" class="img-fluid pointer"></div>
 
    
                    <p>The Experience Assurance pipeline consists of two stages viz. source and build.</p>
@@ -106,7 +107,7 @@
      <div *ngIf="mod3">
         <div class="row">
             <div class="col-12 col-md-12 module-block">
-               <h3 class="text-blue pb-4"><strong>Build & Execute</strong></h3>
+               <h3 class="text-blue pb-4"><strong>Test Plan Integration</strong></h3>
 <p>Please complete the <strong>Stage 2: Post-Build QA</strong>, before commencing with this stage. This will ensure you have deployed the build on the server successfully, before executing the Experience test suits during this stage.</p>               
                <h4>Test Case</h4>
 
@@ -130,33 +131,18 @@
            <h3 class="text-blue pb-4"><strong>Pipeline Creation & Execution</strong></h3>
           
           
-          <p><strong>1.</strong> Execute the following command in Azure CLI </p>
+           <p><strong>1.</strong> Execute the below npm command from Cloud Shell to automatically create the Experience Assurance Release pipeline:</p>
 
-          <div class="code" (click)="copyText(code1)"><code #code1>   npm install && npm run experienceqa</code> 
+          <div class="code" (click)="copyText(code1)"><code #code1>cd && cd azure-cli && npm run experienceqa</code> 
             <div *ngIf="copied" class="code-copied" >Copied  <i class="fas fa-check text-success"></i></div>
             <button class="btn btn-lg  code-copy"  *ngIf="!copied">
               <i class="fas fa-copy text-light"></i>
          </button> </div>
-       
-
-          <p>This command will create release pipeline based on template - <strong>experienceqareleasepipeline.json</strong> (payload folder in azure-cli repo) and execute it. Created release pipeline depends on artifacts from following repos in <strong>MYAzureWorkshopArtifacts</strong> project. Any code commit in these repo’s will automatically trigger the Experience Assurance pipeline.</p>
-          <div class="common-content">
-              <ul>
-                <li>azure_workshop_tests_performance </li>
-                <li>azure_workshop_tests_accessibility</li>
-                <li>azure_workshop_tests_security</li>
-                
-              </ul>
-          </div>
-
-
-          <div class="text-center py-4"><img src="assets/stage4/4.01Stagesoverview.jpg" (click)="openImage('assets/stage4/4.01Stagesoverview.jpg')" class="img-fluid pointer"></div>
-          <p><strong>2. </strong>On successful creation of the pipeline, you can now view the execution progress by navigating to <strong>Azure Devops > Pipelines > Releases</strong> and selecting <strong>Experience Assurance</strong>. Refer Exhibit below for details:</p>
-          <div class="text-center py-4"><img src="assets/stage4/4.02Releaseoverview.jpg" (click)="openImage('assets/stage4/4.02Releaseoverview.jpg')" class="img-fluid pointer"></div>
-
-       <p>Additionally, Practitioners can access Cognizant Thought Leadership on Performance Testing for SaaS-based Applications, please review the insightful blog by our technology expert on <a href="https://www.linkedin.com/pulse/performance-assurance-saas-based-applications-leo-peter/?published=t" target="_blank">“Performance Assurance for SaaS-based Applications”</a>.</p>
-       
-       <p>You will notice the pipeline fails at security testing and thus the subsequent step for accessibility test is not executed, refer Exhibit below for details:</p>
+         <p>This step takes approximately 2 minutes </p>
+         <div class="text-center py-4"><img src="assets/stage4/3/releasepipelinecmd.jpg" (click)="openImage('assets/stage4/3/buildpipelinecmd.jpg')" class="img-fluid pointer"></div>
+         <p><strong>2. </strong>On successful creation of the pipeline, you can now view the pipline created by navigating to <strong>Azure Devops > Pipelines > Releases</strong> and selecting <strong>Experience Assurance</strong>. You will notice the pipeline failing at security testing. Refer Exhibit below for details:</p>
+          <div class="text-center py-4"><img src="assets/stage4/3/release1.jpg" (click)="openImage('assets/stage4/3/release1.jpg')" class="img-fluid pointer"></div>
+       <p>On clicking <strong>Release 1</strong> - Details on Stages can be seen as shown in below Exhibit.</p>
        <div class="text-center py-4"><img src="assets/stage4/4.03SecurityTestFailed.jpg" (click)="openImage('assets/stage4/4.03SecurityTestFailed.jpg')" class="img-fluid pointer"></div>
 
           <p>With this failure, one defect is auto-logged with state “New”. Defect can viewed in <strong>AZURE_WORKSHOP_PROJECT > Boards > Work items</strong>. Refer Exhibit below for details:</p>
@@ -173,47 +159,42 @@
 <div *ngIf="mod5">
     <div class="row">
         <div class="col-12 col-md-12 module-block">
-           <h3 class="text-blue pb-4"><strong>Debugging & Re-Excution</strong></h3>
-           <p><strong>1.</strong> Security test build has failed because the X-Frame-Options was not set in the response headers and this was detected by the ZAP Proxy. This rule is set as “FAIL” in the gen.conf file for ZAP tool.</p>
-            <p><strong>2.</strong> To verify this, go to “Report Dashboard” –> Go “Experience Assurance” section and Click on the “Rule Report” link under the “Security Test” section. (This will open the SECURITY.txt in browser).</p>
-            <p><strong>3.</strong> If you scroll down to the bottom of the file, you will notice the failure (as shown in the Exhibit below)</p>
-            <div class="text-center py-4"><img src="assets/stage4/4.05Error.JPG" (click)="openImage('assets/stage4/4.05Error.JPG')" class="img-fluid pointer"></div>
+           <h3 class="text-blue pb-4"><strong>Debugging & Reexecution</strong></h3>
+           <p>Now, let us understand the nature of the failure.</p>
 
+           <h4>Why did we encounter this failure?</h4>
+           <p>To understand error better navigate to <strong>Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT Team - EXPERIENCE_LAB_OVERVIEW</strong> and you can view the section Reports, as shown in below Exhibit:</p>
+           <div class="text-center py-4"><img src="assets/stage3/4/dashboard.jpg" (click)="openImage('assets/stage1/4/dashboard.jpg')" class="img-fluid pointer"></div>
+         
+           <p>Click on <strong>Security Test</strong> Report - You can see Security test build has failed because the X-Frame-Options was not set in the response headers and this was detected by the ZAP Proxy. This rule is set as “FAIL” in the gen.conf file for ZAP tool.</p>
+           <p> If you scroll down to the bottom of the file, you will notice the failure (as shown in the Exhibit below)</p>
+            <div class="text-center py-4"><img src="assets/stage4/4.05Error.JPG" (click)="openImage('assets/stage4/4.05Error.JPG')" class="img-fluid pointer"></div>
+            <h4>How do we fix the identified issue?</h4>
+              
             <p>For now, consider this as a “False Positive” and let us fix these issues.</p>
-            <p><strong>4.</strong>Change the rule for X-Frame-Options Header Scanner from <strong>FAIL</strong> to <strong>WARN</strong>, so that the security test will pass with the warning and the code progresses to the next build step.</p>
-            <p><strong>5. </strong>Go to Overview -> Dashboards -> EXPERIENCE_LAB_OVERVIEW, and click on “Experience_QA-Fix” button at the header of Failure Fix Widget, refer the Exhibit below: </p>
+            <p>Change the rule for X-Frame-Options Header Scanner from <strong>FAIL</strong> to <strong>WARN</strong>, so that the security test will pass with the warning and the code progresses to the next build step.</p>
+            <p>Go to Overview -> Dashboards -> EXPERIENCE_LAB_OVERVIEW, and click on “Experience_QA-Fix” button at the header of Failure Fix Widget, refer the Exhibit below: </p>
             <div class="text-center py-4"><img src="assets/stage4/4.06Dashboardanderrorlink.jpg" (click)="openImage('assets/stage4/4.06Dashboardanderrorlink.jpg')" class="img-fluid pointer"></div>
 
             <p>It will take you to the file where fix should be applied. </p>
+            <p>Click on <strong>“Edit”</strong> in the git repo and edit the file in ‘security-bug-fix’ branch.</p>
 
-            <p><strong>6.</strong> Create a new branch from ‘master’ to fix the issue.</p>
-
-            <div class="text-center py-4"><img src="assets/stage4/4.07Createnewbranch.jpg" (click)="openImage('assets/stage4/4.07Createnewbranch.jpg')" class="img-fluid pointer"></div>
-
-            <p><strong>7.</strong> Click on <strong>“Edit”</strong> in the git repo and edit the file in ‘security-bug-fix’ branch.</p>
-
-            <p><strong>8.</strong> Change the rule for X-Frame-Options Header Scanner from <strong>FAIL</strong> to <strong>WARN</strong>. Refer the Exhibit as shown below for details:</p>
+            <p>At line number:11 Change the rule for X-Frame-Options Header Scanner from <strong>FAIL</strong> to <strong>WARN</strong>. Refer the Exhibit as shown below for details:</p>
             
             <div class="text-center py-4"><img src="assets/stage4/4.08editscript.jpg" (click)="openImage('assets/stage4/4.08editscript.jpg')" class="img-fluid pointer"></div>
 
-            <p><strong>9.</strong> Provide the required details like commit message (change description) and click ‘commit changes’ at the top right corner of the page.</p>
-            <p><strong>10.</strong> Create a Pull Request to merge the branch with Master Branch.       </p>
-            <div class="text-center py-4"><img src="assets/stage4/4.09commit.jpg" (click)="openImage('assets/stage4/4.09commit.jpg')" class="img-fluid pointer"></div>
-            <p><strong>11.</strong> Approve and Complete the Code Merge.</p>
-            <div class="text-center py-4"><img src="assets/stage4/4.10codemerge.jpg" (click)="openImage('assets/stage4/4.10codemerge.jpg')" class="img-fluid pointer"></div>
-
-            <p>The <strong>code merge to master</strong> branch will <strong>trigger</strong> the pipeline automatically and this time security testing build will be executed without any errors.</p>
-        
+            <p> Provide the required details like commit message (change description) and click ‘commit’ at the bottom right corner of the page.</p>
+            <div class="text-center py-4"><img src="assets/stage4/4.09commit.JPG" (click)="openImage('assets/stage4/4.09commit.JPG')" class="img-fluid pointer"></div>
             <p>The <strong>‘Successful’</strong> status is now updated for each stage, as shown below:</p>
             <div class="text-center py-4"><img src="assets/stage4/4.11newrelease.jpg" (click)="openImage('assets/stage4/4.11newrelease.jpg')" class="img-fluid pointer"></div>
 
             <p>Now you should see the test cases updated automatically with the result. </p>
 
-            <p><strong>12.</strong> Go to <strong>AZURE_WORKSHOP_PROJECT>Test Plans > Runs</strong></p>
+            <p>Go to <strong>AZURE_WORKSHOP_PROJECT>Test Plans > Runs</strong></p>
 
             <p>You should be able to view test cases related to Experience Assurance created already. In the screen shot above and below, one run shows <strong>security failure</strong>. Then the runs are passed automatically once the code is updated and pipeline is auto-triggered. </p>
             <div class="text-center py-4"><img src="assets/stage4/4.12testruns.jpg" (click)="openImage('assets/stage4/4.12testruns.jpg')" class="img-fluid pointer"></div>
-            <p><strong>13.</strong> Go to <strong>AZURE_WORKSHOP_PROJECT > Boards>Work items</strong></p>
+            <p>Go to <strong>AZURE_WORKSHOP_PROJECT > Boards>Work items</strong></p>
             <p>You should be able to view the previously opened defect is closed as the test case is passed. </p>
             <div class="text-center py-4"><img src="assets/stage4/4.13bugclosed.jpg" (click)="openImage('assets/stage4/4.13bugclosed.jpg')" class="img-fluid pointer"></div>
 
@@ -227,76 +208,85 @@
 
 <!--mod6-->
 <div *ngIf="mod6">
-    <div class="row">
-        <div class="col-12 col-md-12 module-block">
-           <h3 class="text-blue pb-4"><strong>Test Report Analysis</strong></h3>
-            <p><strong>1.</strong> Go to the “<strong>Azure Storage Account > Container</strong>” created (BLOB storage) as part of this demo in the previous modules. Reports and other files can be found in the BLOB storage inside the respective folders.</p>
-            <div class="text-center py-4"><img src="assets/stage4/4.14cloudstorage.jpg" (click)="openImage('assets/stage4/4.14cloudstorage.jpg')" class="img-fluid pointer"></div>
-            <p>For further analysis and understanding, you can now refresh the reporting dashboard and review the test results. Refer the dashboard Exhibit as shown below:</p>
-            <div class="text-center py-4"><img src="assets/stage4/4.15Extendreport.JPG" (click)="openImage('assets/stage4/4.15Extendreport.JPG')" class="img-fluid pointer"></div>
-                
-                
+  <div class="row">
+      <div class="col-12 col-md-12 module-block">
+         <h3 class="text-blue pb-4"><strong>Test Report Analysis</strong></h3>
+       <!--karthik start-->
+         <p>To view the Test dashboard, navigate to Overview -> Dashboards -> AZURE_WORKSHOP_PROJECT Team - Test Report Overview. You will see details as per the Exhibit below:</p>
+         <div class="text-center py-4"><img src="assets/stage4/dashboard_testoverview.jpg" (click)="openImage('assets/stage4/dashboard_testoverview.jpg')" class="img-fluid pointer"></div> 
+        
+         <p>To view detailed reports, navigate to the Azure Dashboard. Go to Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT Team - EXPERIENCE_LAB_OVERVIEW, and click on [<strong>Security Test</strong>] or [<strong>Accessibility Test</strong>] OR [<strong>Performance Test</strong>] inside the “<strong>Reports</strong>” widget. Refer Exhibit below for details:</p>
+       <!--karthik end-->
+         <div class="text-center py-4"><img src="assets/stage4/DashboardReport.jpg" (click)="openImage('assets/stage4/DashboardReport.jpg')" class="img-fluid pointer"></div>
+        <p><strong>Accessibility Report</strong></p>
+         <div class="text-center py-4"><img src="assets/stage4/accessibility.jpeg" (click)="openImage('assets/stage4/accessibility.jpeg')" class="img-fluid pointer"></div>
+         <p><strong>Performance Report</strong></p>
+         <div class="text-center py-4"><img src="assets/stage4/performance.jpeg" (click)="openImage('assets/stage4/performance.jpeg')" class="img-fluid pointer"></div>
+         <p><strong>Security Report</strong></p>
+         <div class="text-center py-4"><img src="assets/stage4/ZAP.png" (click)="openImage('assets/stage4/ZAP.png')" class="img-fluid pointer"></div>
+         
+              
+                    
+     </div>
+  </div>
+
+  <h4>Reference Links</h4>
+          <p>Additionally, Practitioners can access Cognizant Thought Leadership on Customer Experience, by referring the blog by our Market Expert titled - “From ‘Ensuring Customer Experience’ to ‘Assuring Trust’: Rethinking the Role of QA”. You will find the link to the whitepaper in the Register with Cognizant page - <a href="https://www.cognizant.com/application-modernization" target="_blank" class="a">https://www.cognizant.com/application-modernization</a>. </p>
+
+          <h4>Tool Alternate options</h4>
+
+          <div class="table-responsive">
+            <table class="table table-borderless table-light">
+                  <thead>
+                    <tr class="bg-blue1">
+                      <th  class="text-left bg-blue2 text-center" scope="col">Stages </th>
+                      <th colspan="5" class="text-center" scope="col">EXPERIENCE QA </th>
                       
-       </div>
-    </div>
-
-    <h4>Reference Links</h4>
-            <p>Additionally, Practitioners can access Cognizant Thought Leadership on Customer Experience, by referring the blog by our Market Expert titled - “From ‘Ensuring Customer Experience’ to ‘Assuring Trust’: Rethinking the Role of QA”. You will find the link to the whitepaper in the Register with Cognizant page - <a href="https://www.cognizant.com/application-modernization" target="_blank" class="a">https://www.cognizant.com/application-modernization</a>. </p>
-
-            <h4>Tool Alternate options</h4>
-
-            <div class="table-responsive">
-              <table class="table table-borderless table-light">
-                    <thead>
-                      <tr class="bg-blue1">
-                        <th  class="text-left bg-blue2 text-center" scope="col">Stages </th>
-                        <th colspan="5" class="text-center" scope="col">EXPERIENCE QA </th>
-                        
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row" class="bg-blue1 text-center">Category</th>
-                        <td>Security Testing   </td>
-                        <td>Accessibility Testing  </td>
-                        <td>Performance Testing </td>
-                       
-                        
-                      </tr>
-                      <tr>
-                        <th scope="row" class="bg-blue3 text-center">Current Tooling </th>
-                        <td  class="bg-ash">ZAP    </td>
-                        <td  class="bg-ash">AXE  </td>
-                        <td  class="bg-ash">Jmeter   </td>
-                        
-                        
-                      </tr>
-                      <tr>
-                        <th scope="row" class="bg-blue1 text-center">Alternate Tooling </th>
-                        <td>Wfuzz,
-                            Wapiti, 
-                            W3af,
-                            SQLMap 
-                            
-                               </td>
-                        <td>ACCESSIBILITY CHECKER,
-                            AATT (AUTOMATED ACCESSIBILITY TESTING TOOL), 
-                            ACCESSIBILITY CHECKLIST,
-                            </td>
-                        <td>Apache JMeter. 
-                            WebLOAD from RadView. 
-                            LoadComplete from SmartBear. 
-                            NeoLoad. 
-                            Locust. 
-                            BlazeMeter. 
-                            
-                        
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" class="bg-blue1 text-center">Category</th>
+                      <td>Security Testing   </td>
+                      <td>Accessibility Testing  </td>
+                      <td>Performance Testing </td>
+                     
                       
-                      </tr>
-                    </tbody>
-                  </table>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="bg-blue3 text-center">Current Tooling </th>
+                      <td  class="bg-ash">ZAP    </td>
+                      <td  class="bg-ash">AXE  </td>
+                      <td  class="bg-ash">Jmeter   </td>
+                      
+                      
+                    </tr>
+                    <tr>
+                      <th scope="row" class="bg-blue1 text-center">Alternate Tooling </th>
+                      <td>Wfuzz,
+                          Wapiti, 
+                          W3af,
+                          SQLMap 
+                          
+                             </td>
+                      <td>ACCESSIBILITY CHECKER,
+                          AATT (AUTOMATED ACCESSIBILITY TESTING TOOL), 
+                          ACCESSIBILITY CHECKLIST,
+                          </td>
+                      <td>Apache JMeter. 
+                          WebLOAD from RadView. 
+                          LoadComplete from SmartBear. 
+                          NeoLoad. 
+                          Locust. 
+                          BlazeMeter. 
+                          
+                      
+                    
+                    </tr>
+                  </tbody>
+                </table>
 
-            </div>
+          </div>
 </div>
 <!--mod6-->
 

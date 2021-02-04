@@ -1,24 +1,24 @@
 <main class="page-content">
     <div class="container-fluid "> 
-         <!--from-back-->
-       <a [routerLink]="['/modules', moduleNumber, pageLeft]" *ngIf="showLeftArrow">
+          <!--from-back-->
+       <a (click)="moveLeft()" *ngIf="showLeftArrow">
         <div class="navigation-nav nav-left">
           <i class="fa fa-chevron-left"></i>
         
         </div>
       </a>
-      <a [routerLink]="['/modules', moduleNumber, pageRight]" *ngIf="showRightArrow">
+      <a (click)="moveRight()" *ngIf="showRightArrow">
         <div class="navigation-nav nav-right">
           <i class="fa fa-chevron-right"></i>
         </div>
       </a>
-          <!--from-back-->         
+          <!--from-back-->        
         <app-header [courseNumber]='5'></app-header>
-        <div class="px-5 py-5">
+        <div class="px-5 pt-5">
              <!--mod-->
            <div *ngIf="mod">
             <h3 class="text-blue"><strong>Stage 1 - Pre Build QA</strong></h3>        
-            <div class="text-center py-4"><img src="assets/tikk/Quote-1.png"  class="img-fluid"></div>    
+            <div class="text-center"><img src="assets/tikk/Tik_ModuleIntro-05.jpg"  class="img-fluid w-75"></div>
           </div>
           <!--mod-->
          <!--mod1-->
@@ -41,49 +41,56 @@
 
         <!--mod2-->
         <div *ngIf="mod2">
-            <div class="row">
-                <div class="col-12 col-md-12 module-block">
-                   <h3 class="text-blue pb-4"><strong>Pipeline Overview</strong></h3>
-                  <p>The Pre-Build Quality Assurance BuildPipeline consists of the following stages and components: </p>
-                  <div class="text-center py-4"><img src="assets/stage1/2/1.png" (click)="openImage('assets/stage1/2/1.png')" class="img-fluid pointer"></div>
-
-                
-
-                    
-                   <h6 class="pt-4" ><strong>1.	Source Stage (or) Landing Zone</strong>  </h6>
-                   <div>monitors changes to below source code repository for any new commits: </div>
-                   <ul>
-                       <li>FrontEndReactApp – Code for front-end application </li>
-                        <li>BackEndSpringBootApp – Code for back-end micro services.</li> 
-                        
-                   </ul>
-                    <div>Every code Commit will trigger the PreBuild Task </div>
-
-
-                    <h6 class="pt-4" ><strong>2.	Pre-Build Quality Check</strong>  </h6>
-                    <div>uses SonarQube for continuous inspection of code quality and perform automatic reviews with static code analysis to detect bugs, code smells and security vulnerabilities for both front-end and back-end code. Separate CodeBuild task i.e. <strong>ReactAppSonarCheck</strong> and <strong>SpringBootSonarCheck</strong> are created to induce static code quality measures on both the components of application under test. </div>
-               
-                    <h6 class="pt-4" ><strong>3.	Unit Test </strong>  </h6>
-                    <div>is a series of tests configured as CodeBuild actions i.e.  <strong>ReactAppUnitTest</strong> and <strong>SpringBootUnitTest</strong> that validates all parts of the application under test. In case of issues, this phase of the Azure Devops Pipeline process ends with a failure status. If no issues detected, the pipeline proceeds to the build stage. Enzyme and Jest libraries is used for unit testing of the front-end. Similarly, Junit and Mockito is used for the back-end micro services. </div>
-                   <p>This stage is also complimented with code coverage tools such as Jacoco for back-end and Jest for front-end code for actionable guidance and identifying critical slips. You will be able to see the status of these tests on the reporting dashboard and the code coverage on SONARQube dashboard. </p>
-                    <div class="points bg-light p-4">
-                        <h6>A.	Build</h6>
-                        <p>commences with the creation of Docker image for front-end applications. When a new Docker image is successfully built, it is pushed to Azure Container Registry. </p>
-                        
-                        <h6>B.	Deploy to Azure Kubernetes Service </h6>
-                        <p>deploys the image created in the build stage to Kubernetes Pods, which spins up the following two Nodes -. frontendapplication and virtualizedbackend with the latest image. At this stage, front-end application is pointing to a virtualized back-end so that tests can be executed without back-end dependencies - one of the key advantages of virtualization. </p>
-                    </div>
-                        <p>A portion of developers’ UI tests are also executed using playwright and Jest at this stage to ensure the front-end image is properly built and running along with virtualized back-end.  </p>
-
-                            <p>  Azure Application insight will continuously monitor the health of the container and the application and will always make required adjustments to keep optimal healthy container tasks running.  </p>
-                            
-                                <p>   Additionally, Practitioners can access Cognizant Thought Leadership on Containers for DevOps, by referring the comprehensive whitepaper by our technology experts titled - “Using Containers to More Effectively Manage DevOps Continuous Integration”. You will find the link to the whitepaper in the Register with Cognizant page - <a class="a" href="https://www.cognizant.com/application-modernization" target="_blank">https://www.cognizant.com/application-modernization</a>. 
-                            </p>
-                   
-
-                </div>
-            </div>
-     </div>
+          <div class="row">
+              <div class="col-12 col-md-12 module-block">
+                 <h3 class="text-blue pb-4"><strong>Pipeline Overview</strong></h3>
+                <p>The Pre-Build Quality Assurance BuildPipeline consists of the following stages and components: </p>
+                <div class="text-center py-4"><img src="assets/stage1/2/AzureDiagram_ExpLab-02.jpg" (click)="openImage('assets/stage1/2/AzureDiagram_ExpLab-02.jpg')" class="img-fluid pointer"></div>
+<!--karthik start-->
+              
+                <div class="points p-4 bg-light">
+                  
+                 <h6 class="pt-4" ><strong>1a.	PREBUILD QA FRONTEND</strong>  </h6>
+                 <div>monitors changes to below source code repository for any new commits and does the quality checks for the React Application: </div>
+                 <ul>
+                      <li><strong>azure_workshop_frontend</strong> - Code for front-end application </li>
+                      <li><strong>Static Code Analysis</strong> - SonarQube analysis the satatic code and reports the issues </li>
+                      <li><strong>Unit Test</strong> - Jest Unit Test scripts are executed </li>
+                      <li><strong>Code Coverage</strong> - Jest performs codecoverage for the React Application </li>
+                 </ul>
+                  <h6 class="pt-4" ><strong>1b.	PREBUILD QA BACKEND</strong>  </h6>
+                  <div>monitors changes to below source code repository for any new commits: </div>
+                  <ul>
+                      <li><strong>azure_workshop_backend</strong> - Code for backend-end microservices </li>
+                      <li><strong>Static Code Analysis</strong> - SonarQube analysis the satatic code and reports the issues </li>
+                      <li><strong>Unit Test</strong> - JUnit Test scripts are executed </li>
+                      <li><strong>Code Coverage</strong> - Jaccoco code coverage reports are generated for the Spring Boot Application </li>
+                  </ul>
+                  <h6 class="pt-4" ><strong>2a.	BUILD AND PUSH TO ACR</strong>  </h6>
+                <ul>
+                      <li><strong>BUILD & PUSH</strong> - Builds the docker image of React application and pushes it to Azure Container Registry</li>
+                  </ul>
+                  <h6 class="pt-4" ><strong>2b.	BUILD AND PUSH TO ACR</strong>  </h6>
+                  <ul>
+                    <li><strong>BUILD & PUSH</strong> - Builds the docker images of microservices and pushes it to Azure Container Registry</li>
+                  </ul>
+                  <h6 class="pt-4" ><strong>3a.	DEPLOY WITH VIRTUAL SERVICES IN AKS</strong>  </h6>
+                <ul>
+                      <li><strong>DEPLOYMENT</strong> - Deploys the Image created for frontend React application - UI with virtualized services developes using Express-JS</li>
+                  </ul>
+                  <h6 class="pt-4" ><strong>4a.	BUILD VERIFICATION TEST </strong>  </h6>
+                <ul>
+                      <li><strong>UI Tests</strong> - A portion of developer's UI tests are also executed using Microsoft's playwright and Jest at this stage to ensure the front-end image is properly built and running along with virtualized back-end. </li>
+                  </ul>
+                 
+                  <p>   Additionally, Practitioners can access Cognizant Thought Leadership on Containers for DevOps, by referring the comprehensive whitepaper by our technology experts titled - “Using Containers to More Effectively Manage DevOps Continuous Integration”. You will find the link to the whitepaper in the Register with Cognizant page - <a class="a" href="https://www.cognizant.com/application-modernization" target="_blank">https://www.cognizant.com/application-modernization</a>. 
+                          </p>
+                 
+                          </div>
+                          <!--karthik end-->
+              </div>
+          </div>
+   </div>
      <!--mod2-->
 
      <!--mod3-->
@@ -94,12 +101,13 @@
                
                 <p><strong>1.</strong> deploy the pipeline, run the following commands in Cloud Shell terminal</p>               
               
-                <div class="code" (click)="copyText(code1)"><code #code1> npm run prebuild</code> 
+                <div class="code" (click)="copyText(code1)"><code #code1>cd && cd azure-cli && npm run prebuild</code> 
                   <div *ngIf="copied" class="code-copied" >Copied  <i class="fas fa-check text-success"></i></div>
                   <button class="btn btn-lg  code-copy"  *ngIf="!copied">
                     <i class="fas fa-copy text-light"></i>
                </button> </div>
-              
+               <p>You will observe the pipeline creation message as Exhibit below:</p>
+               <div class="text-center py-4"><img src="assets/stage1/3/1.jpg" (click)="openImage('assets/stage1/3/2.jpg')" class="img-fluid pointer"></div>
                <p>You will observe a new Pipeline is triggered in the below listed Path:</p>
                <div class="code" (click)="copyText(code2)"><code #code2> https://dev.azure.com/YOUR_ORGANIZATION/AZURE_WORKSHOP_PROJECT/_build</code> 
                 <div *ngIf="copied" class="code-copied" >Copied  <i class="fas fa-check text-success"></i></div>
@@ -126,13 +134,13 @@
  <div *ngIf="mod4">
     <div class="row">
         <div class="col-12 col-md-12 module-block">
-           <h3 class="text-blue pb-4"><strong>Debugging & Re-Excution</strong></h3>
-           <p><strong>1.</strong> To debug the issue, Click on Failed Pipeline. We can see the Failed Stages – BUILD PIPELINE FRONTEND failed in DEVELOPER QUALITY GATES.</p>
+           <h3 class="text-blue pb-4"><strong>Debugging & Reexecution</strong></h3>
+           <p><strong>1.</strong> To debug the issue, Click on Failed Pipeline. We can see the Failed Stages – BUILD PIPELINE FRONTEND failed in PREBUILD QA FRONTEND.Now click on STATIC CODE ANALYSIS,UNIT TEST link to see the failure in Unit Test. Error Logs can be observed similar as shown in the below Exhibit</p>
            <div class="text-center py-4"><img src="assets/stage1/4/1.jpg" (click)="openImage('assets/stage1/4/1.jpg')" class="img-fluid pointer"></div>
 
-           <p><strong>2.</strong> Now click on DEVELOPER QUALITY GATES. We can see failure in Unit Test. Error Logs can be observed similar as shown in the below snapshot:</p>
+           <p><strong>2.</strong> Click on Unit Test (Red Icon - Indicating Failure) - to view the failure log</p>
            <div class="text-center py-4"><img src="assets/stage1/4/2.jpg" (click)="openImage('assets/stage1/4/2.jpg')" class="img-fluid pointer"></div>
-            <p><strong>3.</strong> To understand error better navigate to Test Runs from Test plans (or) alternatively, Navigate to Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT-ExperienceLab_Overview and go to the section UnitTest to view the summary of this stage and click Detailed Report – it will navigate you to test plans.</p>
+            <p><strong>3.</strong> To understand error better navigate to Test Runs from Test plans (or) alternatively, Navigate to Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT-ExperienceLab_Overview and go to the section UnitTest to view the summary of this stage and click <strong>Unit Test Report</strong> – it will navigate you to test plans.</p>
             <div class="text-center py-4"><img src="assets/stage1/4/3.jpg" (click)="openImage('assets/stage1/4/3.jpg')" class="img-fluid pointer"></div>
 
             <p><strong>4.</strong> Select Junit_junit.xml under Test Plans > Runs > Test runs. </p>
@@ -152,7 +160,7 @@
             <p>Instead of <strong>‘lastName’</strong>, the developer has updated to <strong>‘lastName1’</strong>.</p>
 
             <h4>How do we fix the identified bug?</h4>
-            <p>Switch to Reporting Dashboard – <strong>In PREBUILD-QA Section – FRONTEND UNIT TEST – would have failed and will be in RED</strong>. Refer the screenshot below for details:</p>
+            <p>navigate to <strong>Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT Team - EXPERIENCE_LAB_OVERVIEW</strong> you can see a section with the name <strong>Failure Fix</strong></p>
             <div class="text-center py-4"><img src="assets/stage1/4/7.jpg" (click)="openImage('assets/stage1/4/7.jpg')" class="img-fluid pointer"></div>
             
             <p><strong>7.</strong> Click on PreBuild-QA- Fix link from Failure Fix Widget.  </p>
@@ -163,7 +171,7 @@
             <div class="text-center py-4"><img src="assets/stage1/4/8.jpg" (click)="openImage('assets/stage1/4/8.jpg')" class="img-fluid pointer"></div>
 
             <p><strong>8.</strong> To fix this issue, Click <strong>Edit Button</strong> (on the top right) and go to line number 54 and change <strong>‘lastName1’</strong> to <strong>‘lastName’</strong>. Refer the screenshot as shown below and Click on <strong>Commit</strong>.</p>
-            <div class="text-center py-4"><img src="assets/stage1/4/9.jpg" (click)="openImage('assets/stage1/4/9.jpg')" class="img-fluid"></div>
+            <div class="text-center py-4"><img src="assets/stage1/4/8_1.jpg" (click)="openImage('assets/stage1/4/9.jpg')" class="img-fluid"></div>
 
             <p><strong>9.</strong> Provide all required details such as <strong>Comment</strong> (with meaningful information about this commit) and click on <strong>‘Commit’</strong>.</p>
             <div class="text-center py-4"><img src="assets/stage1/4/9.jpg" (click)="openImage('assets/stage1/4/9.jpg')" class="img-fluid"></div>
@@ -194,83 +202,96 @@
 
 <!--mod4-->
 <div *ngIf="mod5">
-    <div class="row">
-        <div class="col-12 col-md-12 module-block">
-           <h3 class="text-blue pb-4"><strong>Test Report Analysis</strong></h3>
-           <p>To view the CodeQuality and test coverage reports, use SonarQube dashboard for code quality metrics.</p>
-           <p>To access SonarQube navigate to Overview -> Dashboard -> <strong>AZURE_WORKSHOP_PROJECT-ExperienceLab_Overview </strong> and go to the Deployment in Landing Zone Widget, click on SonarQube Link </p>
-           <div class="text-center py-4"><img src="https://via.placeholder.com/600x200" class="img-fluid"></div>
-
-
-            
-            <p>It will navigate to SonarQube server, Please refer the Exhibit below: </p>
-            <div class="text-center py-4"><img src="https://via.placeholder.com/600x200" class="img-fluid"></div>
-
-            <h4>Reference Links</h4>
-            <p>To be updated </p>
-
-            <h4>Tool Alternate options</h4>
-
-            <div class="table-responsive">
-                <table class="table table-borderless table-light">
-                    <thead>
-                      <tr class="bg-blue1">
-                        <th  class="text-left bg-blue2 text-center" scope="col">Stages </th>
-                        <th colspan="6" class="text-center" scope="col">Pre-Build QA </th>                        
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr >
-                        <th scope="row" class="bg-blue1 text-center">Category</th>
-                        <td>Frontend </td>
-                        <td>Backend </td>
-                        <td>Frontend Unit Test </td>
-                        <td>Backend Unit Test </td>
-                        <td>Static Code Analysis </td>
-                        <td>Code Coverage Backend </td>
-                      </tr>
-                      <tr >
-                        <th scope="row" class="bg-blue3 text-center">Current Tooling </th>
-                        <td class="bg-ash">REACT  </td>
-                        <td class="bg-ash">SPRING BOOT  </td>
-                        <td class="bg-ash">Jest </td>
-                        <td class="bg-ash">Junit </td>
-                        <td class="bg-ash">Sonarqube </td>
-                        <td class="bg-ash">Jaccoco & JEST </td>
-                      </tr>
-                      <tr>
-                        <th scope="row" class="bg-blue1 text-center">Alternate Tooling </th>
-                        <td>Angular, Vue   </td>
-                        <td>ExpressJS</td>
-                        <td>Enzyme  </td>
-                        <td>NUnit 
-                            JMockit 
-                            Emma 
-                            HtmlUnit 
-                            Microsoft unit testing Framework 
-                             </td>
-                        <td>ESLint (Javascript) 
-                            Raxis 
-                            RIPS Technologies 
-                            PVS-Studio 
-                            Kiuwan 
-                             </td>
-                        <td>Coco 
-                            Cobertura 
-                            Coverage.py 
-                            OpenClover 
-                            </td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-            </div>
-
-            <!--tool-->
-
+  <div class="row">
+      <div class="col-12 col-md-12 module-block">
+         <h3 class="text-blue pb-4"><strong>Test Report Analysis</strong></h3>
+       <!--karthik start-->
+         <h4>Static Code Analysis Report:</h4>
+         <p>To view the CodeQuality and test coverage reports, use SonarQube dashboard for code quality metrics.</p>
+         <p>To access SonarQube navigate to Overview -> Dashboard -> <strong>AZURE_WORKSHOP_PROJECT-ExperienceLab_Overview </strong> and go to the Deployment in Landing Zone Widget, click on SonarQube Link </p>
+         <div class="text-center py-4"><img src="assets/stage1/5/Dashboard_Sonarqubelink.jpg" (click)="openImage('assets/stage1/5/Dashboard_Sonarqubelink.JPG')" class="img-fluid"></div>
+          
+          <p>It will navigate to SonarQube server, Please refer the Exhibit below: </p>
+          <div class="text-center py-4"><img src="assets/stage1/5/1.18-SonarQubeReport.JPG" (click)="openImage('assets/stage1/5/1.18-SonarQubeReport.JPG')" class="img-fluid"></div>
+          <h4>Unit Test Report:</h4>
+          <p> To access the Unit Test report, go to the Deployment in Reports Widget in <strong>AZURE_WORKSHOP_PROJECT-ExperienceLab_Overview </strong>  Dashboard, click on <strong>Unit Test Report</strong> Link, it will navigate to <strong>Test Runs</strong>  </p>
+          <div class="text-center py-4"><img src="assets/stage1/5/UnitTestSummary.jpg" (click)="openImage('assets/stage1/5/UnitTestSummary.jpg')" class="img-fluid"></div>
+          <p>From Test Runs - Click on <strong>JUnit_junit.xml</strong> to view UI Unit Test Report</p>
+          <div class="text-center py-4"><img src="assets/stage1/5/Unit Test Report_UI.jpg" (click)="openImage('assets/stage1/5/Unit Test Report_UI.jpg')" class="img-fluid"></div>
+          <p>From Test Runs - Click on <strong>JUnit_TestResults.xml</strong> to view API Unit Test Report</p>
+          <div class="text-center py-4"><img src="assets/stage1/5/Unit Test Report.jpg" (click)="openImage('assets/stage1/5/Unit Test Report.jpg')" class="img-fluid"></div>
+          <h4>Build Verification Test Report</h4>
+          <p> To access the Build Verification Test report, go to the Deployment in Reports Widget in <strong>AZURE_WORKSHOP_PROJECT-ExperienceLab_Overview </strong>  Dashboard, click on <strong>BVT - With Virtualized Services</strong> Link, it will navigate to <strong>Test Summary Report</strong>  </p>
+          <div class="text-center py-4"><img src="assets/stage1/5/TestSummary.jpeg" (click)="openImage('assets/stage1/5/TestSummary.jpeg')" class="img-fluid"></div>
+          <p>To view the Individual Report - Click on Test case name</p>
+          <div class="text-center py-4"><img src="assets/stage1/5/TestReport.jpeg" (click)="openImage('assets/stage1/5/TestReport.jpeg')" class="img-fluid"></div>
          
-       </div>
-    </div>
+         <!--karthik end-->
+          <h4>Reference Links</h4>
+          <p>To be updated </p>
+
+          <h4>Tool Alternate options</h4>
+
+          <div class="table-responsive">
+              <table class="table table-borderless table-light">
+                  <thead>
+                    <tr class="bg-blue1">
+                      <th  class="text-left bg-blue2 text-center" scope="col">Stages </th>
+                      <th colspan="6" class="text-center" scope="col">Pre-Build QA </th>                        
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr >
+                      <th scope="row" class="bg-blue1 text-center">Category</th>
+                      <td>Frontend </td>
+                      <td>Backend </td>
+                      <td>Frontend Unit Test </td>
+                      <td>Backend Unit Test </td>
+                      <td>Static Code Analysis </td>
+                      <td>Code Coverage Backend </td>
+                    </tr>
+                    <tr >
+                      <th scope="row" class="bg-blue3 text-center">Current Tooling </th>
+                      <td class="bg-ash">REACT  </td>
+                      <td class="bg-ash">SPRING BOOT  </td>
+                      <td class="bg-ash">Jest </td>
+                      <td class="bg-ash">Junit </td>
+                      <td class="bg-ash">Sonarqube </td>
+                      <td class="bg-ash">Jaccoco & JEST </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="bg-blue1 text-center">Alternate Tooling </th>
+                      <td>Angular, Vue   </td>
+                      <td>ExpressJS</td>
+                      <td>Enzyme  </td>
+                      <td>NUnit 
+                          JMockit 
+                          Emma 
+                          HtmlUnit 
+                          Microsoft unit testing Framework 
+                           </td>
+                      <td>ESLint (Javascript) 
+                          Raxis 
+                          RIPS Technologies 
+                          PVS-Studio 
+                          Kiuwan 
+                           </td>
+                      <td>Coco 
+                          Cobertura 
+                          Coverage.py 
+                          OpenClover 
+                          </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+          </div>
+
+          <!--tool-->
+
+       
+     </div>
+  </div>
 </div>
 <!--mod4-->
 
