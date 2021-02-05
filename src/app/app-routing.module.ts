@@ -20,8 +20,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'modules', component: ModulesComponent, children: [
     {path: '1/:name', component: IntroductionComponent},
-    {path: '2/:name', component: ExperienceLabComponent},
-    {path: '3/:name', component: PreConditionsComponent},
+    {path: '2/:name', component: PreConditionsComponent},
+    {path: '3/:name', component: ExperienceLabComponent},
     {path: '4/:name', component: Stage0Component},
     {path: '5/:name', component: Stage1Component},
     {path: '6/:name', component: Stage2Component},

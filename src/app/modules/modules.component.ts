@@ -38,6 +38,7 @@ export class ModulesComponent implements OnInit, OnDestroy {
   
 
   ngOnInit(): void {
+    console.log(sessionStorage.length);
 
    this.href = this._router.url;
    var pathname = this.href.split("/", 3); 
@@ -62,11 +63,9 @@ export class ModulesComponent implements OnInit, OnDestroy {
         element.subMenu.forEach((ele, index) => {
           let modifiedLink = ele.link+i; 
           if(sessionStorage.getItem(modifiedLink)) {
-            //console.log(modifiedLink);            
             this.menus[i].subMenu[index].checked = true;
             this._leftPanelSer.increaseCourse(sessionStorage.length);
-          }
-          
+          }       
           
         });
       });
@@ -75,11 +74,10 @@ export class ModulesComponent implements OnInit, OnDestroy {
 
 
     this.$clikedCourse = this._leftPanelSer.courseLink.subscribe((data:any) => {
- 
+      
      
       if(data != null){
         const tt = data[0];
-        // console.log('clicked course', tt.modNo);
         let con = tt.modNo-1;
         this.menus.forEach((ele, i)=> {
           this.menus[i].toggle = false;
@@ -113,7 +111,14 @@ export class ModulesComponent implements OnInit, OnDestroy {
    
   }
 
-  onClickMenuTitle(item: number) { 
+  onClickMenuTitle(item: number, menu) { 
+    const clickedTopMenu = menu.link+item; 
+    console.log(menu.link+item);
+    if(sessionStorage.getItem(clickedTopMenu)) {
+    }else {
+      sessionStorage.setItem(clickedTopMenu, String(item));
+      this._leftPanelSer.increaseCourse(sessionStorage.length);
+    }
    // console.log(item);
     this.menus.map((tog) => {
       tog.toggle = false;

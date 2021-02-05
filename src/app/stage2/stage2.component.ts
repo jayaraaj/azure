@@ -28,13 +28,13 @@ export class Stage2Component implements OnInit {
   pageRight: string;
   pageName;
   pageArray = [
-  'test-report-analysis',
+  'tikk-talk',
   'stage-2', 
   'stage-objectives',
   'pipeline-overview',
   'pipeline-Creation-and-Execution',
-  // 'debugging-and-Re-Excution',
   'test-report-analysis',
+  'tikk-talk',
   'stage-3'
 ];
 
@@ -161,7 +161,7 @@ showRightArrow : boolean = true;
 
   moveRight() {
       
-    if(this.pageRight == this.pageArray[6]){
+    if(this.pageRight == this.pageArray[7]){
       this.moduleNumber = 7;
     }else {
       this.moduleNumber = 6;

@@ -14,10 +14,11 @@
     </a>
         <!--from-back-->         
         <app-header [courseNumber]='10'></app-header>
-        <div class="px-5 py-5">
+        <div class="px-5 py-3">
              <!--mod-->
              <div *ngIf="mod">
-
+              <h3 class="text-blue  text-center"><strong>Summary</strong></h3>
+              <div class="text-center "><img src="assets/tikk/Tik_ModuleIntro_10.jpg"  class="img-fluid w-75"></div>
               </div>
               <!--mod-->
         
@@ -27,10 +28,22 @@
         <div *ngIf="mod1">
           <div class="row">
             <div class="col-12 col-md-12 module-block">
-               <h3 class="text-blue pb-4"><strong>We have accomplished. </strong></h3>
-                <p>Congrats! You have now successfully completed all stages and learnt how to create an E2E pipeline using Azure services. </p>
+               <h3 class="text-blue pb-4"><strong>Congratulations, you have successfully concluded the Experience Lab on Continuous Testing with Azure! 
+                
+                </strong></h3>
+
+                <p>You have traversed all stages and learnt how to create an E2E pipeline using Azure services. We would like to recognize your accomplishment with a completion certification. 
+
+If interested to receive your personalized certification, please share screen-print from Azure DevOps of your successfully executed End-to-End pipeline <em>(refer sample below)</em> at <a href="mailto:cloudassurance@cognizant.com" class="a" target="_blank">cloudassurance@cognizant.com</a>. <br><br>We will mail you your personalized certification soon.
+                  <br><br>Screen-print sample:
+</p>
+                <div class="text-center py-4"><img src="assets/conclusion/1.png" (click)="openImage('assets/conclusion/1.png')" class="img-fluid pointer"></div>
+
+              
+               
+                <h4 class="py-3">Recap</h4>
                 <p>In this workshop, we have built, fixed and executed the Continuous Testing pipeline. Along with this hands-on implementation, you now also have a high-level understanding on testing in DevOps, including various testing stages, their objectives, challenges, enablers and some industry best practices.</p>
-                <p>As committed in the ‘In-Store for Practitioners’ section, we have discussed the answers to the following questions in this workshop:</p>
+                <p>As committed in the ‘Objectives’ section, we have discussed the answers to the following questions in this workshop:</p>
 
                 <div class="common-content">
                   <ul>
@@ -43,10 +56,11 @@
                               <li>How to fix typical issues and fix your continuous testing pipeline</li>
                             </ul>                    
                 </div>
-
+                <h4 class="py-3">Next Steps</h4>
                 <p>Now that you have built your own Continuous Testing Pipeline, we encourage you to build on the learnings from this Lab to expand your horizons on Continuous Testing. </p>
                
                 <div class="common-content">
+                  <ul>
                     <li>  Integrate your pipeline with Slack channel or Teams to easily monitor the events for your pipelines. Set up and manage subscriptions for builds, releases, YAML pipelines, pending approvals and more from the app and get notifications for these events in your Slack channels.</li>
                     <li>	Replace (or) append the tooling stack by creating your own automation test with new tools and frameworks</li>
                     <li>	Implement Code progression in the pipelines to demonstrate how code base moves form Dev to Production based on the quality gates at every stage</li>
@@ -55,16 +69,16 @@
                     <li>	Integrate AI based BOTS for intelligent test execution based on the code committed and possible business impact.</li>
                     <li>	Re-orchestrate your pipeline by shifting left the non-functional testing i.e. execute the experience assurance at the Pre-Build stage itself</li>
 
-                    
+                  </ul>
                 </div>
 
               <h4 class="pt-5">Access Cognizant’s premium thought leadership content</h4>
               <p>We also recommend you leverage the extensive Thought Leadership content covering whitepapers and blogs written by industry experts and Cognizant automation consultants, shared on the <a href="https://www.cognizant.com/application-modernization" class="a" target="_blank">Cognizant portal</a>. </p>
 
-              <h6>Info</h6>
+            
               <p>In addition to the Azure Experience Lab, we are pleased to offer you several thought leadership and research-based content on continuous testing from experienced experts at Cognizant. We ask you to kindly register yourself at: <a href="https://www.cognizant.com/application-modernization" target="_blank" class="a">https://www.cognizant.com/application-modernization </a> to be able to access this content.</p>
 
-              <h6>Got any questions?</h6>
+              <h4 class="py-3">Got any questions?</h4>
               <p>Please reach us at <a href="mailto:CloudAssurance@cognizant.com" class="a" target="_blank">CloudAssurance@cognizant.com</a>. </p>
            </div>
         </div>   
@@ -75,17 +89,19 @@
     <h3 class="text-blue pb-4"><strong>Jargons / CI Glossary</strong></h3>
     <div class="common-content">
       <ul>
+        <li>AI-  <strong>Artificial intelligence</strong> refers to the simulation of human intelligence in machines that are programmed to think like humans and mimic their actions.</li>
+        <li>CI/CD - <strong>Continuous Integration</strong> (CI) and <strong>Continuous Delivery</strong> (CD) bridges the gaps between development and operation activities and teams by enforcing automation in building, testing and deployment of applications.</li>
+        <li>CT – <strong>Continuous Testing</strong> is the process of executing automated tests as part of the software delivery pipeline</li>
+        <li>DAST- <strong>Dynamic application security testing</strong> is a black box testing method that examines an application as it's running to find vulnerabilities that an attacker could exploit.</li>
+        <li>IAAS – <strong>Internet as a Service</strong> are cloud-based services, pay-as-you-go for services such as storage, networking, and virtualization</li>
+        <li>PAAS – <strong>Platform As a Service</strong> are hardware and software tools available over the internet</li>
+        <li>SAAS- <strong>Software as a Service</strong> are software that's available via a third-party over the internet.</li>
+
         <li>SDLC- <strong>Software development lifecycle</strong> is a process used to design, develop and test high quality softwares.</li>
-          <li>CT – <strong>Continuous Testing</strong> is the process of executing automated tests as part of the software delivery pipeline</li>
-          <li>CI/CD - <strong>Continuous Integration</strong> (CI) and <strong>Continuous Delivery</strong> (CD) bridges the gaps between development and operation activities and teams by enforcing automation in building, testing and deployment of applications.</li>
-          <li>QA – <strong>Quality Assurance</strong> process that ensures that an organization delivers the best products or services possible.</li>
-          <li>VMs-  <strong>Virtual Machines</strong> is a virtual environment that functions as a virtual computer system with its own CPU, memory, network interface, and storage, created on a physical hardware system</li>
-          <li>AI-  <strong>Artificial intelligence</strong> refers to the simulation of human intelligence in machines that are programmed to think like humans and mimic their actions.</li>
-          <li>DAST- <strong>Dynamic application security testing</strong> is a black box testing method that examines an application as it's running to find vulnerabilities that an attacker could exploit.</li>
-          <li>IAAS – <strong>Internet as a Service</strong> are cloud-based services, pay-as-you-go for services such as storage, networking, and virtualization</li>
-          <li>PAAS – <strong>Platform As a Service</strong> are hardware and software tools available over the internet</li>
-          <li>SAAS- <strong>Software as a Service</strong> are software that's available via a third-party over the internet.</li>
-          <li>UI – <strong>User Interface</strong> is anything a user may interact with to use a digital product or service.</li>
+        <li>UI – <strong>User Interface</strong> is anything a user may interact with to use a digital product or service.</li>
+        <li>VMs-  <strong>Virtual Machines</strong> is a virtual environment that functions as a virtual computer system with its own CPU, memory, network interface, and storage, created on a physical hardware system</li>
+
+        <li>QA – <strong>Quality Assurance</strong> process that ensures that an organization delivers the best products or services possible.</li>
           
 
       </ul>
@@ -110,7 +126,6 @@
                 <i class="fas fa-copy text-light"></i>
            </button> </div>
           
-            <p>Please free to give us any feedback on the template created and outline content updated for the Cognizant Experience Lab for Continuous Testing in Azure. </p>
 
     </div>
     </div>

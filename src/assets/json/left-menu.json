@@ -27,7 +27,27 @@
         {
             "id": 2,
             "module": "Module 2",
-            "title" : "Experience Lab Objectives & Premise",
+            "title" : "Prerequisites",
+            "link" : "pre-conditions",
+            "subMenu": [
+                {
+                    "title": "How to create an Azure Account?",
+                    "link": "how-to-create-an-azure-account",
+                    "checked": false
+                },
+                {
+                    "title": "How to setup an Environment?",
+                    "link": "how-to-setup-an-Environment",
+                    "checked": false
+                }
+                
+            ],
+            "toggle": false
+        },
+        {
+            "id": 3,
+            "module": "Module 3",
+            "title" : "Objectives & Premise",
             "link" : "experience-lab-objectives-and-premise",
             "subMenu": [
                 {
@@ -58,26 +78,7 @@
             ],
             "toggle": false
         },
-        {
-            "id": 3,
-            "module": "Module 3",
-            "title" : "Pre-Conditions",
-            "link" : "pre-conditions",
-            "subMenu": [
-                {
-                    "title": "How to create an Azure Account?",
-                    "link": "how-to-create-an-azure-account",
-                    "checked": false
-                },
-                {
-                    "title": "How to setup an Environment?",
-                    "link": "how-to-setup-an-Environment",
-                    "checked": false
-                }
-                
-            ],
-            "toggle": false
-        },
+        
         {
             "id": 4,
             "module": "Module 4",
@@ -86,7 +87,7 @@
             "subMenu": [
              
                 {
-                    "title": "What is a Landing zone?",
+                    "title": "What is a Landing Zone?",
                     "link": "what-is-a-landing-zone",
                     "checked": false
                 },
@@ -98,6 +99,11 @@
                 {
                     "title": "Creating your Landing Zone",
                     "link": "creating-your-landing-zone",
+                    "checked": false
+                },
+                {
+                    "title": "Tikk Talk",
+                    "link": "tikk-talk",
                     "checked": false
                 }
                
@@ -126,13 +132,18 @@
                     "checked": false
                 },
                 {
-                    "title": "Debugging & Reexecution",
+                    "title": "Debugging & Re-execution",
                     "link": "debugging-and-Re-Excution",
                     "checked": false
                 },
                 {
                     "title": "Test Report Analysis",
                     "link": "test-report-analysis",
+                    "checked": false
+                },
+                {
+                    "title": "Tikk Talk",
+                    "link": "tikk-talk",
                     "checked": false
                 }
               
@@ -164,6 +175,11 @@
                 {
                     "title": "Test Report Analysis",
                     "link": "test-report-analysis",
+                    "checked": false
+                },
+                {
+                    "title": "Tikk Talk",
+                    "link": "tikk-talk",
                     "checked": false
                 }
                
@@ -197,13 +213,18 @@
                     "checked": false
                 },
                 {
-                    "title": "Debugging & Reexecution",
+                    "title": "Debugging & Re-execution",
                     "link": "debugging-and-Re-Excution",
                     "checked": false
                 },
                 {
                     "title": "Test Report Analysis",
                     "link": "test-report-analysis",
+                    "checked": false
+                },
+                {
+                    "title": "Tikk Talk",
+                    "link": "tikk-talk",
                     "checked": false
                 }
                
@@ -213,7 +234,7 @@
         {
             "id": 8,
             "module": "Module 5",
-            "title" : "Stage 4 - Experience QA",
+            "title" : "Stage 4 - Experience Assurance",
             "link" : "stage-4",
             "subMenu": [
                 {
@@ -237,13 +258,18 @@
                     "checked": false
                 },
                 {
-                    "title": "Debugging & Reexecution",
+                    "title": "Debugging & Re-execution",
                     "link": "debugging-and-Re-Excution",
                     "checked": false
                 },
                 {
                     "title": "Test Report Analysis",
                     "link": "test-report-analysis",
+                    "checked": false
+                },
+                {
+                    "title": "Tikk Talk",
+                    "link": "tikk-talk",
                     "checked": false
                 }
                
@@ -275,6 +301,11 @@
                     "title": "Test Report Analysis",
                     "link": "test-report-analysis",
                     "checked": false
+                },
+                {
+                    "title": "Tikk Talk",
+                    "link": "tikk-talk",
+                    "checked": false
                 }
               
             ],
@@ -283,12 +314,12 @@
         {
             "id": 10,
             "module": "Module 5",
-            "title" : "Conclusion",
+            "title" : "Summary",
             "link" : "conclusion",
             "subMenu": [
               
                 {
-                    "title": "We have accomplished",
+                    "title": "Accomplishment",
                     "link": "we-have-accomplished",
                     "checked": false
                 },

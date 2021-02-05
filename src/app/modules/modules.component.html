@@ -14,7 +14,7 @@
         <div class="sidebar-menu">
           <ul>
             <li><a [routerLink]="['/login']"> Home </a></li>
-            <li  *ngFor="let menu of menus; index as i" class="sidebar-dropdown"  (click)="onClickMenuTitle(i)">
+            <li  *ngFor="let menu of menus; index as i" class="sidebar-dropdown"  (click)="onClickMenuTitle(i, menu)">
                         
                 <!-- <span><small>{{ menu.module }}</small></span> -->
               <a [routerLink]="['/modules', menu.id, menu.link]">{{ menu.title }}</a>

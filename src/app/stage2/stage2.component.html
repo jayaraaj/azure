@@ -14,11 +14,11 @@
      </a>
          <!--from-back-->      
         <app-header [courseNumber]='6'></app-header>
-        <div class="px-5 pt-5">
+        <div class="px-5 pt-3">
            <!--mod-->
            <div *ngIf="mod">
-            <h3 class="text-blue"><strong>Stage 2 - Post Build QA</strong></h3>   
-            <div class="text-center "><img src="assets/tikk/Tik_ModuleIntro-06.jpg"  class="img-fluid w-75"></div>
+            <h3 class="text-blue text-center"><strong>Stage 2 - Post Build QA</strong></h3>   
+            <div class="text-center "><img src="assets/tikk/Tik_ModuleIntro_6.jpg"  class="img-fluid w-75"></div>
       
           </div>
           <!--mod-->
@@ -69,7 +69,7 @@
         <div class="row">
             <div class="col-12 col-md-12 module-block">
                <h3 class="text-blue pb-4"><strong>Pipeline Creation & Execution</strong></h3>
-               <p><strong>1.</strong> To deploy the post-build pipeline, run the following commands in Cloud Shell terminal:
+               <p><strong>1.</strong> To deploy the post-build pipeline, run the following commands in Azure CLI terminal:
                 </p>          
               
                 <div class="code" (click)="copyText(code1)"><code #code1>cd && cd azure-cli && npm run postbuild</code> 
@@ -77,20 +77,20 @@
                   <button class="btn btn-lg  code-copy"  *ngIf="!copied">
                     <i class="fas fa-copy text-light"></i>
                </button> </div>
-                <p>The above command will take approximately 1 to 2 minutes to complete.</p>
-                <div class="text-center py-4"><img src="assets/stage2/3/execution.jpg" (click)="openImage('assets/stage2/3/execution.jpg')" class="img-fluid pointer"></div>
+                <p class="pt-3">The above command will take approximately 2 minutes to complete.</p>
+                <div class="text-center pt-2 pb-3"><img src="assets/stage2/3/execution.jpg" (click)="openImage('assets/stage2/3/execution.jpg')" class="img-fluid pointer"></div>
                 <p>At this point, you will observe an automatically triggered and fully functioning Post-Build QA Pipeline, similar to one as shown in the below Exhibit:</p>
                 <div class="text-center py-4"><img src="assets/stage2/3/startingpipeline.jpg" (click)="openImage('assets/stage2/3/startingpipeline.jpg')" class="img-fluid pointer"></div>
                
                 <p><strong>2.</strong> Click on the pipeline that begins with the name POSTBUILD-QA, you should see the screen as shown in the below Exhibit:</p>
                 <div class="text-center py-4"><img src="assets/stage2/3/startingpipelinelist.jpg" (click)="openImage('assets/stage2/3/startingpipelinelist.jpg')" class="img-fluid pointer"></div>
                 
-                <p>On clicking the first row of the pipeline, you should see similar Exhibit as below with Stages and Jobs, and it should reflect GREEN in all the Stages, if everything went well. </p>
+                <p><strong>3.</strong>	On clicking the first row of the pipeline, you should see similar Exhibit as below with Stages and Jobs, and it should reflect GREEN in all the Stages, if everything went well.  </p>
                 <div class="text-center py-4"><img src="assets/stage2/3/stages.jpg" (click)="openImage('assets/stage2/3/stages.jpg')" class="img-fluid pointer"></div>
                 
-                <p>On successful execution of the pipeline, you should have a working instance of your Application in the test environment. To access the application, navigate to <strong>Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT Team - EXPERIENCE_LAB_OVERVIEW</strong> you can see a section with the name <strong>Deployment in Post Build</strong> displayed, similar to the one in the below Exhibit: </p>
+                <p><strong>4.</strong> successful execution of the pipeline, you should have a working instance of your Application in the test environment. To access the application, navigate to <strong>Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT Team - EXPERIENCE_LAB_OVERVIEW</strong> you can see a section with the name <strong>Deployment in Post Build</strong> displayed, similar to the one in the below Exhibit: </p>
                 <div class="text-center py-4"><img src="assets/stage2/3/dashboard.jpg" (click)="openImage('assets/stage2/3/dashboard.jpg')" class="img-fluid pointer"></div>
-                  <p><strong>3. </strong> Under Deployment in Post Build - Click on <strong> Digitalshopify </strong>link. You will now can see the application deployed as shown in the Exhibit:</p>
+                  <p><strong>5. </strong> Click on <strong> DIGITAL SHOPIFY </strong> link. You now can see the application deployed as shown in the Exhibit:</p>
                 <div class="text-center py-4"><img src="assets/stage2/3/deployedapp.jpeg" (click)="openImage('assets/stage2/3/deployedapp.jpeg')" class="img-fluid"></div>
                                 
            </div>
@@ -100,28 +100,17 @@
 
 
 
- <!--mod4-->
- <!-- <div *ngIf="mod4">
-    <div class="row">
-        <div class="col-12 col-md-12 module-block">
-           <h3 class="text-blue pb-4"><strong>Debugging & Re-Excution</strong></h3>
-          
 
-       </div>
-    </div>
-</div> -->
+
 <!--mod4-->
-
-
-<!--mod5-->
 <div *ngIf="mod4">
     <div class="row">
         <div class="col-12 col-md-12 module-block">
            <h3 class="text-blue pb-4"><strong>Test Report Analysis</strong></h3>
            <!-- <p>You will also be able to see the test summary of the recently executed Pipeline Stage for Smoke Testing. </p> -->
-           <p>To access the Smoke Test Report, navigate to <strong>Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT Team - EXPERIENCE_LAB_OVERVIEW</strong> you can see <strong>Reports</strong> section similar to below Exhibit:</p>
+           <p>1. To access the Smoke Test Report, navigate to <strong>Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT Team - EXPERIENCE_LAB_OVERVIEW</strong> you can see <strong>Reports</strong> section similar to below Exhibit:</p>
            <div class="text-center py-4"><img src="assets/stage2/4/dashboard.jpg" (click)="openImage('assets/stage2/4/dashboard.jpg')" class="img-fluid pointer"></div>
-           <p>Click on the link <strong>Smoke Test</strong> available Under Reports section under PostBuild, You can view Extent report similar to below Exhibit:</p>
+           <p>2. Click  on the link <strong>Smoke Test</strong> available Under Reports section under PostBuild, You can view Extent report similar to below Exhibit:</p>
            <div class="text-center py-4"><img src="assets/stage2/4/smoketestreport.jpeg" (click)="openImage('assets/stage2/4/smoketestreport.jpeg')" class="img-fluid pointer"></div>
            
        </div>
@@ -183,7 +172,23 @@
 
             </div>
 </div>
+<!--mod4-->
+
 <!--mod5-->
+<div *ngIf="mod5">
+  <div class="row">
+    <div class="col-12 col-md-12 module-block">
+       <h3 class="text-blue pb-4"><strong>Tikk Talk</strong></h3>
+       
+
+       
+        
+
+   </div>
+</div>
+</div>
+<!--mod5-->
+
 
     </div>
     </div>

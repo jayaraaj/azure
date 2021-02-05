@@ -21,6 +21,7 @@ export class Stage1Component implements OnInit {
   mod3=false;
   mod4=false;
   mod5=false;
+  mod6 = false;
   private _album: Array<any> = [];
   
   pageName;
@@ -28,13 +29,14 @@ export class Stage1Component implements OnInit {
   pageLeft: string;
   pageRight: string;
   pageArray = [
-  'creating-your-landing-zone',
+  'tikk-talk',
   'stage-1', 
   'stage-objectives',
   'pipeline-overview',
   'pipeline-Creation-and-Execution',
   'debugging-and-Re-Excution',
   'test-report-analysis',
+  'tikk-talk',
   'stage-2'
 ];
 
@@ -66,6 +68,7 @@ showRightArrow : boolean = true;
         this.mod3=false;
         this.mod4 = false;
         this.mod5 = false;
+        this.mod6 = false;
         this.pageLeft = this.pageArray[0];
         this.pageRight = this.pageArray[2];
         
@@ -77,6 +80,7 @@ showRightArrow : boolean = true;
         this.mod3=false;
         this.mod4 = false;
         this.mod5 = false;
+        this.mod6 = false;
         this.pageLeft = this.pageArray[1];
         this.pageRight = this.pageArray[3];
         
@@ -90,6 +94,7 @@ showRightArrow : boolean = true;
         this.mod3=false;
         this.mod4 = false;
         this.mod5 = false;
+        this.mod6 = false;
         this.pageLeft = this.pageArray[2];
         this.pageRight = this.pageArray[4];
         
@@ -101,6 +106,7 @@ showRightArrow : boolean = true;
         this.mod3 = true;
         this.mod4 = false;
         this.mod5 = false;
+        this.mod6 = false;
         this.pageLeft = this.pageArray[3];
         this.pageRight = this.pageArray[5];
       
@@ -114,6 +120,7 @@ showRightArrow : boolean = true;
         this.mod3 = false;
         this.mod4 = true;
         this.mod5 = false;
+        this.mod6 = false;
         this.pageLeft = this.pageArray[4];
         this.pageRight = this.pageArray[6];
         console.log(params.name)
@@ -128,8 +135,26 @@ showRightArrow : boolean = true;
         this.mod3 = false;
         this.mod4 = false;
         this.mod5 = true;
+        this.mod6 = false;
         this.pageLeft = this.pageArray[5];
         this.pageRight = this.pageArray[7];
+        
+        
+        
+      }
+
+      else if(params.name ==this.pageArray[7]) {
+        //console.log(params.name)
+       
+        this.mod = false;
+        this.mod1 = false;
+        this.mod2=false;
+        this.mod3 = false;
+        this.mod4 = false;
+        this.mod5 = false;
+        this.mod6 = true;
+        this.pageLeft = this.pageArray[6];
+        this.pageRight = this.pageArray[8];
         
         
         
@@ -182,7 +207,7 @@ showRightArrow : boolean = true;
 
   moveRight() {
       
-    if(this.pageRight == this.pageArray[7]){
+    if(this.pageRight == this.pageArray[8]){
       this.moduleNumber = 6;
     }else {
       this.moduleNumber = 5

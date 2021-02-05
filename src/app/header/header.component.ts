@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
           || document.documentElement.scrollTop 
           || document.body.scrollTop || 0;
 
-          if(verticalOffset >50){this.scroll=true}
+          if(verticalOffset >56){this.scroll=true}
           else{this.scroll=false}
 
           //console.log(verticalOffset);
@@ -38,7 +38,7 @@ export class HeaderComponent implements OnInit {
 
  
       this.$number = this._leftPanelSer.coursePercentage.subscribe(val => {
-        console.log(val, 'per');
+       // console.log(val, 'per');
         this.courseNum = val;
       });
      // console.log('module', this.courseNumber);

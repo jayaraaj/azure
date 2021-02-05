@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Lightbox } from 'ngx-lightbox';
 import { Observable } from 'rxjs';
 import { CommonService } from '../service/common.service';
 import { LeftPanelService } from '../service/left-panel.service';
@@ -27,13 +28,14 @@ export class ConclusionComponent implements OnInit {
   pageLeft: string;
   pageRight: string;
   pageArray = [
-  'test-report-analysis',
+  'tikk-talk',
   'conclusion', 
   'we-have-accomplished',
   'jargons-ci-glossary', 
   'clean-up', 
 ];
 copied = false;
+private _album: Array<any> = [];
 
 lastPageIndex;
 showLeftArrow: boolean = true;
@@ -44,6 +46,7 @@ showRightArrow : boolean = true;
     public router: Router,
     public route: ActivatedRoute,
     private _commonService: CommonService,
+    private _lightbox: Lightbox,
   ) { }
 
   ngOnInit(): void {
@@ -149,6 +152,17 @@ showRightArrow : boolean = true;
     //console.log(this.moduleNumber, 'module for right');
     this._leftPanelSer.clickedCourseLink(this.pageRight, this.moduleNumber);
     this.router.navigate(['/modules', this.moduleNumber, this.pageRight]);
+  }
+
+  openImage(imageSrc) {
+    this._album = [];
+    let album = {
+      src: imageSrc,
+     
+   };
+   this._album.push(album);
+   this._lightbox.open(this._album);
+    console.log(album);
   }
 
 }

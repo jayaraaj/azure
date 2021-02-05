@@ -22,16 +22,16 @@ export class ExperienceLabComponent implements OnInit {
   pageLeft: string;
   pageRight: string;
   pageArray = [
-  'how-it-benefits',
+  'how-to-setup-an-Environment',
   'experience-lab-objectives-and-premise', 
   'objectives',
   'application-under-test',
   'solution-architecture',
   'lab-structure',
   'learnings',
-  'pre-conditions'
+  'stage-0'
 ];
-moduleNumber: number = 2;
+moduleNumber: number = 3;
 lastPageIndex;
 showLeftArrow: boolean = true;
 showRightArrow : boolean = true;
@@ -157,10 +157,10 @@ pageName;
 
     moveLeft(){
       if(this.pageLeft == this.pageArray[0]){
-        this.moduleNumber = 1;
+        this.moduleNumber = 2;
         
       }else {
-        this.moduleNumber = 2;
+        this.moduleNumber = 3;
       }
       this._leftPanelSer.clickedCourseLink(this.pageLeft, this.moduleNumber);
       this.router.navigate(['/modules', this.moduleNumber, this.pageLeft]);
@@ -169,10 +169,10 @@ pageName;
   
     moveRight() {
       if(this.pageRight == this.pageArray[7]){
-        this.moduleNumber = 3;
+        this.moduleNumber = 4;
       }
       else {
-        this.moduleNumber = 2;
+        this.moduleNumber = 3;
       }
       this._leftPanelSer.clickedCourseLink(this.pageRight, this.moduleNumber);
       this.router.navigate(['/modules', this.moduleNumber, this.pageRight]);

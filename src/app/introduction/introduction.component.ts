@@ -33,7 +33,7 @@ export class IntroductionComponent implements OnInit {
   'what-is-continuous-testing', 
   'why-azure-for-continuous-testing',
   'how-it-benefits',
-  'experience-lab-objectives-and-premise'
+  'pre-conditions'
 ];
   moduleNumber: number = 1;
   lastPageIndex;

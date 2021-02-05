@@ -28,12 +28,13 @@ export class Stage5Component implements OnInit {
   pageLeft: string;
   pageRight: string;
   pageArray = [
-    'test-report-analysis',
+  'tikk-talk',
   'stage-5', 
   'stage-objectives',
   'pipeline-overview', 
   'pipeline-Creation-and-Execution', 
   'test-report-analysis',
+  'tikk-talk',
   'conclusion'
 ];
 
@@ -111,6 +112,29 @@ private _album: Array<any> = [];
         this.pageLeft = this.pageArray[4];
         this.pageRight = this.pageArray[6];
       }
+
+      else if(params.name ==this.pageArray[6]) {
+        this.mod = false;
+        this.mod1 = false;
+        this.mod2=false;
+        this.mod3 = false;
+        this.mod4 = false;
+        this.mod5 = true;
+        this.mod6 = false;
+        this.pageLeft = this.pageArray[5];
+        this.pageRight = this.pageArray[7];
+      }
+      else if(params.name ==this.pageArray[7]) {
+        this.mod = false;
+        this.mod1 = false;
+        this.mod2=false;
+        this.mod3 = false;
+        this.mod4 = true;
+        this.mod5 = false;
+        this.mod6 = false;
+        this.pageLeft = this.pageArray[6];
+        this.pageRight = this.pageArray[8];
+      }
       
     });
     this.$panelMode =  this._leftPanelSer.panelMode;
@@ -124,7 +148,6 @@ private _album: Array<any> = [];
     
   }
   copyText(text) {
-    console.log('tad')
     this._commonService.copied(text);
     // this._commonService.$copied.subscribe( result => {
     //   this.copied = result;
@@ -157,7 +180,7 @@ private _album: Array<any> = [];
 
   moveRight() {
       
-    if(this.pageRight == this.pageArray[6]){
+    if(this.pageRight == this.pageArray[7]){
       this.moduleNumber = 10;
     }else {
       this.moduleNumber = 9;

@@ -23,6 +23,7 @@ export class Stage3Component implements OnInit {
   mod4=false;
   mod5 = false;
   mod6 =false;
+  mod7 =false;
   private _album: Array<any> = [];
   copied = false;
 
@@ -31,7 +32,7 @@ export class Stage3Component implements OnInit {
   pageLeft: string;
   pageRight: string;
   pageArray = [
-  'test-report-analysis',
+  'tikk-talk',
   'stage-3', 
   'stage-objectives',
   'pipeline-overview',
@@ -39,6 +40,7 @@ export class Stage3Component implements OnInit {
   'pipeline-Creation-and-Execution',
   'debugging-and-Re-Excution',
   'test-report-analysis',
+  'tikk-talk',
   'stage-4'
 ];
 
@@ -69,6 +71,7 @@ showRightArrow : boolean = true;
         this.mod4 = false;
         this.mod5 = false;
         this.mod6 = false;
+        this.mod7 = false;
         this.pageLeft = this.pageArray[0];
         this.pageRight = this.pageArray[2];
       }
@@ -80,6 +83,7 @@ showRightArrow : boolean = true;
         this.mod4 = false;
         this.mod5 = false;
         this.mod6 = false;
+        this.mod7 = false;
         this.pageLeft = this.pageArray[1];
         this.pageRight = this.pageArray[3];
       }else if(params.name ==this.pageArray[3]) {
@@ -90,6 +94,7 @@ showRightArrow : boolean = true;
         this.mod4 = false;
         this.mod5 = false;
         this.mod6 = false;
+        this.mod7 = false;
         this.pageLeft = this.pageArray[2];
         this.pageRight = this.pageArray[4];
       }
@@ -101,6 +106,7 @@ showRightArrow : boolean = true;
         this.mod4 = false;
         this.mod5 = false;
         this.mod6 = false;
+        this.mod7 = false;
         this.pageLeft = this.pageArray[3];
         this.pageRight = this.pageArray[5];
       }
@@ -112,6 +118,7 @@ showRightArrow : boolean = true;
         this.mod4 = true;
         this.mod5 = false;
         this.mod6 = false;
+        this.mod7 = false;
         this.pageLeft = this.pageArray[4];
         this.pageRight = this.pageArray[6];
       }
@@ -123,6 +130,7 @@ showRightArrow : boolean = true;
         this.mod4 = false;
         this.mod5 = true;
         this.mod6 = false;
+        this.mod7 = false;
         this.pageLeft = this.pageArray[5];
         this.pageRight = this.pageArray[7];
       }
@@ -134,8 +142,22 @@ showRightArrow : boolean = true;
         this.mod4 = false;
         this.mod5 = false;
         this.mod6 = true;
+        this.mod7 = false;
         this.pageLeft = this.pageArray[6];
         this.pageRight = this.pageArray[8];
+      }
+
+      else if(params.name ==this.pageArray[8]) {
+        this.mod = false;
+        this.mod1 = false;
+        this.mod2=false;
+        this.mod3 = false;
+        this.mod4 = false;
+        this.mod5 = false;
+        this.mod6 = false;
+        this.mod7 = true;
+        this.pageLeft = this.pageArray[7];
+        this.pageRight = this.pageArray[9];
       }
     });
     this.$panelMode =  this._leftPanelSer.panelMode;
@@ -183,7 +205,7 @@ showRightArrow : boolean = true;
 
   moveRight() {
       
-    if(this.pageRight == this.pageArray[8]){
+    if(this.pageRight == this.pageArray[9]){
       this.moduleNumber = 8;
     }else {
       this.moduleNumber = 7;

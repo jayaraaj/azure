@@ -14,11 +14,11 @@
     </a>
         <!--from-back-->            
         <app-header [courseNumber]='7'></app-header>
-        <div class="px-5 pt-5">
+        <div class="px-5 pt-3">
            <!--mod-->
            <div *ngIf="mod">
-            <h3 class="text-blue"><strong>Stage 3 - Functional Assurance</strong></h3>   
-            <div class="text-center "><img src="assets/tikk/Tik_ModuleIntro-07.jpg"  class="img-fluid w-75"></div>
+            <h3 class="text-blue text-center"><strong>Stage 3 - Functional Assurance</strong></h3>   
+            <div class="text-center "><img src="assets/tikk/Tik_ModuleIntro_7.jpg"  class="img-fluid w-75"></div>
    
           </div>
           <!--mod-->
@@ -58,7 +58,7 @@
 <p>refers to an RWD (Responsive Web Design) based interfaces</p>
 </div>
 
-<p>This stage will walk you through the assurance of your application functionalities. You will learn how to execute UI-based tests, responsive web design (RWD)-based tests and API tests using an open source tool stack.</p>
+<p class="pt-3">This stage will walk you through the assurance of your application functionalities. You will learn how to execute UI-based tests, responsive web design (RWD)-based tests and API tests using an open source tool stack.</p>
 
 <p>The process consists of 2 steps: Build and Release.</p>
 <div class="points p-4 bg-light">
@@ -72,37 +72,7 @@
 
 </div>
 
-<p>With every code change committed to the repository, the Build Pipeline will be auto triggered and the subsequent Release pipeline will be triggered to execute the tests in parallel.</p>
-
-<p>Automation for UI on Web and mobile with RWD tests is implemented using open source tools such as Selenium, Cucumber and Maven following Page Factory Pattern:</p>
-<div class="points p-4 bg-light">
-    <h6>UI Automation: </h6>
-    <p>UI test cases are executed automatically in the UI Test stage of the Release.</p>
-    <div class="text-center py-4"><img src="assets/stage3/Pipeline-Overview/3.02TestsuiteUI.jpg" (click)="openImage('assets/stage3/Pipeline-Overview/3.02TestsuiteUI.jpg')" class="img-fluid pointer"></div>
-  </div>
-
-<p>The corresponding manual test cases, which were created as part of landing zone, are also automatically updated. </p>
-<div class="text-center py-4"><img src="assets/stage3/Pipeline-Overview/3.03RWDUIteststage.JPG" (click)="openImage('assets/stage3/Pipeline-Overview/3.03RWDUIteststage.JPG')" class="img-fluid pointer"></div>
-
-
-<div class="points p-4 bg-light">
-    <h6>RWD Automation </h6>
-    <p>RWD test cases are executed automatically using Azure UI stage.</p>
-    <div class="text-center py-4"><img src="assets/stage3/Pipeline-Overview/3.04TestsuiteRWDUI.jpg" (click)="openImage('assets/stage3/Pipeline-Overview/3.04TestsuiteRWDUI.jpg')" class="img-fluid pointer"></div>
-  </div>
-
-<p>The corresponding manual test cases, which were created as part of landing zone, are also automatically updated. </p>
-<div class="text-center py-4"><img src="assets/stage3/Pipeline-Overview/3.05APIteststage.JPG" (click)="openImage('assets/stage3/Pipeline-Overview/3.05APIteststage.JPG')" class="img-fluid pointer"></div>
-
-
-<div class="points p-4 bg-light">
-    <h6>API Tests</h6>
-    <p>API test cases are executed automatically using Azure UI stage.</p>
-    <div class="text-center py-4"><img src="assets/stage3/Pipeline-Overview/3.06TestsuiteAPI.jpg" (click)="openImage('assets/stage3/Pipeline-Overview/3.06TestsuiteAPI.jpg')" class="img-fluid pointer"></div>
-  </div>
-
-<p>The corresponding manual test cases, which were created as part of landing zone, are also automatically updated. </p>
-<div class="text-center py-4"><img src="assets/stage3/Pipeline-Overview/3.07TestPlan.jpg" (click)="openImage('assets/stage3/Pipeline-Overview/3.07TestPlan.jpg')" class="img-fluid pointer"></div>
+<p class="pt-3">With every code change committed to the repository, the Build Pipeline will be auto triggered and the subsequent Release pipeline will be triggered to execute the tests in parallel.</p>
 
 
 
@@ -119,14 +89,26 @@
                <p>In the Landing Zone phase, Test Plans => Test Suites => Test cases are created. These test cases correspond to the Automated Smoke, UI, API and RWD tests.</p>
                
                <h4>Test Plan</h4>
-               <div class="text-center py-4"><img src="assets/stage3/Pipeline-Overview/3.08Testsuite.jpg" (click)="openImage('assets/stage3/Pipeline-Overview/3.08Testsuite.jpg')" class="img-fluid pointer"></div>
+               <div class="text-center py-4"><img src="assets/stage3/test-plan/1.jpg" (click)="openImage('assets/stage3/test-plan/1.jpg')" class="img-fluid pointer"></div>
 
                <p>As part of this Integration, we will shortly see how the automation framework updates the test case statuses in Test Plan and logs a defect if a test case fails.</p>
                
+              <p>Automation for UI on Web and mobile with RWD tests is implemented using open source tools such as <strong>Selenium, Cucumber</strong> and <strong>Maven</strong> following Page Factory Pattern:</p>
 
-
-
-           </div>
+              <p><strong>UI Automation:</strong>  UI test cases are executed automatically in the UI Test stage of the Release.</p>
+              <div class="text-center py-4"><img src="assets/stage3/test-plan/2.jpg" (click)="openImage('assets/stage3/test-plan/2.jpg')" class="img-fluid pointer"></div>
+              <p>The corresponding manual test cases, which were created as part of landing zone, are also automatically updated. </p>
+              <div class="text-center py-4"><img src="assets/stage3/test-plan/3.jpg" (click)="openImage('assets/stage3/test-plan/3.jpg')" class="img-fluid pointer"></div>
+              <p><strong>RWD Automation:</strong> RWD test cases are executed automatically using Azure RWD stage.</p>
+              <div class="text-center py-4"><img src="assets/stage3/test-plan/4.jpg" (click)="openImage('assets/stage3/test-plan/4.jpg')" class="img-fluid pointer"></div>
+              <p>The corresponding manual test cases, which were created as part of landing zone, are also automatically updated. </p>
+              <div class="text-center py-4"><img src="assets/stage3/test-plan/5.jpg" (click)="openImage('assets/stage3/test-plan/5.jpg')" class="img-fluid pointer"></div>
+              <p><strong>API Tests:</strong> API test cases are executed automatically using Azure API stage.</p>
+              <div class="text-center py-4"><img src="assets/stage3/test-plan/6.jpg" (click)="openImage('assets/stage3/test-plan/6.jpg')" class="img-fluid pointer"></div>
+              <p>The corresponding manual test cases, which were created as part of landing zone, are also automatically updated. </p>
+              <div class="text-center py-4"><img src="assets/stage3/test-plan/7.jpg" (click)="openImage('assets/stage3/test-plan/7.jpg')" class="img-fluid pointer"></div>
+              <p>As part of this Integration, we will shortly see how the automation framework updates the test case statuses in Test Plan and logs a defect if a test case fails.</p>
+            </div>
         </div>
  </div>
  <!--mod3-->
@@ -142,7 +124,8 @@
            <div class="card text-white bg-info mb-3">
            
             <div class="card-body">
-              <p class="card-text"><strong>Note:</strong> Please complete up to Stage 2: <strong>Landing Zone, Pre-build QA and Post-build QA</strong> before commencing with this Stage on Functional Assurance. This will ensure you have deployed the build on the server successfully, before executing the Functional test suits during this stage. </p>
+              <p class="card-text"><strong>Note:</strong> Please complete up to <strong>Stage 2: Post-build QA including Landing Zone and Pre-build QA </strong> before commencing with Stage 3 - Functional Assurance. This will ensure you have deployed the build on the server successfully, before executing the Functional test suits during this stage.
+              </p>
             </div>
           </div>
 
@@ -155,18 +138,18 @@
             <button class="btn btn-lg  code-copy"  *ngIf="!copied">
               <i class="fas fa-copy text-light"></i>
          </button> </div>
-         <p>This step takes approximately 2 minutes </p>
+         <p class="pt-3">This step takes approximately 2 minutes </p>
          <div class="text-center py-4"><img src="assets/stage3/3/buildpipelinecmd.jpg" (click)="openImage('assets/stage3/3/buildpipelinecmd.jpg')" class="img-fluid pointer"></div>
-        <p><strong>1.</strong> Go to the Azure Pipeline View and check the status of your pipeline named ‘FUNCTIONALASSURANCE-BUILD-RELEASE’. It should be in progress. </p>
+        <p><strong>2.</strong> Go to the Azure Pipeline View and check the status of your pipeline named ‘FUNCTIONALASSURANCE-BUILD-RELEASE’. It should be in progress. </p>
 
-        <p>This step takes approximately 1 minute 30 seconds and if successful, you can see the status by navigating to pipelines>>FUNCTIONALASSURANCE-BUILD-RELEASE, as shown in the Exhibit below:</p>
+        <p>This step takes approximately 2 minutes and if successful, you can see the status by navigating to pipelines>>FUNCTIONALASSURANCE-BUILD-RELEASE, as shown in the Exhibit below:</p>
         <div class="text-center py-4"><img src="assets/stage3/3/functionalbuild.jpg" (click)="openImage('assets/stage3/3/functionalbuild.jpg')" class="img-fluid pointer"></div>
 
-        <p>On successful creation of the Build Pipeline, the Release Pipeline will be auto triggered, initiating the Test execution. You can now view the execution progress, by navigating to Pipelines >> Releases >> FUNCTIONAL ASSURANCE RELEASE.</p>
+        <p><strong>3.</strong> On successful creation of the Build Pipeline, the Release Pipeline will be auto triggered, initiating the Test execution. You can now view the execution progress, by navigating to Pipelines >> Releases >> FUNCTIONAL ASSURANCE RELEASE.</p>
         <div class="text-center py-4"><img src="assets/stage3/3/release1.jpg" (click)="openImage('assets/stage3/3/release1.jpg')" class="img-fluid pointer"></div>
-        <p><strong>1.</strong> If you click on Release-1, you should see the 3 stages executed in parallel, refer below Exhibit:</p>
+        <p><strong>4.</strong> If you click on Release-1, you should see the 3 stages executed in parallel, refer below Exhibit:</p>
         <div class="text-center py-4"><img src="assets/stage3/3/release1stages.jpg" (click)="openImage('assets/stage3/3/release1stages.jpg')" class="img-fluid pointer"></div>
-        <p>above Exhibit displays that the <strong>UI Test</strong> has failed. Now we can see how to Debug and Fix this issue in next section </p>
+        <p>Above  Exhibit displays that the <strong>UI Test</strong> has failed. Now we can see how to Debug and Fix this issue in next section. </p>
     </div>
     </div>
 </div>
@@ -177,16 +160,16 @@
 <div *ngIf="mod5">
     <div class="row">
         <div class="col-12 col-md-12 module-block">
-           <h3 class="text-blue pb-4"><strong>Debugging & Reexecution</strong></h3>
-           <p>To understand in detail why the failure happened, Hover on UI Tests and Click on Logs. refer below Exhibit:</p>
+           <h3 class="text-blue pb-4"><strong>Debugging & Re-execution</strong></h3>
+           <p><strong>1.</strong>	To understand in detail why the failure happened, mouse-hover on UI Test stage and click on Logs. refer below Exhibit: </p>
            <div class="text-center py-4"><img src="assets/stage3/4/stage_failure.jpg" (click)="openImage('assets/stage3/4/stage_failure.jpg')" class="img-fluid pointer"></div>
-           <p>Click on <strong>Bash exited with code '1'.</strong> refer below Exhibit:</p>
+           <p><strong>2.</strong>Click on <strong>Bash exited with code '1'.</strong> Refer below Exhibit:</p>
            <div class="text-center py-4"><img src="assets/stage3/4/bash_details.jpg" (click)="openImage('assets/stage3/4/bash_details.jpg')" class="img-fluid pointer"></div>
-           <p>Now <strong>Detailed Logs</strong> will be displayed refer below Exhibit:</p>
+           <p><strong>3.</strong> Now <strong>Detailed Logs</strong> will be displayed refer below Exhibit:</p>
            <div class="text-center py-4"><img src="assets/stage3/4/detailedlog.jpg" (click)="openImage('assets/stage3/4/detailedlog.jpg')" class="img-fluid pointer"></div>
-           <p>To understand error better navigate to <strong>Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT Team - EXPERIENCE_LAB_OVERVIEW</strong> and you can view the section Reports, as shown in below Exhibit:</p>
+           <p><strong>4.</strong> To understand the error better navigate to <strong>Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT Team - EXPERIENCE_LAB_OVERVIEW</strong> and you can view the section Reports, as shown in below Exhibit:</p>
            <div class="text-center py-4"><img src="assets/stage3/4/dashboard.jpg" (click)="openImage('assets/stage1/4/dashboard.jpg')" class="img-fluid pointer"></div>
-           <p>In <strong>Reports</strong> section - to view the Reports of Functional UI Test- click <strong>UI</strong> link – it will navigate you to the corresponding Extent report, as shown in below Exhibit:</p>
+           <p><strong>5.</strong> In <strong>Reports</strong> section - to view the Reports of Functional UI Test- click <strong>UI</strong> link – it will navigate you to the corresponding Extent report, as shown in below Exhibit:</p>
            <div class="text-center py-4"><img src="assets/stage3/4/reportinguitest.jpg" (click)="openImage('assets/stage1/4/reportinguitest.jpg')" class="img-fluid pointer"></div>
            <p>As shown in above Exhibit: On clicking Login Feature - We can see the failure </p>
             <p> org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //span[contains(text(),'Incorrect Password')]' (tried for 20 second(s) with 500 milliseconds interval)
@@ -197,23 +180,23 @@
                 <p>Such errors indicate that the automation script is unable to locate the object on the screen as properties of that UI object have changed or missing since the last build. This is a very common error and calls for script maintenance</p>
                 <h4>How do we fix the identified bug?</h4>
               
-                <p>Navigate to <strong>Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT Team - EXPERIENCE_LAB_OVERVIEW</strong> you can see a section with the name <strong>Failure Fix</strong></p>
+                <p><strong>6.</strong> Navigate to <strong>Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT Team - EXPERIENCE_LAB_OVERVIEW</strong> you can see a section with the name <strong>Failure Fix</strong></p>
                 <div class="text-center py-4"><img src="assets/stage1/4/7.jpg" (click)="openImage('assets/stage1/4/7.jpg')" class="img-fluid pointer"></div>
                 
-                <p>Click on <strong>Functional-QA - FIX</strong> link from Failure Fix Widget.  </p>
+                <p><strong>7.</strong> Click on <strong>Functional-QA - FIX</strong> link from Failure Fix Widget.  </p>
                 <div class="text-center py-4"><img src="assets/stage3/4/3.09FailureFixLink.jpg" (click)="openImage('assets/stage3/4/3.09FailureFixLink.jpg')" class="img-fluid pointer"></div>
-                <p>In new tab It will navigate directly to path: <strong>Repos -> Files ->azure_workshop_functional_assurance -> src -> test -> java -> pages -> ShopLoginPage.java</strong></p>
+                <p><strong>8.</strong> In new tab, it  will navigate directly to path: <strong>Repos -> Files ->azure_workshop_functional_assurance -> src -> test -> java -> pages -> ShopLoginPage.java</strong></p>
             
                 <div class="text-center py-4"><img src="assets/stage3/4/3.10Editscript.jpg" (click)="openImage('assets/stage3/4/3.10Editscript.jpg')" class="img-fluid pointer"></div>
-                        <p>You will notice at line# 61 as: @FindBy(xpath = “//span[contains(text(),’Incorrect Password’)]”). </p>
+                        <p><strong>9.</strong> You will notice at line# 61 as: @FindBy(xpath = “//span[contains(text(),’Incorrect Password’)]”). </p>
 
                         <p>Change the ’Incorrect Password’ to ‘Customer not found with email’, provide the required details like comment and click ‘Commit’. Refer Exhibit below for more details:
                             
                             </p>
                             <div class="text-center py-4"><img src="assets/stage3/4/3.11gitCommit.jpg" (click)="openImage('assets/stage3/4/3.11gitCommit.jpg')" class="img-fluid pointer"></div>
-                            <p>The Commit will automatically trigger the pipeline and this time it will be executed successfully. Refer the Exhibit as shown below for ‘succeeded’ status updated against each stage.</p>
+                            <p><strong>10.</strong> The Commit will automatically trigger the pipeline and this time it will be executed successfully. Refer the Exhibit as shown below for ‘succeeded’ status updated against each stage.</p>
                             <div class="text-center py-4"><img src="assets/stage3/4/pass_summary.jpg" (click)="openImage('assets/stage3/4/pass_summary.jpg')" class="img-fluid pointer"></div>
-                            <p>On click <strong>Release-2</strong> - we can see the stage view</p>
+                            <p><strong>11.</strong> On click <strong>Release-2</strong> - we can see the stage view</p>
                             <div class="text-center py-4"><img src="assets/stage3/4/3.12Re-runStages.jpg" (click)="openImage('assets/stage3/4/3.12Re-runStages.jpg')" class="img-fluid pointer"></div>
 
 
@@ -229,15 +212,14 @@
         <div class="col-12 col-md-12 module-block">
            <h3 class="text-blue pb-4"><strong>Test Report Analysis</strong></h3>
             <p>You can now view the Results and Reports of the Test cases in 3 places.</p>
-            <p><strong>1.</strong> To view the Individual Release stages,<strong>Example for UI - click on succeeded on UI Stage </strong>. Refer Exhibit below for more details:</p>
+            <p><strong>1.</strong> To view the Individual Release stages, example <strong> for UI - click on succeeded on UI Stage</strong>. Refer Exhibit below for more details:</p>
             <div class="text-center py-4"><img src="assets/stage3/5/Release_Stage.jpg" (click)="openImage('assets/stage3/5/Release_Stage.jpg')" class="img-fluid pointer"></div>
-            <p>Click on tests and clear filter as shown in below Exhibit</p>
+            <p><strong>2.</strong> Click  on tests and clear filter as shown in below Exhibit.</p>
             <div class="text-center py-4"><img src="assets/stage3/5/tests_report_uistage_navigation.jpg" (click)="openImage('assets/stage3/5/tests_report_uistage_navigation.jpg')" class="img-fluid pointer"></div>
-            <p>Reports Can be Viewd Now</p>
+            <p> <strong>3.</strong> Reports can be viewed now.</p>
             <div class="text-center py-4"><img src="assets/stage3/5/tests_report_uistage.jpg" (click)="openImage('assets/stage3/5/tests_report_uistage.jpg')" class="img-fluid pointer"></div>
-            <p><strong>2.</strong> To view the custom report dashboard, navigate to Overview -> Dashboards -> Functional-QA-Overview. You will see details as per the Exhibit below:</p>
-            <div class="text-center py-4"><img src="assets/stage3/5/dashboard_testoverview.jpg" (click)="openImage('assets/stage3/5/dashboard_testoverview.jpg')" class="img-fluid pointer"></div> 
-            <p><strong>3.</strong>To view detailed reports, navigate to the Azure Dashboard. Go to Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT Team - EXPERIENCE_LAB_OVERVIEW, and click on [<strong>API</strong>] or [<strong>UI</strong>] OR [<strong>RWD</strong>] inside the “<strong>Reports</strong>” widget. Refer Exhibit below for details:</p>
+<p><strong>4.</strong> To view the reports in Azure dashboard, navigate to Overview -> Dashboards -> Functional-QA-Overview. You will see details as per the Exhibit below:</p>            <div class="text-center py-4"><img src="assets/stage3/5/dashboard_testoverview.jpg" (click)="openImage('assets/stage3/5/dashboard_testoverview.jpg')" class="img-fluid pointer"></div> 
+            <p><strong>4.</strong> To view detailed reports, navigate to the Azure Dashboard. Go to Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT Team - EXPERIENCE_LAB_OVERVIEW, and click on [<strong>API</strong>] or [<strong>UI</strong>] OR [<strong>RWD</strong>] inside the “<strong>Reports</strong>” widget. Refer Exhibit below for details:</p>
             <div class="text-center py-4"><img src="assets/stage3/PIPELINE-CREATION-AND-EXECUTION/3.17ExperienceDashboardOverview.jpg" (click)="openImage('assets/stage3/PIPELINE-CREATION-AND-EXECUTION/3.17ExperienceDashboardOverview.jpg')" class="img-fluid pointer"></div>
             <div class="text-center py-4"><img src="assets/stage3/PIPELINE-CREATION-AND-EXECUTION/3.18ExtendReportoverview.JPG" (click)="openImage('assets/stage3/PIPELINE-CREATION-AND-EXECUTION/3.18ExtendReportoverview.JPG')" class="img-fluid pointer"></div>
             
@@ -303,6 +285,21 @@
 
 </div>
 <!--mod6-->
+
+<!--mod7-->
+<div *ngIf="mod7">
+  <div class="row">
+    <div class="col-12 col-md-12 module-block">
+       <h3 class="text-blue pb-4"><strong>Tikk Talk</strong></h3>
+       
+
+       
+        
+
+   </div>
+</div>
+</div>
+<!--mod7-->
 
     </div>
     </div>

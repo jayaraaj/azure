@@ -1,7 +1,7 @@
 .overlay{
     z-index: 9;
 }
-.progress-bar{ margin-top: 8px; width: 100px; background: #ccc;   display: block; height: 10px;}
+.progress-bar{ margin-top: 8px; width: 112px; background: #ccc;   display: block; height: 10px;}
 .progress-bar-hover {  background-color: royalblue; display: block; height: 10px;}
 
 

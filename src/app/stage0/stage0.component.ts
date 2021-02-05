@@ -31,11 +31,12 @@ export class Stage0Component implements OnInit {
   pageRight;
   pageNumber;
   pageArray = [
-  'how-to-setup-an-Environment',
+  'learnings',
   'stage-0', 
   'what-is-a-landing-zone',
   'principles-and-guidelines-to-follow',
   'creating-your-landing-zone' ,
+  'tikk-talk',
   'stage-1'
 ];
 pageName;
@@ -168,7 +169,7 @@ patToken = "Test"
   }
 
   moveRight() {
-    if(this.pageRight == this.pageArray[5]){
+    if(this.pageRight == this.pageArray[6]){
       this.moduleNumber = 5;
     }    else {
       this.moduleNumber = 4;

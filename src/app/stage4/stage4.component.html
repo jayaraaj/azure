@@ -14,11 +14,11 @@
     </a>
         <!--from-back-->           
         <app-header [courseNumber]='8'></app-header>
-        <div class="px-5 pt-5 m-h-100">
+        <div class="px-5 pt-3 m-h-100">
             <!--mod-->
             <div *ngIf="mod">
-              <h3 class="text-blue"><strong>Stage 4 - Experience QA</strong></h3>  
-              <div class="text-center "><img src="assets/tikk/Tik_ModuleIntro-08.jpg"  class="img-fluid w-75"></div>
+              <h3 class="text-blue text-center"><strong>Stage 4 - Experience Assurance</strong></h3>  
+              <div class="text-center "><img src="assets/tikk/Tik_ModuleIntro_8.jpg"  class="img-fluid w-75"></div>
              
             </div>
             <!--mod-->
@@ -108,7 +108,8 @@
         <div class="row">
             <div class="col-12 col-md-12 module-block">
                <h3 class="text-blue pb-4"><strong>Test Plan Integration</strong></h3>
-<p>Please complete the <strong>Stage 2: Post-Build QA</strong>, before commencing with this stage. This will ensure you have deployed the build on the server successfully, before executing the Experience test suits during this stage.</p>               
+               
+               
                <h4>Test Case</h4>
 
                 <p>By this time, Experience Assurance related test cases should have been created in Test Plan. Go to <strong>AZURE_WORKSHOP_PROJECT>Test Plans > Test Plans</strong></p>
@@ -129,23 +130,30 @@
     <div class="row">
         <div class="col-12 col-md-12 module-block">
            <h3 class="text-blue pb-4"><strong>Pipeline Creation & Execution</strong></h3>
+
+           <div class="card text-white bg-info mb-3">
+           
+            <div class="card-body">
+              <p class="card-text"><strong>Note:</strong> Please complete the <strong>Stage 2: Post-Build QA,</strong> before commencing with stage 4 - Experience Assurance. This will ensure you have deployed the build on the server successfully, before executing the Experience test suits during this stage.</p>
+            </div>
+          </div>
           
           
-           <p><strong>1.</strong> Execute the below npm command from Cloud Shell to automatically create the Experience Assurance Release pipeline:</p>
+           <p><strong>1.</strong> Execute the following command in Azure CLI </p>
 
           <div class="code" (click)="copyText(code1)"><code #code1>cd && cd azure-cli && npm run experienceqa</code> 
             <div *ngIf="copied" class="code-copied" >Copied  <i class="fas fa-check text-success"></i></div>
             <button class="btn btn-lg  code-copy"  *ngIf="!copied">
               <i class="fas fa-copy text-light"></i>
          </button> </div>
-         <p>This step takes approximately 2 minutes </p>
-         <div class="text-center py-4"><img src="assets/stage4/3/releasepipelinecmd.jpg" (click)="openImage('assets/stage4/3/buildpipelinecmd.jpg')" class="img-fluid pointer"></div>
-         <p><strong>2. </strong>On successful creation of the pipeline, you can now view the pipline created by navigating to <strong>Azure Devops > Pipelines > Releases</strong> and selecting <strong>Experience Assurance</strong>. You will notice the pipeline failing at security testing. Refer Exhibit below for details:</p>
+         <p class="pt-3">This step takes approximately 2 minutes.</p>
+         <div class="text-center pt-2 pb-4"><img src="assets/stage4/3/releasepipelinecmd.jpg" (click)="openImage('assets/stage4/3/buildpipelinecmd.jpg')" class="img-fluid pointer"></div>
+         <p><strong>2. </strong>On successful creation of the pipeline, you can now view the pipeline  created by navigating to <strong>Azure DevOps > Pipelines > Releases</strong> and selecting <strong>Experience Assurance</strong>. You will notice the pipeline failing at security testing. Refer Exhibit below for details:</p>
           <div class="text-center py-4"><img src="assets/stage4/3/release1.jpg" (click)="openImage('assets/stage4/3/release1.jpg')" class="img-fluid pointer"></div>
-       <p>On clicking <strong>Release 1</strong> - Details on Stages can be seen as shown in below Exhibit.</p>
+       <p><strong>3.</strong> On clicking <strong>Release-1</strong>,  Details on Stages can be seen as shown in below Exhibit.</p>
        <div class="text-center py-4"><img src="assets/stage4/4.03SecurityTestFailed.jpg" (click)="openImage('assets/stage4/4.03SecurityTestFailed.jpg')" class="img-fluid pointer"></div>
 
-          <p>With this failure, one defect is auto-logged with state “New”. Defect can viewed in <strong>AZURE_WORKSHOP_PROJECT > Boards > Work items</strong>. Refer Exhibit below for details:</p>
+          <p><strong>4.</strong> With this failure, one defect is auto-logged with state “New”. Defect can viewed in <strong>AZURE_WORKSHOP_PROJECT > Boards > Work items</strong>. Refer Exhibit below for details:</p>
           <div class="text-center py-4"><img src="assets/stage4/4.04Bug.jpg" (click)="openImage('assets/stage4/4.04Bug.jpg')" class="img-fluid pointer"></div>
 
           <p>Now let us fix this issue to re-execute the pipeline and check the overall non-functional impact of the code change committed.</p>
@@ -159,42 +167,41 @@
 <div *ngIf="mod5">
     <div class="row">
         <div class="col-12 col-md-12 module-block">
-           <h3 class="text-blue pb-4"><strong>Debugging & Reexecution</strong></h3>
+           <h3 class="text-blue pb-4"><strong>Debugging & Re-execution</strong></h3>
            <p>Now, let us understand the nature of the failure.</p>
 
            <h4>Why did we encounter this failure?</h4>
-           <p>To understand error better navigate to <strong>Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT Team - EXPERIENCE_LAB_OVERVIEW</strong> and you can view the section Reports, as shown in below Exhibit:</p>
+           <p><strong>1.</strong> To understand error better navigate to <strong>Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT Team - EXPERIENCE_LAB_OVERVIEW</strong> and you can view the section Reports, as shown in below Exhibit:</p>
            <div class="text-center py-4"><img src="assets/stage3/4/dashboard.jpg" (click)="openImage('assets/stage1/4/dashboard.jpg')" class="img-fluid pointer"></div>
          
-           <p>Click on <strong>Security Test</strong> Report - You can see Security test build has failed because the X-Frame-Options was not set in the response headers and this was detected by the ZAP Proxy. This rule is set as “FAIL” in the gen.conf file for ZAP tool.</p>
+           <p><strong>2.</strong> Click on <strong>Security Test</strong> Report - You can see Security test build has failed because the X-Frame-Options was not set in the response headers and this was detected by the ZAP Proxy. This rule is set as “FAIL” in the gen.conf file for ZAP tool.</p>
            <p> If you scroll down to the bottom of the file, you will notice the failure (as shown in the Exhibit below)</p>
             <div class="text-center py-4"><img src="assets/stage4/4.05Error.JPG" (click)="openImage('assets/stage4/4.05Error.JPG')" class="img-fluid pointer"></div>
             <h4>How do we fix the identified issue?</h4>
               
-            <p>For now, consider this as a “False Positive” and let us fix these issues.</p>
-            <p>Change the rule for X-Frame-Options Header Scanner from <strong>FAIL</strong> to <strong>WARN</strong>, so that the security test will pass with the warning and the code progresses to the next build step.</p>
+            <p><strong>3.</strong> For now, consider this as a “False Positive” and let us fix these issues.</p>
             <p>Go to Overview -> Dashboards -> EXPERIENCE_LAB_OVERVIEW, and click on “Experience_QA-Fix” button at the header of Failure Fix Widget, refer the Exhibit below: </p>
             <div class="text-center py-4"><img src="assets/stage4/4.06Dashboardanderrorlink.jpg" (click)="openImage('assets/stage4/4.06Dashboardanderrorlink.jpg')" class="img-fluid pointer"></div>
 
-            <p>It will take you to the file where fix should be applied. </p>
+            <p><strong>4.</strong> It will take you to the file where fix should be applied. </p>
             <p>Click on <strong>“Edit”</strong> in the git repo and edit the file in ‘security-bug-fix’ branch.</p>
 
             <p>At line number:11 Change the rule for X-Frame-Options Header Scanner from <strong>FAIL</strong> to <strong>WARN</strong>. Refer the Exhibit as shown below for details:</p>
             
             <div class="text-center py-4"><img src="assets/stage4/4.08editscript.jpg" (click)="openImage('assets/stage4/4.08editscript.jpg')" class="img-fluid pointer"></div>
 
-            <p> Provide the required details like commit message (change description) and click ‘commit’ at the bottom right corner of the page.</p>
+            <p><strong>5.</strong> Provide the required details like commit message (change description) and click ‘commit’ at the bottom right corner of the page.</p>
             <div class="text-center py-4"><img src="assets/stage4/4.09commit.JPG" (click)="openImage('assets/stage4/4.09commit.JPG')" class="img-fluid pointer"></div>
-            <p>The <strong>‘Successful’</strong> status is now updated for each stage, as shown below:</p>
+            <p><strong>6.</strong> The <strong>‘Successful’</strong> status is now updated for each stage, as shown in the Exhibit below:</p>
             <div class="text-center py-4"><img src="assets/stage4/4.11newrelease.jpg" (click)="openImage('assets/stage4/4.11newrelease.jpg')" class="img-fluid pointer"></div>
 
-            <p>Now you should see the test cases updated automatically with the result. </p>
+            <p><strong>7.</strong> Now you should see the test cases updated automatically with the result. </p>
 
             <p>Go to <strong>AZURE_WORKSHOP_PROJECT>Test Plans > Runs</strong></p>
 
-            <p>You should be able to view test cases related to Experience Assurance created already. In the screen shot above and below, one run shows <strong>security failure</strong>. Then the runs are passed automatically once the code is updated and pipeline is auto-triggered. </p>
+            <p>You should be able to view test cases related to Experience Assurance created already. In the Exhibit above and below, one run shows <strong>security failure</strong>. Then the runs are passed automatically once the code is updated and pipeline is auto-triggered. </p>
             <div class="text-center py-4"><img src="assets/stage4/4.12testruns.jpg" (click)="openImage('assets/stage4/4.12testruns.jpg')" class="img-fluid pointer"></div>
-            <p>Go to <strong>AZURE_WORKSHOP_PROJECT > Boards>Work items</strong></p>
+            <p><strong>8.</strong> Go to <strong>AZURE_WORKSHOP_PROJECT > Boards>Work items</strong></p>
             <p>You should be able to view the previously opened defect is closed as the test case is passed. </p>
             <div class="text-center py-4"><img src="assets/stage4/4.13bugclosed.jpg" (click)="openImage('assets/stage4/4.13bugclosed.jpg')" class="img-fluid pointer"></div>
 
@@ -212,17 +219,15 @@
       <div class="col-12 col-md-12 module-block">
          <h3 class="text-blue pb-4"><strong>Test Report Analysis</strong></h3>
        <!--karthik start-->
-         <p>To view the Test dashboard, navigate to Overview -> Dashboards -> AZURE_WORKSHOP_PROJECT Team - Test Report Overview. You will see details as per the Exhibit below:</p>
-         <div class="text-center py-4"><img src="assets/stage4/dashboard_testoverview.jpg" (click)="openImage('assets/stage4/dashboard_testoverview.jpg')" class="img-fluid pointer"></div> 
         
          <p>To view detailed reports, navigate to the Azure Dashboard. Go to Overview -> Dashboard -> AZURE_WORKSHOP_PROJECT Team - EXPERIENCE_LAB_OVERVIEW, and click on [<strong>Security Test</strong>] or [<strong>Accessibility Test</strong>] OR [<strong>Performance Test</strong>] inside the “<strong>Reports</strong>” widget. Refer Exhibit below for details:</p>
        <!--karthik end-->
          <div class="text-center py-4"><img src="assets/stage4/DashboardReport.jpg" (click)="openImage('assets/stage4/DashboardReport.jpg')" class="img-fluid pointer"></div>
-        <p><strong>Accessibility Report</strong></p>
+        <p><strong>1. Accessibility Report</strong></p>
          <div class="text-center py-4"><img src="assets/stage4/accessibility.jpeg" (click)="openImage('assets/stage4/accessibility.jpeg')" class="img-fluid pointer"></div>
-         <p><strong>Performance Report</strong></p>
+         <p><strong>2. Performance Report</strong></p>
          <div class="text-center py-4"><img src="assets/stage4/performance.jpeg" (click)="openImage('assets/stage4/performance.jpeg')" class="img-fluid pointer"></div>
-         <p><strong>Security Report</strong></p>
+         <p><strong>3. Security Report</strong></p>
          <div class="text-center py-4"><img src="assets/stage4/ZAP.png" (click)="openImage('assets/stage4/ZAP.png')" class="img-fluid pointer"></div>
          
               
@@ -290,6 +295,20 @@
 </div>
 <!--mod6-->
 
+<!--mod7-->
+<div *ngIf="mod7">
+  <div class="row">
+    <div class="col-12 col-md-12 module-block">
+       <h3 class="text-blue pb-4"><strong>Tikk Talk</strong></h3>
+       
+
+       
+        
+
+   </div>
+</div>
+  </div>
+<!--mod7-->
     </div>
     </div>
 </main>

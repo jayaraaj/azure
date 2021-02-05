@@ -17,15 +17,15 @@ export class PreConditionsComponent implements OnInit {
   mod3=false;
   mod = false;
   private _album: Array<any> = [];
-  moduleNumber: number = 3;
+  moduleNumber: number = 2;
   pageLeft: string;
   pageRight: string;
   pageArray = [
-  'learnings',
+  'how-it-benefits',
   'pre-conditions', 
   'how-to-create-an-azure-account',
   'how-to-setup-an-Environment',
-  'stage-0'
+  'experience-lab-objectives-and-premise'
   
 ];
 pageName;
@@ -42,27 +42,10 @@ showRightArrow : boolean = true;
   ngOnInit(): void {
 
    
-
+    
     this.route.params.subscribe((params: Params) => {
-
-     this.pageName = params.name;
-      //sessionStorage.setItem(this.pageName, String(this.moduleNumber));
-
-
-      // if (this.pageArray.indexOf(params.name) == 0) {
-      //   this.showLeftArrow = false;
-      //  }else{
-      //    this.showLeftArrow = true;
-      //  }
-  
-      //  this.lastPageIndex = this.pageArray.indexOf(params.name)+1;
      
-  
-      //  if (this.pageArray.length == this.lastPageIndex) {
-      //    this.showRightArrow = false;
-      //   }else{
-      //     this.showRightArrow = true;
-      //   }
+     this.pageName = params.name;
 
 
       if (params.name == this.pageArray[1]){
@@ -112,9 +95,9 @@ showRightArrow : boolean = true;
 
   moveLeft(){
     if(this.pageLeft == this.pageArray[0]){
-      this.moduleNumber = 2;
+      this.moduleNumber = 1;
     }else {
-      this.moduleNumber = 3;
+      this.moduleNumber = 2;
     }
     this._leftPanelSer.clickedCourseLink(this.pageLeft, this.moduleNumber);
     this.router.navigate(['/modules', this.moduleNumber, this.pageLeft]);
@@ -123,10 +106,11 @@ showRightArrow : boolean = true;
 
   moveRight() {
     if(this.pageRight == this.pageArray[4]){
-      this.moduleNumber = 4;
+      console.log(this.pageArray[4]);
+      this.moduleNumber = 3;
     } 
     else {
-      this.moduleNumber = 3;
+      this.moduleNumber = 2;
     }   
     this._leftPanelSer.clickedCourseLink(this.pageRight, this.moduleNumber);
     this.router.navigate(['/modules', this.moduleNumber, this.pageRight]);
